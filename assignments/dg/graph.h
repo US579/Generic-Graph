@@ -16,6 +16,7 @@ class Graph {
   class Edge;
 //  Graph<N, E>(std::vector<N> a,std::vector<N> b);
 
+
   class Node{
   public:
     Node(const N& v):val_{std::make_shared<N>(v)}{}
