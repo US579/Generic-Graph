@@ -10,6 +10,8 @@ template<typename N, typename E>
 class Graph {
  public:
   Graph()= default;
+  Graph(const N& first,const N& last);
+
   class Node;
   class Edge;
 //  Graph<N, E>(std::vector<N> a,std::vector<N> b);
@@ -49,5 +51,15 @@ class Graph {
 //gdwg::Graph<N, E>(std::vector<N> a,std::vector<N> b){
 //
 //};
+template <typename N, typename E>
+gdwg::Graph<N,E>::Graph(const N& first,const N& last){
+  for (auto itor = first ; itor != last ;++itor){
+    Node n{*itor};
+  }
+
+}
+
+
+
 
 #endif  // ASSIGNMENTS_DG_GRAPH_H_
