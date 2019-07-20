@@ -10,7 +10,10 @@ template<typename N, typename E>
 class Graph {
  public:
   Graph()= default;
-  Graph(const N& first,const N& last);
+  Graph(typename std::vector<N>::const_iterator first,typename std::vector<N>::const_iterator last);
+  Graph(typename std::vector<std::tuple<N, N, E>>::const_iterator, typename std::vector<std::tuple<N, N, E>>::const_iterator);
+  bool InsertEdge(const N& src, const N& dst, const E& w);
+  const N& value() const {return Node_[itor]->getval();}
 
   class Node;
   class Edge;
@@ -20,7 +23,7 @@ class Graph {
   class Node{
   public:
     Node(const N& v):val_{std::make_shared<N>(v)}{}
-    const N& getval(){return *this->val;}
+    const N& getval(){return *this->val_;}
   private:
     std::shared_ptr<N> val_;
     std::vector<std::shared_ptr<Edge>> outEdge_;
@@ -30,7 +33,8 @@ class Graph {
   class Edge{
   public:
     Edge(std::shared_ptr<Node> src,std::shared_ptr<Node> dst , const E& w):
-    begin_{src},end_{dst},weight_{w} {}
+    begin_{src},end_{dst},weight_{w} {};
+
   private:
     E weight_;
     std::weak_ptr<Node> begin_;
@@ -39,6 +43,7 @@ class Graph {
 
  private:
   std::vector<std::shared_ptr<Node>> Node_;
+  mutable unsigned int itor = 0;
 
 };
 
@@ -53,13 +58,25 @@ class Graph {
 //
 //};
 template <typename N, typename E>
-gdwg::Graph<N,E>::Graph(const N& first,const N& last){
-  for (auto itor = first ; itor != last ;++itor){
-    Node n{*itor};
+gdwg::Graph<N,E>::Graph(typename std::vector<N>::const_iterator first,
+    typename std::vector<N>::const_iterator last){
+  for (auto& it = first ; it != last ;++it){
+    Node new_node = Node{*it};
+    Node_.push_back(std::make_shared<Node>(new_node));
   }
-
 }
 
+template <typename N, typename E>
+gdwg::Graph<N,E>::Graph(typename std::vector<std::tuple<N, N, E>>::const_iterator first,
+                        typename std::vector<std::tuple<N, N, E>>::const_iterator last){
+  for (auto& it = first ; it != last ;++it){
+    Node new_node = Node{*it};
+  }
+};
+template <typename N, typename E>
+bool gdwg::Graph<N,E>::InsertEdge(const N& src, const N& dst, const E& w){
+
+}
 
 
 

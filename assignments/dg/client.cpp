@@ -9,5 +9,6 @@ int main() {
   gdwg::Graph<int,int> g;
   std::vector<std::string> v{"Hello", "how", "are", "you"};
   gdwg::Graph<std::string, double> b{v.begin(),v.end()};
+  std::cout<<b.value()<<'\n';
 
 }
