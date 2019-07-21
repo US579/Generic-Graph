@@ -78,7 +78,7 @@ gdwg::Graph<N,E>::Graph(typename std::vector<std::tuple<N, N, E>>::const_iterato
 };
 template <typename N, typename E>
 bool gdwg::Graph<N,E>::InsertEdge(const N& src, const N& dst, const E& w){
-  if (this->IsNode(src) && this->IsNode(dst)){
+  if (! this->IsNode(src) && ! this->IsNode(dst)){
     throw std::runtime_error("ERROR: attempt to access node that does not exist");
   }
 //  for (auto it = Node_.begin() ; it != Node_.end();++it){
