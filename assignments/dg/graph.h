@@ -16,6 +16,7 @@ public:
         typename std::vector<N>::const_iterator last);
   Graph(typename std::vector<std::tuple<N, N, E>>::const_iterator,
         typename std::vector<std::tuple<N, N, E>>::const_iterator);
+  Graph(typename std::initializer_list<N>);
   bool InsertEdge(const N &src, const N &dst, const E &w);
   bool IsNode(const N &val);
   bool IsConnected(const N &src, const N &dst);
@@ -78,6 +79,24 @@ gdwg::Graph<N, E>::Graph(typename std::vector<N>::const_iterator first,
                          typename std::vector<N>::const_iterator last) {
   for (auto &it = first; it != last; ++it) {
     Node new_node = Node{*it};
+    Node_.push_back(std::make_shared<Node>(new_node));
+  }
+}
+
+template <typename N, typename E>
+gdwg::Graph<N, E>::Graph(
+    typename std::vector<std::tuple<N, N, E>>::const_iterator first,
+    typename std::vector<std::tuple<N, N, E>>::const_iterator last) {
+  for (auto &it = first; it != last; ++it) {
+    Node new_node = Node{*it};
+  }
+}
+
+
+template <typename N,typename E>
+gdwg::Graph<N, E>::Graph(typename std::initializer_list<N> n){
+  for (auto it = n.begin(); it != n.end() ; ++it){
+    Node new_node = Node(*it);
     Node_.push_back(std::make_shared<Node>(new_node));
   }
 }

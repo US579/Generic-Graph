@@ -21,4 +21,9 @@ int main() {
   for (int i = 0; i < lis.size(); ++i) {
     std::cout << lis[i] + " ";
   }
+  gdwg::Graph<char, std::string> z{'a', 'b', 'x', 'y'};
+  auto li = z.GetNodes();
+  for (int i = 0; i < li.size(); ++i) {
+    std::cout << li[i];
+  }
 }
