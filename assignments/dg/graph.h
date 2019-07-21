@@ -22,26 +22,26 @@ class Graph {
 
 
   class Node{
-  public:
-    Node(const N& v):val_{std::make_shared<N>(v)}{}
-    const N& getval(){return *this->val_;}
-    void insertEdge(std::shared_ptr<Node> src,std::shared_ptr<Node> dst , const E& w);
-  private:
-    std::shared_ptr<N> val_;
-    std::vector<N> edges_;
-//    std::vector<std::shared_ptr<Edge>> outEdge_;
-//    std::vector<std::shared_ptr<Edge>> inEdge_;
+    public:
+      Node(const N& v):val_{std::make_shared<N>(v)}{}
+      const N& getval(){return *this->val_;}
+      void insertEdge(std::shared_ptr<Node> src,std::shared_ptr<Node> dst , const E& w);
+    private:
+      std::shared_ptr<N> val_;
+      std::vector<N> edges_;
+  //    std::vector<std::shared_ptr<Edge>> outEdge_;
+  //    std::vector<std::shared_ptr<Edge>> inEdge_;
 
   };
   class Edge{
-  public:
-    Edge(std::shared_ptr<Node> src,std::shared_ptr<Node> dst , const E& w):
-    begin_{src},end_{dst},weight_{w} {};
+    public:
+      Edge(std::shared_ptr<Node> src,std::shared_ptr<Node> dst , const E& w):
+      begin_{src},end_{dst},weight_{w} {};
 
-  private:
-    E weight_;
-    std::weak_ptr<Node> begin_;
-    std::weak_ptr<Node> end_;
+    private:
+      E weight_;
+      std::weak_ptr<Node> begin_;
+      std::weak_ptr<Node> end_;
   };
 
  private:
@@ -75,7 +75,9 @@ gdwg::Graph<N,E>::Graph(typename std::vector<std::tuple<N, N, E>>::const_iterato
   for (auto& it = first ; it != last ;++it){
     Node new_node = Node{*it};
   }
-};
+}
+
+
 template <typename N, typename E>
 bool gdwg::Graph<N,E>::InsertEdge(const N& src, const N& dst, const E& w){
   if (! this->IsNode(src) || ! this->IsNode(dst)){
@@ -117,9 +119,6 @@ bool gdwg::Graph<N,E>::IsNode(const N& val) {
   }
   return false;
 }
-
-
-
 
 
 #endif  // ASSIGNMENTS_DG_GRAPH_H_
