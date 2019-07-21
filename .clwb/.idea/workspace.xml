@@ -21,6 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="724082f9-9238-4344-a108-04d21f88ef0c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../assignments/dg/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="31" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -46,15 +47,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="95" column="4" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
+            <state relative-caret-position="164">
+              <caret line="115" column="32" selection-start-line="115" selection-start-column="32" selection-end-line="115" selection-end-column="32" />
               <folding>
                 <element signature="e#65#84#0" expanded="true" />
+                <element signature="e#130#154#0" expanded="true" />
                 <element signature="e#1736#1760#0" expanded="true" />
                 <element signature="e#2031#2055#0" expanded="true" />
                 <element signature="e#2879#2903#0" expanded="true" />
                 <element signature="e#3698#3722#0" expanded="true" />
-                <marker date="1563685363570" expanded="true" signature="2278:2415" ph="..." />
+                <marker date="1563687375977" expanded="true" signature="2310:2470" ph="..." />
               </folding>
             </state>
           </provider>
@@ -105,7 +107,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="720" />
     <option name="height" value="852" />
@@ -174,12 +176,12 @@
       <workItem from="1563492873856" duration="468000" />
       <workItem from="1563495341719" duration="9634000" />
       <workItem from="1563617986944" duration="2172000" />
-      <workItem from="1563680996978" duration="3629000" />
+      <workItem from="1563680996978" duration="5646000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22550000" />
+    <option name="totallyTimeSpent" value="24567000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -191,7 +193,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="852" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.021459227" />
@@ -206,8 +208,8 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4985694" weight="0.32894737" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49928468" weight="0.32894737" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.1702432" side_tool="true" visible="true" weight="0.38421053" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.8297568" visible="true" weight="0.38421053" />
+      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.1702432" side_tool="true" visible="true" weight="0.34698796" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.8297568" visible="true" weight="0.34698796" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Blaze Problems" order="12" sideWeight="0.49785408" weight="0.32894737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -253,8 +255,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="31" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
@@ -263,15 +265,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="95" column="4" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
+        <state relative-caret-position="164">
+          <caret line="115" column="32" selection-start-line="115" selection-start-column="32" selection-end-line="115" selection-end-column="32" />
           <folding>
             <element signature="e#65#84#0" expanded="true" />
+            <element signature="e#130#154#0" expanded="true" />
             <element signature="e#1736#1760#0" expanded="true" />
             <element signature="e#2031#2055#0" expanded="true" />
             <element signature="e#2879#2903#0" expanded="true" />
             <element signature="e#3698#3722#0" expanded="true" />
-            <marker date="1563685363570" expanded="true" signature="2278:2415" ph="..." />
+            <marker date="1563687375977" expanded="true" signature="2310:2470" ph="..." />
           </folding>
         </state>
       </provider>

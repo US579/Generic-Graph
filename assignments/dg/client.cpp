@@ -9,11 +9,11 @@ int main() {
   gdwg::Graph<int,int> g;
   std::vector<std::string> v{"Hello", "how", "are", "you"};
   gdwg::Graph<std::string, double> b{v.begin(),v.end()};
-  std::cout<<b.value()<<'\n';
+//  std::cout<<b.value()<<'\n';
   std::vector<std::string> a{"a", "how", "c", "you"};
   gdwg::Graph<std::string,int> p{a.begin(),a.end()};
   std::string u{"c"};
   p.InsertEdge("a",u,1);
-  std::cout<<p.IsNode("a")<<"\n";
+//  std::cout<<p.IsNode("a")<<"\n";
 
 }
