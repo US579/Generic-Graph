@@ -15,5 +15,11 @@ int main() {
   std::string u{"c"};
   p.InsertEdge("a",u,1);
 //  std::cout<<p.IsNode("a")<<"\n";
+//  p.IsConnected("a","c");
+//  std::cout<<  p.IsConnected("a","c")<<"\n";
+  std::vector<std::string> lis = p.GetNodes();
+  for (int i = 0; i < lis.size(); ++i) {
+    std::cout << lis[i];
 
+  }
 }

@@ -14,6 +14,8 @@ class Graph {
   Graph(typename std::vector<std::tuple<N, N, E>>::const_iterator, typename std::vector<std::tuple<N, N, E>>::const_iterator);
   bool InsertEdge(const N& src, const N& dst, const E& w);
   bool IsNode(const N& val);
+  bool IsConnected(const N& src, const N& dst);
+  std::vector<N> GetNodes();
   const N& value() const {return Node_[itor]->getval();}
 
   class Node;
@@ -26,6 +28,8 @@ class Graph {
       Node(const N& v):val_{std::make_shared<N>(v)}{}
       const N& getval(){return *this->val_;}
       void insertEdge(std::shared_ptr<Node> src,std::shared_ptr<Node> dst , const E& w);
+//      std::vector<std::shared_ptr<Edge>> getEdge(){return edges_;}
+      bool Connected(const std::shared_ptr<Node> & dst) const;
     private:
       std::shared_ptr<N> val_;
       std::vector<std::shared_ptr<Edge>> edges_;
@@ -87,8 +91,8 @@ bool gdwg::Graph<N,E>::InsertEdge(const N& src, const N& dst, const E& w){
       std::shared_ptr<Node> s = std::make_shared<Node>(src);
       std::shared_ptr<Node> d = std::make_shared<Node>(dst);
       (*it)->insertEdge(s,d,w);
-      std::cout<<(*it)->getval()<<"\n";
-      std::cout<<src<<"\n";
+//      std::cout<<(*it)->getval()<<"\n";
+//      std::cout<<src<<"\n";
       return true;
     }
   }
@@ -128,5 +132,32 @@ bool gdwg::Graph<N,E>::IsNode(const N& val) {
   return false;
 }
 
+
+template <typename N, typename E>
+bool gdwg::Graph<N,E>::IsConnected(const N& src, const N& dst){
+  if(!IsNode(src) || !IsNode(dst)) throw std::runtime_error("Cannot call Graph::IsConnected if src or dst node don't exist in the graph");
+
+//  std::cout<< *from <<"\n";
+  return true;
+}
+
+
+template <typename N, typename E>
+std::vector<N> gdwg::Graph<N,E>::GetNodes(){
+  std::vector<N> nodes;
+  for (auto it = Node_.begin(); it != Node_.end() ;++it){
+    nodes.push_back(((*it)->getval()));
+  }
+  return nodes;
+}
+//template <typename N, typename E>
+//bool gdwg::Graph<N, E>::Node::Connected(const std::shared_ptr<Node> & dst) const{
+//  auto result = std::find_if(weight.cbegin(), weight.cend(),
+//                             [&dst] (const std::pair<std::weak_ptr<Node>,E> & a) {
+//                               if(a.first.expired()) return false;
+//                               return a.first.lock()->getNode() == dst->getNode();
+//                             });
+//  return (result != weight.cend());
+//}
 
 #endif  // ASSIGNMENTS_DG_GRAPH_H_
