@@ -13,6 +13,7 @@ class Graph {
   Graph(typename std::vector<N>::const_iterator first,typename std::vector<N>::const_iterator last);
   Graph(typename std::vector<std::tuple<N, N, E>>::const_iterator, typename std::vector<std::tuple<N, N, E>>::const_iterator);
   bool InsertEdge(const N& src, const N& dst, const E& w);
+  bool IsNode(const N& val);
   const N& value() const {return Node_[itor]->getval();}
 
   class Node;
@@ -24,10 +25,12 @@ class Graph {
   public:
     Node(const N& v):val_{std::make_shared<N>(v)}{}
     const N& getval(){return *this->val_;}
+    void insertEdge(std::shared_ptr<Node> src,std::shared_ptr<Node> dst , const E& w);
   private:
     std::shared_ptr<N> val_;
-    std::vector<std::shared_ptr<Edge>> outEdge_;
-    std::vector<std::shared_ptr<Edge>> inEdge_;
+    std::vector<N> edges_;
+//    std::vector<std::shared_ptr<Edge>> outEdge_;
+//    std::vector<std::shared_ptr<Edge>> inEdge_;
 
   };
   class Edge{
@@ -75,8 +78,47 @@ gdwg::Graph<N,E>::Graph(typename std::vector<std::tuple<N, N, E>>::const_iterato
 };
 template <typename N, typename E>
 bool gdwg::Graph<N,E>::InsertEdge(const N& src, const N& dst, const E& w){
+  if (this->IsNode(src) && this->IsNode(dst)){
+    throw std::runtime_error("ERROR: attempt to access node that does not exist");
+  }
+//  for (auto it = Node_.begin() ; it != Node_.end();++it){
+//    if ((*it)->getval() == src || (*it)->getval() == dst){
+//      count++;
+//      std::cout<< (*it)->getval() << "\n";
+//    }
+//    std::cout<< src <<"\n";
+//    std::cout<< (*it)->getval() << "\n";
+//  }
+//  std::cout<< count <<"\n";
+//  if (count != 2){
+//    throw std::runtime_error("ERROR: attempt to access node that does not exist");
+//  }
+  return true;
 
 }
+
+
+
+template <typename N, typename E>
+void gdwg::Graph<N,E>::Node::insertEdge(std::shared_ptr<Node> src,std::shared_ptr<Node> dst , const E& w){
+  Edge new_Edge = Edge{src,dst,w};
+  std::shared_ptr<N> new_edge = std::make_shared(new_Edge);
+  edges_.push_back(new_edge);
+}
+
+
+template <typename N, typename E>
+bool gdwg::Graph<N,E>::IsNode(const N& val) {
+  for (auto it = Node_.begin(); it != Node_.end(); ++it) {
+    if ((*it)->getval() == val) {
+      std::cout << (*it)->getval() << "\n";
+      return true;
+    }
+  }
+  return false;
+}
+
+
 
 
 
