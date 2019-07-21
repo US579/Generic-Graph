@@ -24,6 +24,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignments/dg/graph_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph_test.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+            <state relative-caret-position="315">
+              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -48,18 +49,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1666">
-              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="266">
+              <caret line="94" column="33" lean-forward="true" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
               <folding>
                 <element signature="e#65#84#0" expanded="true" />
-                <element signature="e#130#154#0" expanded="true" />
-                <element signature="e#1736#1760#0" expanded="true" />
-                <element signature="e#2031#2055#0" expanded="true" />
-                <element signature="e#2879#2903#0" expanded="true" />
-                <element signature="e#3698#3722#0" expanded="true" />
-                <element signature="e#3808#3832#0" expanded="true" />
-                <element signature="e#4233#4257#0" expanded="true" />
-                <marker date="1563689680695" expanded="true" signature="2539:2699" ph="..." />
+                <element signature="e#131#155#0" expanded="true" />
+                <element signature="e#2180#2204#0" expanded="true" />
+                <element signature="e#2261#2285#0" expanded="true" />
+                <element signature="e#2578#2602#0" expanded="true" />
+                <element signature="e#2860#2884#0" expanded="true" />
+                <element signature="e#3926#3950#0" expanded="true" />
+                <element signature="e#4290#4314#0" expanded="true" />
+                <element signature="e#4564#4588#0" expanded="true" />
+                <element signature="e#4891#4915#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/graph_test.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="210">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#229#262#0" expanded="true" />
               </folding>
@@ -179,12 +181,12 @@
       <workItem from="1563492873856" duration="468000" />
       <workItem from="1563495341719" duration="9634000" />
       <workItem from="1563617986944" duration="2172000" />
-      <workItem from="1563680996978" duration="7894000" />
+      <workItem from="1563680996978" duration="9500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26815000" />
+    <option name="totallyTimeSpent" value="28421000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -241,10 +243,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph_test.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="e#229#262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -256,30 +268,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1666">
-          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state relative-caret-position="266">
+          <caret line="94" column="33" lean-forward="true" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
           <folding>
             <element signature="e#65#84#0" expanded="true" />
-            <element signature="e#130#154#0" expanded="true" />
-            <element signature="e#1736#1760#0" expanded="true" />
-            <element signature="e#2031#2055#0" expanded="true" />
-            <element signature="e#2879#2903#0" expanded="true" />
-            <element signature="e#3698#3722#0" expanded="true" />
-            <element signature="e#3808#3832#0" expanded="true" />
-            <element signature="e#4233#4257#0" expanded="true" />
-            <marker date="1563689680695" expanded="true" signature="2539:2699" ph="..." />
+            <element signature="e#131#155#0" expanded="true" />
+            <element signature="e#2180#2204#0" expanded="true" />
+            <element signature="e#2261#2285#0" expanded="true" />
+            <element signature="e#2578#2602#0" expanded="true" />
+            <element signature="e#2860#2884#0" expanded="true" />
+            <element signature="e#3926#3950#0" expanded="true" />
+            <element signature="e#4290#4314#0" expanded="true" />
+            <element signature="e#4564#4588#0" expanded="true" />
+            <element signature="e#4891#4915#0" expanded="true" />
           </folding>
         </state>
       </provider>

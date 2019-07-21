@@ -12,4 +12,3 @@
 #include "catch.h"
 
 // TODO(students): Fill this in.
-
