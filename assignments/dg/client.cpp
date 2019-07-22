@@ -34,6 +34,7 @@ int main() {
   std::cout<<p.IsNode("a")<<"\n";
   p.IsConnected("a","c");
   std::cout<<  p.IsConnected("a","c")<<"\n";
+  std::cout<<  p.IsConnected("how","c")<<"\n";
   
   std::vector<std::string> lis = p.GetNodes();
   // auto how = p.IsNode("how");

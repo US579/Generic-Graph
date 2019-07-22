@@ -50,7 +50,8 @@ public:
     Edge(std::shared_ptr<Node> src, std::shared_ptr<Node> dst, const E &w)
         : begin_{src}, end_{dst}, weight_{w} {};
     const E &getval() { return *this->weight_; }
-    const N &getDstVal() { return *this->end_->getval(); }
+    // const N &getDstVal() { return *this->end_.getval(); }
+    std::weak_ptr<Node> getDst() { return end_; }
   private:
     std::weak_ptr<Node> begin_;
     std::weak_ptr<Node> end_;
@@ -193,7 +194,8 @@ bool gdwg::Graph<N, E>::IsConnected(const N &src, const N &dst) {
   auto srcNode = this->findNode(src);
   std::vector<std::shared_ptr<Edge>> e = srcNode->getEdge();
   for (auto it = e.begin(); it != e.end(); ++it) {
-    if ((*it)->getDstVal() == dst){
+    auto curr = (*it)->getDst().lock();
+    if (curr->getval() == dst){
       return true;
     }
   }
