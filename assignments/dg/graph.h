@@ -21,6 +21,9 @@ public:
   bool InsertEdge(const N &src, const N &dst, const E &w);
   bool IsNode(const N &val);
   bool IsConnected(const N &src, const N &dst);
+  std::vector<E> GetWeights(const N& src, const N& dst);
+  const_iterator find(const N&, const N&, const E&);
+  bool DeleteNode(const N&);
   std::vector<N> GetNodes();
   const N &value() const { return Node_[itor]->getval(); }
 
@@ -38,7 +41,7 @@ public:
                     const E &w);
     std::vector<std::shared_ptr<Edge>> getEdge(){return edges_;}
     bool Connected(const std::shared_ptr<Node> &dst) const;
-
+    bool deleteNode();
   private:
     std::shared_ptr<N> val_;
     std::vector<std::shared_ptr<Edge>> edges_;
@@ -49,8 +52,9 @@ public:
   public:
     Edge(std::shared_ptr<Node> src, std::shared_ptr<Node> dst, const E &w)
         : begin_{src}, end_{dst}, weight_{w} {};
-    const E &getval() { return *this->weight_; }
+    const E &getval() { return this->weight_; }
     // const N &getDstVal() { return *this->end_.getval(); }
+
     std::weak_ptr<Node> getDst() { return end_; }
   private:
     std::weak_ptr<Node> begin_;
@@ -89,7 +93,8 @@ gdwg::Graph<N, E>::Graph(typename std::vector<N>::const_iterator first,
     }
   }
 }
-// not finish
+
+
 template <typename N, typename E>
 gdwg::Graph<N, E>::Graph(
     typename std::vector<std::tuple<N, N, E>>::const_iterator first,
@@ -193,6 +198,45 @@ template <typename N, typename E> std::vector<N> gdwg::Graph<N, E>::GetNodes() {
   std::sort(nodes.begin(), nodes.end());
   return nodes;
 }
+
+
+template <typename N,typename E>
+bool gdwg::Graph<N,E>::DeleteNode(const N& n){
+    auto delN = std::find_if(Node_.begin(),Node_.end(),[&n] (std::shared_ptr<Node> node){
+        return node->getval() == n;
+    });
+    if (delN == Node_.end()) return false;
+
+}
+// not finish
+template <typename N,typename E>
+bool gdwg::Graph<N,E>::Node::deleteNode() {
+    for (auto edge : edges_){
+
+    }
+}
+
+template <typename N,typename E>
+std::vector<E> gdwg::Graph<N,E>::GetWeights(const N& src, const N& dst){
+    if (!IsNode(src) || !IsNode(dst))
+        throw std::out_of_range("Cannot call Graph::GetWeights if src or dst node don't exist in the graph");
+    std::vector<E> wt;
+    auto srcNode = this->findNode(src);
+    std::vector<std::shared_ptr<Edge>> e = srcNode->getEdge();
+    for (auto it = e.begin(); it != e.end(); ++it) {
+        auto curr = (*it)->getDst().lock();
+        if (curr->getval() == dst){
+            wt.push_back((*it)->getval());
+        }
+    }
+    return wt;
+}
+
+template <typename N,typename E>
+const_iterator gdwg::Graph<N,E>::find(const N&, const N&, const E&){
+
+}
+
 
 
 

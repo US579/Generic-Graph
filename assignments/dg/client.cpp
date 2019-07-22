@@ -30,28 +30,37 @@ int main() {
   std::vector<std::string> a{"a", "how", "c", "you"};
   gdwg::Graph<std::string, int> p{a.begin(), a.end()};
   std::string u{"c"};
-  p.InsertEdge("a", u, 1);
-  std::cout<<p.IsNode("a")<<"\n";
-  p.IsConnected("a","c");
-  std::cout<<  p.IsConnected("a","c")<<"\n";
-  std::cout<<  p.IsConnected("how","c")<<"\n";
-  
-  std::vector<std::string> lis = p.GetNodes();
-  // auto how = p.IsNode("how");
-  // std::cout << how << "========";
-  
-  auto how = p.findNode("how");
-  std::cout << how->getval() << "========\n";
-
-  for (int i = 0; i < lis.size(); ++i) {
-    std::cout << lis[i] + " ";
+  p.InsertEdge("a", "a", 1);
+  p.InsertEdge("a", u, 2);
+  p.InsertEdge("a", u, 9);
+  p.InsertEdge("a", "a", 13);
+  std::vector<int> ll = p.GetWeights("a","a");
+  for (auto ii: ll){
+    std::cout<< ii ;
   }
-  std::cout << "\n";
 
-  gdwg::Graph<char, std::string> z{'a', 'b', 'x', 'y'};
-  auto li = z.GetNodes();
-  for (int i = 0; i < li.size(); ++i) {
-    std::cout << li[i];
-  }
-  std::cout << "\n";
+
+//  std::cout<<p.IsNode("a")<<"\n";
+//  p.IsConnected("a","c");
+//  std::cout<<  p.IsConnected("a","c")<<"\n";
+//  std::cout<<  p.IsConnected("how","c")<<"\n";
+//
+//  std::vector<std::string> lis = p.GetNodes();
+//  // auto how = p.IsNode("how");
+//  // std::cout << how << "========";
+//
+//  auto how = p.findNode("how");
+//  std::cout << how->getval() << "========\n";
+//
+//  for (int i = 0; i < lis.size(); ++i) {
+//    std::cout << lis[i] + " ";
+//  }
+//  std::cout << "\n";
+//
+//  gdwg::Graph<char, std::string> z{'a', 'b', 'x', 'y'};
+//  auto li = z.GetNodes();
+//  for (int i = 0; i < li.size(); ++i) {
+//    std::cout << li[i];
+//  }
+//  std::cout << "\n";
 }
