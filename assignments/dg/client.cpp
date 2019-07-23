@@ -12,6 +12,7 @@ int main() {
   std::vector<std::string> v{"Hello", "how", "are", "you"};
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
   b.printG();
+  std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
   // auto lis2 = b.GetNodes();
   // std::cout << "graph b2 is: \n";
   // for (std::map<N, std::shared_ptr<Node>>::iterator it = mymap.begin();

@@ -19,19 +19,46 @@ public:
   Graph(typename std::vector<std::tuple<N, N, E>>::const_iterator,
         typename std::vector<std::tuple<N, N, E>>::const_iterator);
   Graph(typename std::initializer_list<N>);
+  bool IsNode(const N &val);
+  bool InsertEdge(const N &src, const N &dst, const E &w);
 
   class const_iterator {};
   class Node {
   public:
     Node(const N &v) {
       N newV = v;
-      std::make_shared<N>(newV);
+      val_ = std::make_shared<N>(newV);
     }
-    const N &getval() { return *this->val_; }
+    const N &getVal() { return *val_; }
+    const typename std::vector<E> getWeights(const N &dst) {
+      std::vector<E> connected;
+      for (typename std::vector<std::pair<std::weak_ptr<Node>, E>>::iterator
+               it = edges_.begin();
+           it != edges_.end(); ++it) {
+        if (it->first.lock()->getVal() == dst) {
+          connected.push_back(it->second);
+          // std::cout << it->first.lock()->getVal() << "\n";
+        }
+      }
+      return connected;
+    }
+    bool isWeight(const N &dst, const E &w) {
+      std::vector<E> connected = getWeights(dst);
+      for (auto it = connected.begin(); it != connected.end(); ++it) {
+        if (*it == w) {
+          return true;
+        }
+      }
+      return false;
+    }
+    void InsertEdge(std::weak_ptr<Node> wDst, const E &w) {
+      edges_.insert(std::make_pair(wDst, w));
+    }
 
   private:
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, E>> edges_;
+    // std::map<std::weak_ptr<Node>, E> edges_;
   };
   void printG();
   // std::map<N, std::shared_ptr<Node>> GetNodes();
