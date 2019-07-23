@@ -1,66 +1,49 @@
-#include <string>
-
 #include <iostream>
+#include <string>
 
 #include "assignments/dg/graph.h"
 
+// Note: At the moment, there is no client.sampleout. Please do your own testing
+
 int main() {
-  gdwg::Graph<std::string, int> g1;
-  gdwg::Graph<int, int> g;
-
-  // test for vector iterator constructor
+  gdwg::Graph<std::string, int> g;
+  g.InsertNode("hello");
   std::vector<std::string> v{"Hello", "how", "are", "you"};
+
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
+  b.InsertNode("siyu");
+  b.InsertNode("adasdasd");
+  b.printG();
+  gdwg::Graph<char, std::string> x{'c', 'b', 'x', 'a'};
+  x.printG();
+  std::vector<char> n = x.GetNodes();
+  for(auto i :n ){
+    std::cout<< i << "\n";
 
-  // // test for tuple iterator constructor
-  std::string s1{"Hello"};
-  std::string s2{"how"};
-  std::string s3{"are"};
-  auto e1 = std::make_tuple(s1, s2, 5.4);
-  auto e2 = std::make_tuple(s2, s3, 7.6);
-  auto e = std::vector<std::tuple<std::string, std::string, double>>{e1, e2};
-  gdwg::Graph<std::string, double> b1{e.begin(), e.end()};
-  std::vector<std::string> lis1 = b1.GetNodes();
-  for (int i = 0; i < lis1.size(); ++i) {
-    std::cout << lis1[i] + "----";
   }
-  std::cout << "\n";
-
-  //  std::cout<<b.value()<<'\n';
-  std::vector<std::string> a{"a", "how", "c", "you"};
-  gdwg::Graph<std::string, int> p{a.begin(), a.end()};
-  std::string u{"c"};
-  p.InsertEdge("a", "a", 1);
-  p.InsertEdge("a", u, 2);
-  p.InsertEdge("a", u, 9);
-  p.InsertEdge("a", "a", 13);
-  std::vector<int> ll = p.GetWeights("a","a");
-  for (auto ii: ll){
-    std::cout<< ii ;
-  }
-
-
-//  std::cout<<p.IsNode("a")<<"\n";
-//  p.IsConnected("a","c");
-//  std::cout<<  p.IsConnected("a","c")<<"\n";
-//  std::cout<<  p.IsConnected("how","c")<<"\n";
+//  g.InsertNode("how");
+//  g.InsertNode("are");
+//  g.InsertNode("you?");
 //
-//  std::vector<std::string> lis = p.GetNodes();
-//  // auto how = p.IsNode("how");
-//  // std::cout << how << "========";
+//  g.InsertEdge("hello", "how", 5);
+//  g.InsertEdge("hello", "are", 8);
+//  g.InsertEdge("hello", "are", 2);
 //
-//  auto how = p.findNode("how");
-//  std::cout << how->getval() << "========\n";
+//  g.InsertEdge("how", "you?", 1);
+//  g.InsertEdge("how", "hello", 4);
 //
-//  for (int i = 0; i < lis.size(); ++i) {
-//    std::cout << lis[i] + " ";
+//  g.InsertEdge("are", "you?", 3);
+//
+//  std::cout << g << '\n';
+//
+//  gdwg::Graph<std::string, int> g2{g};
+//
+//  std::cout << g2 << "\n";
+//
+//  // This is a structured binding.
+//  // https://en.cppreference.com/w/cpp/language/structured_binding
+//  // It allows you to unpack your tuple.
+//  for (const auto& [from, to, weight] : g) {
+//    std::cout << from << " -> " << to << " (weight " << weight << ")\n";
 //  }
-//  std::cout << "\n";
-//
-//  gdwg::Graph<char, std::string> z{'a', 'b', 'x', 'y'};
-//  auto li = z.GetNodes();
-//  for (int i = 0; i < li.size(); ++i) {
-//    std::cout << li[i];
-//  }
-//  std::cout << "\n";
 }
