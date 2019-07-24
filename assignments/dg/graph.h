@@ -32,7 +32,7 @@ public:
   void Clear();
   bool erase(const N &src, const N &dst, const E &w);
   std::vector<E> GetWeights(const N &src, const N &dst);
-  //  void MergeReplace(const N& oldData, const N& newData);
+  void MergeReplace(const N& oldData, const N& newData);
   bool Replace(const N &oldData, const N &newData);
   class const_iterator {};
   class Node {
@@ -44,45 +44,15 @@ public:
     }
     const N &getVal() { return *val_; }
     const std::vector<std::pair<std::weak_ptr<Node>, std::unique_ptr<E>>>
-
     getEdges() {return edges_;}
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> getEdge(){
       return edges_;}
-
-    const typename std::vector<E> getWeights(const N &dst) {
-      std::vector<E> connected;
-      // for (typename std::vector<std::pair<std::weak_ptr<Node>,
-      // std::unique_ptr<E>>>::iterator
-      for (auto it = edges_.begin(); it != edges_.end(); ++it) {
-        if (it->first.lock()->getVal() == dst) {
-          connected.push_back(*(it->second));
-          // std::cout << it->first.lock()->getVal() << "\n";
-        }
-      }
-      return connected;
-    }
-
-    bool isWeight(const N &dst, const E &w) {
-      std::vector<E> connected = getWeights(dst);
-      for (auto it = connected.begin(); it != connected.end(); ++it) {
-        if (*it == w) {
-          // std::cout << "found" << "\n";
-          return true;
-        }
-      }
-      return false;
-    }
-    bool InsertEdge(std::weak_ptr<Node> wDst, const E &w) {
-      if (!isWeight(wDst.lock()->getVal(), w)) {
-        edges_.push_back(std::make_pair(wDst, std::make_shared<E>(w)));
-        return true;
-      }
-      return false;
-    }
+    const typename std::vector<E> getWeights(const N &dst);
+    bool isWeight(const N &dst, const E &w);
+    bool InsertEdge(std::weak_ptr<Node> wDst, const E &w);
     void Replace(const N &newData) { val_ = std::make_shared<N>(newData); }
     bool deleteEdge(const std::shared_ptr<Node> &inEdge);
     bool deleteEdge(const N &inEdge, const E &w);
-
   private:
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;
