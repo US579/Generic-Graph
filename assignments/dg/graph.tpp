@@ -74,7 +74,14 @@ template <typename N, typename E> bool gdwg::Graph<N, E>::IsConnected(const N& s
 
 template <typename N, typename E>
 std::vector<E> gdwg::Graph<N,E>::Graph::GetWeights(const N& src, const N& dst){
+  auto srcNode = nodes_.at(src);
+  std::vector<E> weights = srcNode->getWeights(dst);
 
+  sort(weights.begin(),weights.end());
+  for ( auto i : weights ){
+    std::cout << i << "\n";
+  }
+  return weights;
 }
 
 template <typename N, typename E> void gdwg::Graph<N, E>::printG() {
@@ -174,6 +181,7 @@ bool gdwg::Graph<N,E>::Node::deleteEdge(const N &inEdge, const E & w) {
   for ( auto i : edges_){
     std::cout<< *(i.second) << "/n";
   }
+  return true;
 }
 
 

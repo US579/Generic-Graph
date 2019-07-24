@@ -21,9 +21,10 @@ int main() {
   b.InsertEdge("you", "are", 34);
   b.InsertEdge("you", "Hello", 11);
 //  x.printG();
-  b.DeleteNode("Hello");
-  b.printG();
-  b.erase("you","are",11);
+//  b.DeleteNode("Hello");
+//  b.printG();
+//  b.erase("you","are",11);
+  b.GetWeights("you","are");
 //  b.GetWeights("you");
   // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 
