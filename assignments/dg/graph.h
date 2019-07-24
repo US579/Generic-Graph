@@ -20,14 +20,17 @@ public:
   Graph(typename std::vector<std::tuple<N, N, E>>::const_iterator,
         typename std::vector<std::tuple<N, N, E>>::const_iterator);
   Graph(typename std::initializer_list<N>);
-  typename std::map<N, std::shared_ptr<Graph<N,E>::Node>>::const_iterator gdwg::Graph<N,E>::begin() const;
+  typename std::map<N, std::shared_ptr<Graph<N,E>::Node>>::const_iterator begin() const;
+  typename std::map<N, std::shared_ptr<Graph<N,E>::Node>>::const_iterator end() const;
   bool IsNode(const N &val);
   bool InsertNode(const N &val);
   bool InsertEdge(const N &src, const N &dst, const E &w);
   bool IsConnected(const N& src, const N& dst);
+  bool DeleteNode(const N& node);
+  bool erase(const N& src, const N& dst, const E& w);
   std::vector<E> GetWeights(const N& src, const N& dst);
-
-
+  void MergeReplace(const N& oldData, const N& newData);
+  bool Replace(const N &oldData, const N &newData);
   class const_iterator {};
   class Node {
   public:
@@ -67,13 +70,13 @@ public:
     }
     bool InsertEdge(std::weak_ptr<Node> wDst, const E &w) {
       if ( ! isWeight(wDst.lock()->getVal(), w)) {
-        auto e = std::make_shared<E>(w);
         edges_.push_back(std::make_pair(wDst, std::make_shared<E>(w)));
         return true;
       }
       return false;
     }
-
+    void Replace(const N &newData) { val_ = std::make_shared<N>(newData); }
+    bool deleteEdge(const std::shared_ptr<Node> & to);
   private:
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;

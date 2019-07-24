@@ -26,6 +26,13 @@ gdwg::Graph<N, E>::Graph(
   }
 }
 
+template <typename N, typename E>
+gdwg::Graph<N, E>::Graph(typename std::initializer_list<N> n) {
+  for (auto it = n.begin(); it != n.end(); ++it) {
+    InsertNode(*it);
+  }
+}
+
 
 
 // Methods
@@ -78,8 +85,74 @@ template <typename N, typename E> void gdwg::Graph<N, E>::printG() {
   }
 }
 
+template <typename N, typename E>
+bool gdwg::Graph<N, E>::Replace(const N &oldData, const N &newData) {
+  if (!IsNode(oldData)) {
+    throw std::runtime_error{
+        "Cannot call Graph::Replace on a node that doesn't exist"};
+  }
+  if (IsNode(newData)) {
+    return false;
+  }
+  //   auto nodeHandler = nodes_.extract(oldData);
+  //   nodeHandler.key() = newData;
+  //   nodes_.insert(std::move(nodeHandler));
+  auto node = nodes_.at(oldData);
+  nodes_.erase(oldData);
+  node->Replace(newData);
 
+  const auto &couple = std::make_pair(newData, node);
+  nodes_.insert(couple);
+  return true;
+}
 
+template <typename N, typename E>
+void gdwg::Graph<N,E>::MergeReplace(const N& oldData, const N& newData){
+
+  if (!IsNode(oldData) || ! IsNode(newData)) {
+    throw std::runtime_error{
+        "Cannot call Graph::Replace on a node that doesn't exist"};
+  }
+  if (oldData == newData)
+    return;
+  auto newNode = nodes_.at(newData);
+  auto oldeNode = nodes_.at(oldData);
+};
+
+template <typename N, typename E>
+bool gdwg::Graph<N,E>::Graph::erase(const N& src, const N& dst, const E& w){
+  if (!IsNode(src) || ! IsNode(dst))
+    return false;
+  auto srcNode = nodes_.at(src);
+  if (srcNode->get){
+
+  }
+
+};
+
+template <typename N, typename E>
+bool gdwg::Graph<N,E>::Graph::DeleteNode(const N& node){
+  if (!IsNode(node))
+    return false;
+  auto oldDate = nodes_.at(node);
+  for(const auto & n : nodes_){
+    n.second->deleteEdge(oldDate);
+    std::cout<< n.first << "\n";
+  }
+  nodes_.erase(node);
+  return true;
+}
+
+template <typename N, typename E>
+bool gdwg::Graph<N,E>::Node::deleteEdge(const std::shared_ptr<Node> & inEdge){
+  std::cout<< inEdge << "\n";
+  auto result = std::remove_if(edges_.begin(),edges_.end(),
+                               [&inEdge](const std::pair<std::weak_ptr<Node>,std::shared_ptr<E>> & ptr){
+                                 return (ptr.first.lock() == inEdge);
+                               });
+  edges_.erase(result,edges_.end());
+  return true;
+}
 
 
 template <typename N, typename E>
