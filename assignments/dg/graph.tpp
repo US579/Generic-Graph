@@ -31,7 +31,6 @@ gdwg::Graph<N, E>::Graph(typename std::initializer_list<N> n) {
   }
 }
 
-
 // copy constructor
 template <typename N, typename E>
 gdwg::Graph<N, E>::Graph(const gdwg::Graph<N, E> &g) {
