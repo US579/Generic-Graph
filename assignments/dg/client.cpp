@@ -25,6 +25,9 @@ int main() {
 //  b.printG();
 //  b.erase("you","are",11);
   b.GetWeights("you","are");
+  b.Clear();
+  b.InsertNode("ads");
+  b.printG();
 //  b.GetWeights("you");
   // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 

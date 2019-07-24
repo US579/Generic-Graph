@@ -29,6 +29,7 @@ public:
   bool InsertEdge(const N &src, const N &dst, const E &w);
   bool IsConnected(const N &src, const N &dst);
   bool DeleteNode(const N &node);
+  void Clear();
   bool erase(const N &src, const N &dst, const E &w);
   std::vector<E> GetWeights(const N &src, const N &dst);
   //  void MergeReplace(const N& oldData, const N& newData);

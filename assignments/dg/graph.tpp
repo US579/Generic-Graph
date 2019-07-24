@@ -126,6 +126,10 @@ bool gdwg::Graph<N, E>::Replace(const N &oldData, const N &newData) {
 //  auto oldeNode = nodes_.at(oldData);
 //};
 
+template <typename N, typename E>
+void gdwg::Graph<N,E>::Graph::Clear(){
+  nodes_.clear();
+}
 
 template <typename N, typename E>
 bool gdwg::Graph<N,E>::Graph::DeleteNode(const N& node){
