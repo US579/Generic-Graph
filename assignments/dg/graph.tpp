@@ -67,7 +67,7 @@ bool gdwg::Graph<N, E>::InsertEdge(const N &src, const N &dst, const E &w) {
 
 template <typename N, typename E> bool gdwg::Graph<N, E>::IsConnected(const N& src, const N& dst){
     auto srcNode = nodes_.at(src);
-    std::vector<E> connected = srcNode->getWeights(dst);    
+    std::vector<E> connected = srcNode->getWeights(dst);
     return (!connected.empty());
 }
 
@@ -106,29 +106,19 @@ bool gdwg::Graph<N, E>::Replace(const N &oldData, const N &newData) {
   return true;
 }
 
-template <typename N, typename E>
-void gdwg::Graph<N,E>::MergeReplace(const N& oldData, const N& newData){
+//template <typename N, typename E>
+//void gdwg::Graph<N,E>::MergeReplace(const N& oldData, const N& newData){
+//
+//  if (!IsNode(oldData) || ! IsNode(newData)) {
+//    throw std::runtime_error{
+//        "Cannot call Graph::Replace on a node that doesn't exist"};
+//  }
+//  if (oldData == newData)
+//    return;
+//  auto newNode = nodes_.at(newData);
+//  auto oldeNode = nodes_.at(oldData);
+//};
 
-  if (!IsNode(oldData) || ! IsNode(newData)) {
-    throw std::runtime_error{
-        "Cannot call Graph::Replace on a node that doesn't exist"};
-  }
-  if (oldData == newData)
-    return;
-  auto newNode = nodes_.at(newData);
-  auto oldeNode = nodes_.at(oldData);
-};
-
-template <typename N, typename E>
-bool gdwg::Graph<N,E>::Graph::erase(const N& src, const N& dst, const E& w){
-  if (!IsNode(src) || ! IsNode(dst))
-    return false;
-  auto srcNode = nodes_.at(src);
-  if (srcNode->get){
-
-  }
-
-};
 
 template <typename N, typename E>
 bool gdwg::Graph<N,E>::Graph::DeleteNode(const N& node){
@@ -153,6 +143,40 @@ bool gdwg::Graph<N,E>::Node::deleteEdge(const std::shared_ptr<Node> & inEdge){
   edges_.erase(result,edges_.end());
   return true;
 }
+
+
+
+template <typename N, typename E>
+bool gdwg::Graph<N,E>::Graph::erase(const N& src, const N& dst, const E& w) {
+  if (!IsNode(src) || !IsNode(dst))
+    return false;
+  auto srcNode = nodes_.at(src);
+  std::vector<E> v = srcNode->getWeights(dst);
+  typename std::vector<E>::iterator it = find(v.begin(), v.end(), w);
+  if (it == v.end()) {
+    std::cout << "lalalalla"<< "\n";
+    return false;
+  }
+  srcNode->deleteEdge(dst,w);
+  return true;
+}
+
+template <typename N, typename E>
+bool gdwg::Graph<N,E>::Node::deleteEdge(const N &inEdge, const E & w) {
+  for ( auto i : edges_){
+    std::cout<< *(i.second) << "/n";
+  }
+  auto result = std::remove_if(edges_.begin(),edges_.end(),
+                               [&w](const std::pair<std::weak_ptr<Node>,std::shared_ptr<E>> & ptr){
+                                 return (*(ptr.second) == w);
+                               });
+  edges_.erase(result,edges_.end());
+  for ( auto i : edges_){
+    std::cout<< *(i.second) << "/n";
+  }
+}
+
+
 
 
 template <typename N, typename E>

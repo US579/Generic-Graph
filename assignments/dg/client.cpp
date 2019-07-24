@@ -16,11 +16,14 @@ int main() {
 //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
 //  gdwg::Graph<char, std::string> x{'a', 'b', 'x', 'y'};
   b.InsertEdge("Hello", "you", 11);
-  b.InsertEdge("Hello", "are", 11);
+  b.InsertEdge("you", "are", 11);
+  b.InsertEdge("you", "are", 2);
+  b.InsertEdge("you", "are", 34);
   b.InsertEdge("you", "Hello", 11);
 //  x.printG();
   b.DeleteNode("Hello");
   b.printG();
+  b.erase("you","are",11);
 //  b.GetWeights("you");
   // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 
