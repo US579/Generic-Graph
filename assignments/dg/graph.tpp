@@ -31,9 +31,9 @@ template <typename N, typename E> bool gdwg::Graph<N, E>::IsNode(const N &val) {
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::InsertNode(const N &val) {
-//   if (!IsNode(val)) {
-//     return false;
-//   }
+  //   if (!IsNode(val)) {
+  //     return false;
+  //   }
   Node newN = Node{val};
   const auto &couple = std::make_pair(val, std::make_shared<Node>(newN));
   nodes_.insert(couple);
@@ -56,10 +56,32 @@ bool gdwg::Graph<N, E>::InsertEdge(const N &src, const N &dst, const E &w) {
   //   return false;
 }
 
-template <typename N, typename E> bool gdwg::Graph<N, E>::IsConnected(const N& src, const N& dst){
-    auto srcNode = nodes_.at(src);
-    std::vector<E> connected = srcNode->getWeights(dst);    
-    return (!connected.empty());
+template <typename N, typename E>
+bool gdwg::Graph<N, E>::IsConnected(const N &src, const N &dst) {
+  auto srcNode = nodes_.at(src);
+  std::vector<E> connected = srcNode->getWeights(dst);
+  return (!connected.empty());
+}
+
+template <typename N, typename E>
+bool gdwg::Graph<N, E>::Replace(const N &oldData, const N &newData) {
+  if (!IsNode(oldData)) {
+    throw std::runtime_error{
+        "Cannot call Graph::Replace on a node that doesn't exist"};
+  }
+  if (IsNode(newData)) {
+    return false;
+  }
+//   auto nodeHandler = nodes_.extract(oldData);
+//   nodeHandler.key() = newData;
+//   nodes_.insert(std::move(nodeHandler));
+  auto node = nodes_.at(oldData);
+  nodes_.erase(oldData);
+  node->Replace(newData);
+
+  const auto &couple = std::make_pair(newData, node);
+  nodes_.insert(couple);
+  return true;
 }
 
 template <typename N, typename E> void gdwg::Graph<N, E>::printG() {

@@ -14,6 +14,9 @@ int main() {
   b.printG();
   std::cout << b.InsertEdge("how", "how", 11) << '\n';
   std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  b.Replace("Hello", "abc");
+  b.printG();
+
   // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 
   // std::cout << b.IsNode("ow") << '\n';

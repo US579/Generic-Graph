@@ -22,7 +22,9 @@ public:
   bool IsNode(const N &val);
   bool InsertNode(const N &val);
   bool InsertEdge(const N &src, const N &dst, const E &w);
-  bool IsConnected(const N& src, const N& dst);
+  bool IsConnected(const N &src, const N &dst);
+  bool Replace(const N &oldData, const N &newData);
+  bool DeleteNode(const N &);
 
   class const_iterator {};
   class Node {
@@ -61,6 +63,7 @@ public:
       }
       return false;
     }
+
     bool InsertEdge(std::weak_ptr<Node> wDst, const E &w) {
       if (isWeight(wDst.lock()->getVal(), w) == false) {
         auto e = std::make_unique<E>(w);
@@ -68,6 +71,10 @@ public:
         return true;
       }
       return false;
+    }
+
+    void Replace(const N &newData) {
+      val_ = std::make_shared<N>(newData);
     }
 
   private:
