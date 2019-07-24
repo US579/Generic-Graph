@@ -82,7 +82,8 @@ private:
 // template <typename N, typename E> gdwg::Graph<N, E>(gdwg::Graph<N, E> &&) {}
 
 // deconstructor
-template <typename N, typename E> gdwg::Graph<N, E>::~Graph() { Node_.clear(); }
+template <typename N, typename E> 
+gdwg::Graph<N, E>::~Graph() { Node_.clear(); }
 
 template <typename N, typename E>
 gdwg::Graph<N, E>::Graph(typename std::vector<N>::const_iterator first,
