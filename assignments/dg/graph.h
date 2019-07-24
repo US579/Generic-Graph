@@ -20,7 +20,9 @@ public:
         typename std::vector<std::tuple<N, N, E>>::const_iterator);
   Graph(typename std::initializer_list<N>);
   bool IsNode(const N &val);
+  bool InsertNode(const N &val);
   bool InsertEdge(const N &src, const N &dst, const E &w);
+  bool IsConnected(const N& src, const N& dst);
 
   class const_iterator {};
   class Node {
@@ -30,18 +32,24 @@ public:
       val_ = std::make_shared<N>(newV);
     }
     const N &getVal() { return *val_; }
+    const std::vector<std::pair<std::weak_ptr<Node>, std::unique_ptr<E>>>
+    getEdges() {
+      return edges_;
+    }
+
     const typename std::vector<E> getWeights(const N &dst) {
       std::vector<E> connected;
-      for (typename std::vector<std::pair<std::weak_ptr<Node>, E>>::iterator
-               it = edges_.begin();
-           it != edges_.end(); ++it) {
+      // for (typename std::vector<std::pair<std::weak_ptr<Node>,
+      // std::unique_ptr<E>>>::iterator
+      for (auto it = edges_.begin(); it != edges_.end(); ++it) {
         if (it->first.lock()->getVal() == dst) {
-          connected.push_back(it->second);
+          connected.push_back(*(it->second));
           // std::cout << it->first.lock()->getVal() << "\n";
         }
       }
       return connected;
     }
+
     bool isWeight(const N &dst, const E &w) {
       std::vector<E> connected = getWeights(dst);
       for (auto it = connected.begin(); it != connected.end(); ++it) {
@@ -51,13 +59,16 @@ public:
       }
       return false;
     }
-    void InsertEdge(std::weak_ptr<Node> wDst, const E &w) {
-      edges_.insert(std::make_pair(wDst, w));
+    bool InsertEdge(std::weak_ptr<Node> wDst, const E &w) {
+      if (isWeight(wDst.lock()->getVal(), w) == false) {
+        edges_.push_back(std::make_pair(wDst, std::make_unique<E>(w)));
+      }
+      return isWeight(wDst.lock()->getVal(), w);
     }
 
   private:
     std::shared_ptr<N> val_;
-    std::vector<std::pair<std::weak_ptr<Node>, E>> edges_;
+    std::vector<std::pair<std::weak_ptr<Node>, std::unique_ptr<E>>> edges_;
     // std::map<std::weak_ptr<Node>, E> edges_;
   };
   void printG();
