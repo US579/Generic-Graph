@@ -34,6 +34,13 @@ int main() {
             << b.IsConnected("how", "how") << '\n';
   std::cout << "b.IsConnected(\"Hello\", \"how\"): "
             << b.IsConnected("Hello", "how") << '\n';
+
+  gdwg::Graph<std::string, double> aMove{std::move(b)};
+  aMove.printG();
+  b.printG();
+  gdwg::Graph<std::string, double> a = std::move(aMove);
+  aMove.printG();
+  a.printG();
   // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 
   // std::cout << b.IsNode("ow") << '\n';

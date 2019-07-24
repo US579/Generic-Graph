@@ -32,15 +32,29 @@ gdwg::Graph<N, E>::Graph(typename std::initializer_list<N> n) {
   }
 }
 
-template <typename N, typename E> gdwg::Graph<N, E>::Graph(const Graph &g) {}
+template <typename N, typename E>
+gdwg::Graph<N, E>::Graph(const gdwg::Graph<N, E> &g) {}
 
-template <typename N, typename E> gdwg::Graph<N, E>::Graph(Graph &&g) {}
+template <typename N, typename E>
+gdwg::Graph<N, E>::Graph(gdwg::Graph<N, E> &&g) {
+  // printG();
+  // for (auto it = nodes_.begin(); it != nodes_.end(); ++it) {
+
+  // }
+  nodes_ = std::move(g.nodes_);
+  // printG();
+
+  //   return *this;
+}
 
 template <typename N, typename E>
 gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(const gdwg::Graph<N, E> &) {}
 
 template <typename N, typename E>
-gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(gdwg::Graph<N, E> &&) {}
+gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(gdwg::Graph<N, E> && g) {
+  nodes_ = std::move(g.nodes_);
+  return *this;
+}
 
 template <typename N, typename E> bool gdwg::Graph<N, E>::IsNode(const N &val) {
   return (nodes_.find(val) != nodes_.end());
@@ -112,7 +126,7 @@ void gdwg::Graph<N, E>::MergeReplace(const N &oldData, const N &newData) {
   auto newEdges = newNode->getEdges();
   auto oldEdges = oldNode->getEdges();
   for (auto newIt = newEdges.begin(); newIt != newEdges.end(); ++newIt) {
-    for (auto oldIt = oldEdges.begin(); oldIt != oldEdges.end();++oldIt) {
+    for (auto oldIt = oldEdges.begin(); oldIt != oldEdges.end(); ++oldIt) {
       auto linkNodeOld = newIt->first.lock()->getVal();
       auto linkNodeNew = oldIt->first.lock()->getVal();
       if (linkNodeOld == linkNodeNew && *newIt->second == *oldIt->second) {
