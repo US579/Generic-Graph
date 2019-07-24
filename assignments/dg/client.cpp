@@ -23,6 +23,13 @@ int main() {
   b.InsertEdge("you", "are", 2);
   b.InsertEdge("you", "are", 34);
   b.InsertEdge("you", "Hello", 11);
+  gdwg::Graph<std::string, double> a = b;
+  a.printG();
+  gdwg::Graph<std::string, double> o = std::move(b);
+  o.printG();
+
+
+
 //  x.printG();
 //  b.DeleteNode("Hello");
 //  b.printG();

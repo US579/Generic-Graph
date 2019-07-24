@@ -12,8 +12,8 @@ template <typename N, typename E> class Graph {
 public:
   class Node;
   Graph() = default;
-  Graph(const Graph &g);
-  Graph(Graph &&g);
+  Graph(const Graph &);
+  Graph(Graph &&);
   ~Graph() = default;
   Graph(typename std::vector<N>::const_iterator first,
         typename std::vector<N>::const_iterator last);
@@ -32,34 +32,37 @@ public:
   void Clear();
   bool erase(const N &src, const N &dst, const E &w);
   std::vector<E> GetWeights(const N &src, const N &dst);
-  void MergeReplace(const N& oldData, const N& newData);
+  void MergeReplace(const N &oldData, const N &newData);
   bool Replace(const N &oldData, const N &newData);
+  Graph &operator=(const gdwg::Graph<N, E> &);
+  Graph &operator=(gdwg::Graph<N, E> &&) noexcept;
   class const_iterator {};
   class Node {
   public:
     Node(const N &v) {
       N newV = v;
       val_ = std::make_shared<N>(newV);
-      // edges_ = {};
     }
     const N &getVal() { return *val_; }
     const std::vector<std::pair<std::weak_ptr<Node>, std::unique_ptr<E>>>
-    getEdges() {return edges_;}
-    std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> getEdge(){
-      return edges_;}
+    getEdges() {
+      return edges_;
+    }
+    std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> getEdge() {
+      return edges_;
+    }
     const typename std::vector<E> getWeights(const N &dst);
     bool isWeight(const N &dst, const E &w);
     bool InsertEdge(std::weak_ptr<Node> wDst, const E &w);
     void Replace(const N &newData) { val_ = std::make_shared<N>(newData); }
     bool deleteEdge(const std::shared_ptr<Node> &inEdge);
     bool deleteEdge(const N &inEdge, const E &w);
+
   private:
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;
-    // std::map<std::weak_ptr<Node>, E> edges_;
   };
   void printG();
-  // std::map<N, std::shared_ptr<Node>> GetNodes();
 
 private:
   std::map<N, std::shared_ptr<Node>> nodes_;
