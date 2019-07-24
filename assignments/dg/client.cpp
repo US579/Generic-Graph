@@ -11,6 +11,9 @@ int main() {
   // test for vector iterator constructor
   std::vector<std::string> v{"Hello", "how", "are", "you"};
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
+  b.InsertEdge("you", "Hello", 11);
+  gdwg::Graph<std::string, double> aCopy{b};
+  aCopy.printG();
 //  b.printG();
 //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
 //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
@@ -24,10 +27,10 @@ int main() {
 //  b.DeleteNode("Hello");
 //  b.printG();
 //  b.erase("you","are",11);
-  b.GetWeights("you","are");
-  b.Clear();
-  b.InsertNode("ads");
-  b.printG();
+//  b.GetWeights("you","are");
+//  b.Clear();
+//  b.InsertNode("ads");
+//  b.printG();
 //  b.GetWeights("you");
   // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 

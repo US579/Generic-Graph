@@ -45,9 +45,9 @@ public:
     const N &getVal() { return *val_; }
     const std::vector<std::pair<std::weak_ptr<Node>, std::unique_ptr<E>>>
 
-    getEdges() {
-      return edges_;
-    }
+    getEdges() {return edges_;}
+    std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> getEdge(){
+      return edges_;}
 
     const typename std::vector<E> getWeights(const N &dst) {
       std::vector<E> connected;

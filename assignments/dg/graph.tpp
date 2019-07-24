@@ -7,6 +7,19 @@ gdwg::Graph<N, E>::Graph(typename std::vector<N>::const_iterator first,
   }
 }
 
+//copy constructor
+template <typename N, typename E>
+gdwg::Graph<N,E>::Graph(const gdwg::Graph<N, E> &g) {
+  for (auto & node: g.nodes_){
+    InsertNode(node.first);
+  }
+  for (auto & nodes :g.nodes_){
+    for (const auto &Val : nodes.second->getEdge()){
+      InsertEdge(nodes.first,Val.first.lock()->getVal(),*(Val.second));
+    }
+  }
+}
+
 
 template <typename N, typename E>
 gdwg::Graph<N, E>::Graph(
