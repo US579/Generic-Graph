@@ -1,4 +1,4 @@
-// constructor
+//  constructor
 template <typename N, typename E>
 gdwg::Graph<N, E>::Graph(typename std::vector<N>::const_iterator first,
                          typename std::vector<N>::const_iterator last) {
@@ -6,35 +6,6 @@ gdwg::Graph<N, E>::Graph(typename std::vector<N>::const_iterator first,
     InsertNode(*it);
   }
 }
-
-// copy constructor
-template <typename N, typename E>
-gdwg::Graph<N, E>::Graph(const gdwg::Graph<N, E> &g) {
-  for (auto &node : g.nodes_) {
-    InsertNode(node.first);
-  }
-  for (auto &nodes : g.nodes_) {
-    for (const auto &Val : nodes.second->getEdge()) {
-      InsertEdge(nodes.first, Val.first.lock()->getVal(), *(Val.second));
-    }
-  }
-}
-
-// move constructor
-template <typename N, typename E>
-gdwg::Graph<N, E>::Graph(gdwg::Graph<N, E> &&g) {
-  // printG();
-  // for (auto it = nodes_.begin(); it != nodes_.end(); ++it) {
-
-  // }
-  nodes_ = std::move(g.nodes_);
-  // printG();
-
-  //   return *this;
-}
-
-
-
 
 template <typename N, typename E>
 gdwg::Graph<N, E>::Graph(
@@ -61,9 +32,9 @@ gdwg::Graph<N, E>::Graph(typename std::initializer_list<N> n) {
 }
 
 
-// operator  overload
+// copy constructor
 template <typename N, typename E>
-gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(const gdwg::Graph<N, E> & g){
+gdwg::Graph<N, E>::Graph(const gdwg::Graph<N, E> &g) {
   for (auto &node : g.nodes_) {
     InsertNode(node.first);
   }
@@ -74,11 +45,29 @@ gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(const gdwg::Graph<N, E> & g){
   }
 }
 
+// move constructor
+template <typename N, typename E>
+gdwg::Graph<N, E>::Graph(gdwg::Graph<N, E> &&g) {
+  nodes_ = std::move(g.nodes_);
+}
 
+
+// operator  overload
+template <typename N, typename E>
+gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(const gdwg::Graph<N, E> &g) {
+  for (auto &node : g.nodes_) {
+    InsertNode(node.first);
+  }
+  for (auto &nodes : g.nodes_) {
+    for (const auto &Val : nodes.second->getEdge()) {
+      InsertEdge(nodes.first, Val.first.lock()->getVal(), *(Val.second));
+    }
+  }
+}
 
 template <typename N, typename E>
-gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(gdwg::Graph<N, E> && g)noexcept{
-  if (this == &g) return *this;
+gdwg::Graph<N, E> &gdwg::Graph<N, E>::
+operator=(gdwg::Graph<N, E> &&g) noexcept {
   nodes_ = std::move(g.nodes_);
   return *this;
 }
@@ -162,6 +151,7 @@ bool gdwg::Graph<N, E>::Replace(const N &oldData, const N &newData) {
   nodes_.insert(couple);
   return true;
 }
+
 template <typename N, typename E>
 void gdwg::Graph<N, E>::MergeReplace(const N &oldData, const N &newData) {
   if (!IsNode(oldData) || !IsNode(newData)) {
@@ -258,8 +248,6 @@ bool gdwg::Graph<N, E>::Graph::erase(const N &src, const N &dst, const E &w) {
   std::vector<E> v = srcNode->getWeights(dst);
   typename std::vector<E>::iterator it = find(v.begin(), v.end(), w);
   if (it == v.end()) {
-    std::cout << "lalalalla"
-              << "\n";
     return false;
   }
   srcNode->deleteEdge(dst, w);
@@ -268,18 +256,12 @@ bool gdwg::Graph<N, E>::Graph::erase(const N &src, const N &dst, const E &w) {
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
-  for (auto i : edges_) {
-    std::cout << *(i.second) << "/n";
-  }
   auto result = std::remove_if(
       edges_.begin(), edges_.end(),
       [&w](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {
         return (*(ptr.second) == w);
       });
   edges_.erase(result, edges_.end());
-  for (auto i : edges_) {
-    std::cout << *(i.second) << "/n";
-  }
   return true;
 }
 
