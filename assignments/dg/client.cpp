@@ -5,9 +5,8 @@
 #include "assignments/dg/graph.h"
 
 int main() {
-  // gdwg::Graph<std::string, int> g1;
-  // gdwg::Graph<int, int> g;
-
+   gdwg::Graph<std::string, double> g1;
+//  gdwg::Graph<int, int> g;
   // test for vector iterator constructor
   std::vector<std::string> v{"Hello", "how", "are", "you"};
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
@@ -27,6 +26,9 @@ int main() {
   a.printG();
   gdwg::Graph<std::string, double> o = std::move(b);
   o.printG();
+  if (o == aCopy){
+    std::cout<< "appppppppppppppppp"<<"\n";
+  }
 
 
 

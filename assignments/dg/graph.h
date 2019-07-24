@@ -20,6 +20,8 @@ public:
   Graph(typename std::vector<std::tuple<N, N, E>>::const_iterator,
         typename std::vector<std::tuple<N, N, E>>::const_iterator);
   Graph(typename std::initializer_list<N>);
+  friend bool operator==(const gdwg::Graph<N, E>&, const gdwg::Graph<N, E>&);
+  friend bool operator!=(const gdwg::Graph<N, E>&, const gdwg::Graph<N, E>&);
   typename std::map<N, std::shared_ptr<Graph<N, E>::Node>>::const_iterator
   begin() const;
   typename std::map<N, std::shared_ptr<Graph<N, E>::Node>>::const_iterator
@@ -58,6 +60,7 @@ public:
     bool deleteEdge(const std::shared_ptr<Node> &inEdge);
     bool deleteEdge(const N &inEdge, const E &w);
 
+
   private:
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;
@@ -65,6 +68,7 @@ public:
   void printG();
 
 private:
+
   std::map<N, std::shared_ptr<Node>> nodes_;
   mutable typename std::map<N, std::shared_ptr<Node>>::const_iterator Iter;
 };

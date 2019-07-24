@@ -72,6 +72,26 @@ operator=(gdwg::Graph<N, E> &&g) noexcept {
 }
 
 
+
+template <typename N, typename E>
+bool operator==(const gdwg::Graph<N, E>& a, const gdwg::Graph<N, E>& b){
+  std::cout<< a.nodes_.size() << "\n";
+  return true;
+//  if (a.nodes_->size() != b.nodes_->size())
+//    std::cout<< 0 << "\n";
+//    return  false;
+
+}
+
+template <typename N, typename E>
+bool operator!=(const gdwg::Graph<N, E>& a, const gdwg::Graph<N, E>& b){
+
+}
+
+
+
+
+
 // Methods
 
 template <typename N, typename E> bool gdwg::Graph<N, E>::IsNode(const N &val) {
