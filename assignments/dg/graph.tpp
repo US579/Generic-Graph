@@ -25,15 +25,32 @@ gdwg::Graph<N, E>::Graph(
   }
 }
 
+template <typename N, typename E>
+gdwg::Graph<N, E>::Graph(typename std::initializer_list<N> n) {
+  for (auto it = n.begin(); it != n.end(); ++it) {
+    InsertNode(*it);
+  }
+}
+
+template <typename N, typename E> gdwg::Graph<N, E>::Graph(const Graph &g) {}
+
+template <typename N, typename E> gdwg::Graph<N, E>::Graph(Graph &&g) {}
+
+template <typename N, typename E>
+gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(const gdwg::Graph<N, E> &) {}
+
+template <typename N, typename E>
+gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(gdwg::Graph<N, E> &&) {}
+
 template <typename N, typename E> bool gdwg::Graph<N, E>::IsNode(const N &val) {
   return (nodes_.find(val) != nodes_.end());
 }
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::InsertNode(const N &val) {
-  //   if (!IsNode(val)) {
-  //     return false;
-  //   }
+  if (IsNode(val)) {
+    return false;
+  }
   Node newN = Node{val};
   const auto &couple = std::make_pair(val, std::make_shared<Node>(newN));
   nodes_.insert(couple);
@@ -72,9 +89,9 @@ bool gdwg::Graph<N, E>::Replace(const N &oldData, const N &newData) {
   if (IsNode(newData)) {
     return false;
   }
-//   auto nodeHandler = nodes_.extract(oldData);
-//   nodeHandler.key() = newData;
-//   nodes_.insert(std::move(nodeHandler));
+  //   auto nodeHandler = nodes_.extract(oldData);
+  //   nodeHandler.key() = newData;
+  //   nodes_.insert(std::move(nodeHandler));
   auto node = nodes_.at(oldData);
   nodes_.erase(oldData);
   node->Replace(newData);
@@ -82,6 +99,76 @@ bool gdwg::Graph<N, E>::Replace(const N &oldData, const N &newData) {
   const auto &couple = std::make_pair(newData, node);
   nodes_.insert(couple);
   return true;
+}
+
+template <typename N, typename E>
+void gdwg::Graph<N, E>::MergeReplace(const N &oldData, const N &newData) {
+  if (!IsNode(oldData) || !IsNode(newData)) {
+    throw std::runtime_error{"Cannot call Graph::MergeReplace on old or new "
+                             "data if they don't exist in the graph"};
+  }
+  auto newNode = nodes_.at(oldData);
+  auto oldNode = nodes_.at(newData);
+  auto newEdges = newNode->getEdges();
+  auto oldEdges = oldNode->getEdges();
+  for (auto newIt = newEdges.begin(); newIt != newEdges.end(); ++newIt) {
+    for (auto oldIt = oldEdges.begin(); oldIt != oldEdges.end();++oldIt) {
+      auto linkNodeOld = newIt->first.lock()->getVal();
+      auto linkNodeNew = oldIt->first.lock()->getVal();
+      if (linkNodeOld == linkNodeNew && *newIt->second == *oldIt->second) {
+        std::cout << "duplicate!!\n";
+        erase(oldData, linkNodeOld, *oldIt->second);
+      }
+    }
+  }
+  Replace(oldData, newData);
+}
+template <typename N, typename E>
+bool gdwg::Graph<N, E>::Node::deleteEdge(const std::shared_ptr<Node> &inEdge) {
+  std::cout << inEdge << "\n";
+  auto result = std::remove_if(
+      edges_.begin(), edges_.end(),
+      [&inEdge](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {
+        return (ptr.first.lock() == inEdge);
+      });
+  edges_.erase(result, edges_.end());
+  return true;
+}
+
+template <typename N, typename E>
+bool gdwg::Graph<N, E>::Graph::erase(const N &src, const N &dst, const E &w) {
+  if (!IsNode(src) || !IsNode(dst))
+    return false;
+  auto srcNode = nodes_.at(src);
+  std::vector<E> v = srcNode->getWeights(dst);
+  typename std::vector<E>::iterator it = find(v.begin(), v.end(), w);
+  if (it == v.end()) {
+    // std::cout << "lalalalla"<< "\n";
+    return false;
+  }
+  srcNode->deleteEdge(dst, w);
+  return true;
+}
+
+template <typename N, typename E>
+bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
+  for (auto i : edges_) {
+    std::cout << *(i.second) << "/n";
+  }
+  auto result = std::remove_if(
+      edges_.begin(), edges_.end(),
+      [&w](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {
+        return (*(ptr.second) == w);
+      });
+  edges_.erase(result, edges_.end());
+  for (auto i : edges_) {
+    std::cout << *(i.second) << "/n";
+  }
+  return true;
+}
+
+template <typename N, typename E> void Clear() {
+  // for ()
 }
 
 template <typename N, typename E> void gdwg::Graph<N, E>::printG() {

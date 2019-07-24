@@ -12,11 +12,28 @@ int main() {
   std::vector<std::string> v{"Hello", "how", "are", "you"};
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
   b.printG();
-  std::cout << b.InsertEdge("how", "how", 11) << '\n';
-  std::cout << b.InsertEdge("how", "how", 11) << '\n';
-  b.Replace("Hello", "abc");
-  b.printG();
+  // std::cout << "b.InsertEdge(\"how\", \"how\", 11): "
+  //           << b.InsertEdge("how", "how", 11) << '\n';
+  // std::cout << "b.InsertEdge(\"how\", \"how\", 11): "
+  //           << b.InsertEdge("how", "how", 11) << '\n';
+  // std::cout << "b.IsConnected(\"how\", \"how\"): "
+  //           << b.IsConnected("how", "how") << '\n';
+  // b.Replace("Hello", "abc");
+  // b.printG();
+  // b.Replace("Hello", "abc");
+  b.InsertEdge("how", "how", 11);
+  b.InsertEdge("Hello", "how", 11);
+  std::cout << "b.IsConnected(\"how\", \"how\"): "
+            << b.IsConnected("how", "how") << '\n';
+  std::cout << "b.IsConnected(\"Hello\", \"how\"): "
+            << b.IsConnected("Hello", "how") << '\n';
 
+  b.MergeReplace("how", "Hello");
+
+  std::cout << "b.IsConnected(\"how\", \"how\"): "
+            << b.IsConnected("how", "how") << '\n';
+  std::cout << "b.IsConnected(\"Hello\", \"how\"): "
+            << b.IsConnected("Hello", "how") << '\n';
   // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 
   // std::cout << b.IsNode("ow") << '\n';
