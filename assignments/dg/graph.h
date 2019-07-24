@@ -30,6 +30,7 @@ public:
     Node(const N &v) {
       N newV = v;
       val_ = std::make_shared<N>(newV);
+      // edges_ = {};
     }
     const N &getVal() { return *val_; }
     const std::vector<std::pair<std::weak_ptr<Node>, std::unique_ptr<E>>>
@@ -54,6 +55,7 @@ public:
       std::vector<E> connected = getWeights(dst);
       for (auto it = connected.begin(); it != connected.end(); ++it) {
         if (*it == w) {
+          // std::cout << "found" << "\n";
           return true;
         }
       }
@@ -61,14 +63,16 @@ public:
     }
     bool InsertEdge(std::weak_ptr<Node> wDst, const E &w) {
       if (isWeight(wDst.lock()->getVal(), w) == false) {
-        edges_.push_back(std::make_pair(wDst, std::make_unique<E>(w)));
+        auto e = std::make_unique<E>(w);
+        edges_.push_back(std::make_pair(wDst, std::make_shared<E>(w)));
+        return true;
       }
-      return isWeight(wDst.lock()->getVal(), w);
+      return false;
     }
 
   private:
     std::shared_ptr<N> val_;
-    std::vector<std::pair<std::weak_ptr<Node>, std::unique_ptr<E>>> edges_;
+    std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;
     // std::map<std::weak_ptr<Node>, E> edges_;
   };
   void printG();

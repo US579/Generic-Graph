@@ -12,7 +12,9 @@ int main() {
   std::vector<std::string> v{"Hello", "how", "are", "you"};
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
   b.printG();
-  std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
+  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 
   // std::cout << b.IsNode("ow") << '\n';
 
@@ -27,14 +29,14 @@ int main() {
   // std::cout << "\n";
 
   // test for tuple iterator constructor
-  std::string s1{"Hello"};
-  std::string s2{"how"};
-  std::string s3{"are"};
-  auto e1 = std::make_tuple(s1, s2, 5.4);
-  auto e2 = std::make_tuple(s2, s3, 7.6);
-  auto e = std::vector<std::tuple<std::string, std::string, double>>{e1, e2};
-  gdwg::Graph<std::string, double> b1{e.begin(), e.end()};
-  b1.printG();
+  // std::string s1{"Hello"};
+  // std::string s2{"how"};
+  // std::string s3{"are"};
+  // auto e1 = std::make_tuple(s1, s2, 5.4);
+  // auto e2 = std::make_tuple(s2, s3, 7.6);
+  // auto e = std::vector<std::tuple<std::string, std::string, double>>{e1, e2};
+  // gdwg::Graph<std::string, double> b1{e.begin(), e.end()};
+  // b1.printG();
   // std::cout << b1.InsertEdge(s1, s2, 514) << "\n";
   // std::vector<std::string> lis1 = b1.GetNodes();
   // std::cout << "graph b1 is: \n";
