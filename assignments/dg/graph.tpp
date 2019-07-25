@@ -304,11 +304,14 @@ operator++() {
 
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cbegin() {
-  auto first = std::find_if(nodes_.begin(), nodes_.end(), [](const auto &curr) {
-    return !(curr.second->getEdges().empty());
-  });
+  auto first =
+      std::find_if(nodes_.begin(), nodes_.end(),
+                   [](const std::pair<N, std::shared_ptr<Node>> &curr) {
+                     return !(curr.second->getEdges().empty());
+                   });
   if (first != nodes_.end()) {
-    //   std::cout << outer_->first << inner_->first.lock()->getVal() << inner_->second << "\n";
+    //   std::cout << outer_->first << inner_->first.lock()->getVal() <<
+    //   inner_->second << "\n";
 
     return {first, nodes_.end(), first->second->getEdges().begin()};
   }

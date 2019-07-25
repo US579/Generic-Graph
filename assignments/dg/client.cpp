@@ -31,10 +31,10 @@ int main() {
             << "\n";
   // }
   // std::cout <<
-  auto tup =  o.cbegin();
-    // auto src = std::get<0>(*it);
-  // auto node1 = std::get<0>(*tup);
-  // std::cout << *tup << "\n";
+  auto tup = o.cbegin();
+  // auto src = std::get<0>(*it);
+  auto node1 = std::get<0>(*tup);
+  std::cout << node1 << "\n";
   //  << "\n";
 
   //  x.printG();

@@ -73,7 +73,8 @@ public:
     using difference_type = int;
 
     reference operator*() const {
-      // std::cout << outer_->first << inner_->first.lock()->getVal() << inner_->second << "\n";
+      // std::cout << outer_->first << inner_->first.lock()->getVal() <<
+      // inner_->second << "\n";
 
       return {outer_->first, inner_->first.lock()->getVal(), *(inner_->second)};
     }
@@ -103,9 +104,10 @@ public:
                    const decltype(sentinel_) &sentinel,
                    const decltype(inner_) &inner)
         : outer_{outer}, sentinel_{sentinel}, inner_{inner} {
-      std::cout << outer_->first  << "\n"<< inner_->first.lock()->getVal()  << "\n"<< *(inner_->second) << "\n";
-
-        }
+      std::cout << outer_->first << "\n"
+                << inner_->first.lock()->getVal() << "\n"
+                << *(inner_->second) << "\n";
+    }
   };
   const_iterator cbegin();
   const_iterator cend();
