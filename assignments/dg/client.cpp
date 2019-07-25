@@ -8,33 +8,49 @@ int main() {
   gdwg::Graph<std::string, double> g1;
   //  gdwg::Graph<int, int> g;
   // test for vector iterator constructor
-  std::vector<std::string> v{"Hello", "how", "are", "you"};
+  std::vector<std::string> v{"a", "b", "c", "d"};
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
-  b.InsertEdge("you", "Hello", 11);
-  gdwg::Graph<std::string, double> aCopy{b};
-  aCopy.printG();
+  b.InsertEdge("a", "b", 1);
+  // gdwg::Graph<std::string, double> aCopy{b};
+  // aCopy.printG();
   //  b.printG();
   //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
   //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
   //  gdwg::Graph<char, std::string> x{'a', 'b', 'x', 'y'};
-  b.InsertEdge("Hello", "you", 11);
-  b.InsertEdge("you", "are", 11);
-  b.InsertEdge("you", "are", 2);
-  b.InsertEdge("you", "are", 34);
-  b.InsertEdge("you", "Hello", 11);
-  gdwg::Graph<std::string, double> a = b;
-  a.printG();
+  b.InsertEdge("a", "c", 2);
+  b.InsertEdge("a", "d", 3);
+  b.InsertEdge("b", "c", 4);
+  b.InsertEdge("b", "d", 5);
+  b.InsertEdge("c", "c", 6);
+  // gdwg::Graph<std::string, double> a = b;
+  // a.printG();
   gdwg::Graph<std::string, double> o = std::move(b);
-  o.printG();
-  // if (o == aCopy) {
-  std::cout << "appppppppppppppppp"
-            << "\n";
-  // }
+  // o.printG();
+  // b.printG();
+  
+  // // if (o == aCopy) {
+  // std::cout << "appppppppppppppppp"
+  //           << "\n";
+  // // }
   // std::cout <<
+  // auto tup = o.cbegin();
+  // for (auto tup = o.cbegin(); tup != o.cend(); tup++){
+  //   std::cout << std::get<0>(*tup)+"-"+std::get<1>(*tup)+"-"+std::get<2>(*tup)<< "\n";
+  // }
   auto tup = o.cbegin();
+  std::cout << std::get<0>(*tup) << "-" << std::get<1>(*tup) << "-" << std::get<2>(*tup)<< "\n";
+  auto tup1 = ++tup;
+  std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-" << std::get<2>(*tup1)<< "\n";
+
+
   // auto src = std::get<0>(*it);
-  auto node1 = std::get<0>(*tup);
-  std::cout << node1 << "\n";
+  // auto node1 = std::get<0>(*tup);
+  // std::cout << std::get<0>(*tup) << "\n";
+
+  // std::cout << "\n";
+  // auto tup1 = tup++;
+  // //  auto node1 = std::get<0>(*tup);
+  // std::cout << std::get<0>(*tup1) << "\n";
   //  << "\n";
 
   //  x.printG();

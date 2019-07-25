@@ -290,16 +290,16 @@ bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator &gdwg::Graph<N, E>::const_iterator::
 operator++() {
-  //   ++inner_;
-  //   if (inner_ == outer_->end()) {
-  //     do {
-  //       ++outer_;
-  //     } while (outer_ != sentinel_ && outer_->begin() == outer_->end());
-  //     if (outer_ != sentinel_) {
-  //       inner_ = outer_->begin();
-  //     }
-  //   }
-  //   return *this;
+    ++inner_;
+    if (inner_ == outer_->second->getEdges().end()) {
+      do {
+        ++outer_;
+      } while (outer_ != sentinel_ && outer_->second->getEdges().begin() == outer_->second->getEdges().end());
+      if (outer_ != sentinel_) {
+        inner_ = outer_->second->getEdges().begin();
+      }
+    }
+    return *this;
 }
 
 template <typename N, typename E>
