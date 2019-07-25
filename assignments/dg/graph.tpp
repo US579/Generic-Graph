@@ -256,8 +256,9 @@ template <typename N, typename E>
 bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
   auto result = std::remove_if(
       edges_.begin(), edges_.end(),
-      [&w](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {
-        return (*(ptr.second) == w);
+      [&inEdge,&w](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {
+        if(ptr.first.expired()) return false;
+        return (inEdge = ptr.first.lock() && *(ptr.second) == w);
       });
   edges_.erase(result, edges_.end());
   return true;
@@ -333,4 +334,20 @@ typename gdwg::Graph<N, E>::const_reverse_iterator gdwg::Graph<N, E>::crbegin() 
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_reverse_iterator gdwg::Graph<N, E>::crend() {
   return {nodes_.crend(), nodes_.crend(), {}};
+}
+
+template <typename N, typename E>
+typename gdwg::Graph<N, E>::const_reverse_iterator &gdwg::Graph<N, E>::const_reverse_iterator::
+operator++() {
+  ++inner_;
+  if (inner_ == outer_->second->getEdges().crend()) {
+    do {
+      ++outer_;
+    } while (outer_ != sentinel_ && outer_->second->getEdges().crbegin() ==
+                                    outer_->second->getEdges().crend());
+    if (outer_ != sentinel_) {
+      inner_ = outer_->second->getEdges().crbegin();
+    }
+  }
+  return *this;
 }

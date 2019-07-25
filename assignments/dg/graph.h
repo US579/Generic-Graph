@@ -132,7 +132,7 @@ public:
     typename std::vector<
         std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::iterator inner_;
     friend bool operator==(const Graph<N, E>::const_iterator &lhs,
-                           const const_iterator &rhs) {
+                           const Graph<N, E>::const_iterator &rhs) {
       return lhs.outer_ == rhs.outer_ &&
              (lhs.outer_ == lhs.sentinel_ || lhs.inner_ == rhs.inner_);
     };
@@ -167,14 +167,14 @@ public:
       return {outer_->first, inner_->first.lock()->getVal(), *(inner_->second)};
     }
 
-    const_iterator &operator++();
-    const_iterator operator++(int) {
+    const_reverse_iterator &operator++();
+    const_reverse_iterator operator++(int) {
       auto copy{*this};
       ++(*this);
       return copy;
     }
-    const_iterator &operator--();
-    const_iterator operator--(int) {
+    const_reverse_iterator &operator--();
+    const_reverse_iterator operator--(int) {
       auto copy{*this};
       --(*this);
       return copy;
@@ -187,7 +187,7 @@ public:
     typename std::vector<
         std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::const_reverse_iterator inner_;
     friend bool operator == (const Graph<N, E>::const_reverse_iterator &lhs,
-                           const const_reverse_iterator &rhs) {
+                           const Graph<N, E>::const_reverse_iterator &rhs) {
       return lhs.outer_ == rhs.outer_ &&
              (lhs.outer_ == lhs.sentinel_ || lhs.inner_ == rhs.inner_);
     };
@@ -201,9 +201,6 @@ public:
                    const decltype(sentinel_) &sentinel,
                    const decltype(inner_) &inner)
         : outer_{outer}, sentinel_{sentinel}, inner_{inner} {
-      // std::cout << outer_->first << "\n"
-      //           << inner_->first.lock()->getVal() << "\n"
-      //           << *(inner_->second) << "\n";
     }
   };
   const_reverse_iterator crbegin();

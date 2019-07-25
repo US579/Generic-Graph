@@ -33,21 +33,21 @@ int main() {
   //           << "\n";
   // // }
   // std::cout <<
-   auto tup1 = o.crbegin();
-  std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
-              << std::get<2>(*tup1) << "\n";
+//   auto tup1 = o.crbegin();
+//  std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
+//              << std::get<2>(*tup1) << "\n";
 
-  for (auto tup1 = o.cbegin(); tup1 != o.cend(); ++tup1) {
-    std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
-              << std::get<2>(*tup1) << "\n";
+//  for (auto tup1 = o.cbegin(); tup1 != o.cend(); ++tup1) {
+//    std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
+//              << std::get<2>(*tup1) << "\n";
+//  }
+
+
+  for (auto tup2 = o.crbegin(); tup2 != o.crend(); ++tup2) {
+    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+              << std::get<2>(*tup2) << "\n";
   }
 
-
-//  for (auto tup2 = o.crbegin(); tup2 != o.crend(); ++tup2) {
-//    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//              << std::get<2>(*tup2) << "\n";
-//  }
-//
 //
 //
 
