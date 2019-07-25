@@ -5,18 +5,18 @@
 #include "assignments/dg/graph.h"
 
 int main() {
-   gdwg::Graph<std::string, double> g1;
-//  gdwg::Graph<int, int> g;
+  gdwg::Graph<std::string, double> g1;
+  //  gdwg::Graph<int, int> g;
   // test for vector iterator constructor
   std::vector<std::string> v{"Hello", "how", "are", "you"};
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
   b.InsertEdge("you", "Hello", 11);
   gdwg::Graph<std::string, double> aCopy{b};
   aCopy.printG();
-//  b.printG();
-//  std::cout << b.InsertEdge("how", "how", 11) << '\n';
-//  std::cout << b.InsertEdge("how", "how", 11) << '\n';
-//  gdwg::Graph<char, std::string> x{'a', 'b', 'x', 'y'};
+  //  b.printG();
+  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  //  gdwg::Graph<char, std::string> x{'a', 'b', 'x', 'y'};
   b.InsertEdge("Hello", "you", 11);
   b.InsertEdge("you", "are", 11);
   b.InsertEdge("you", "are", 2);
@@ -26,59 +26,60 @@ int main() {
   a.printG();
   gdwg::Graph<std::string, double> o = std::move(b);
   o.printG();
-  if (o == aCopy){
-    std::cout<< "appppppppppppppppp"<<"\n";
-  }
+  // if (o == aCopy) {
+  std::cout << "appppppppppppppppp"
+            << "\n";
+  // }
+  // std::cout <<
+   o.cbegin();
+  //  << "\n";
 
 
-
-//  x.printG();
-//  b.DeleteNode("Hello");
-//  b.printG();
-//  b.erase("you","are",11);
-//  b.GetWeights("you","are");
-//  b.Clear();
-//  b.InsertNode("ads");
-//  b.printG();
-//  b.GetWeights("you");
+  //  x.printG();
+  //  b.DeleteNode("Hello");
+  //  b.printG();
+  //  b.erase("you","are",11);
+  //  b.GetWeights("you","are");
+  //  b.Clear();
+  //  b.InsertNode("ads");
+  //  b.printG();
+  //  b.GetWeights("you");
   // gdwg::Graph<std::string, int> g1;
   // gdwg::Graph<int, int> g;
 
-
-
   // test for vector iterator constructor
-//   std::vector<std::string> v{"Hello", "how", "are", "you"};
-//   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
-//   b.printG();
-//   // std::cout << "b.InsertEdge(\"how\", \"how\", 11): "
-//   //           << b.InsertEdge("how", "how", 11) << '\n';
-//   // std::cout << "b.InsertEdge(\"how\", \"how\", 11): "
-//   //           << b.InsertEdge("how", "how", 11) << '\n';
-//   // std::cout << "b.IsConnected(\"how\", \"how\"): "
-//   //           << b.IsConnected("how", "how") << '\n';
-//   // b.Replace("Hello", "abc");
-//   // b.printG();
-//   // b.Replace("Hello", "abc");
-//   b.InsertEdge("how", "how", 11);
-//   b.InsertEdge("Hello", "how", 11);
-//   std::cout << "b.IsConnected(\"how\", \"how\"): "
-//             << b.IsConnected("how", "how") << '\n';
-//   std::cout << "b.IsConnected(\"Hello\", \"how\"): "
-//             << b.IsConnected("Hello", "how") << '\n';
+  //   std::vector<std::string> v{"Hello", "how", "are", "you"};
+  //   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
+  //   b.printG();
+  //   // std::cout << "b.InsertEdge(\"how\", \"how\", 11): "
+  //   //           << b.InsertEdge("how", "how", 11) << '\n';
+  //   // std::cout << "b.InsertEdge(\"how\", \"how\", 11): "
+  //   //           << b.InsertEdge("how", "how", 11) << '\n';
+  //   // std::cout << "b.IsConnected(\"how\", \"how\"): "
+  //   //           << b.IsConnected("how", "how") << '\n';
+  //   // b.Replace("Hello", "abc");
+  //   // b.printG();
+  //   // b.Replace("Hello", "abc");
+  //   b.InsertEdge("how", "how", 11);
+  //   b.InsertEdge("Hello", "how", 11);
+  //   std::cout << "b.IsConnected(\"how\", \"how\"): "
+  //             << b.IsConnected("how", "how") << '\n';
+  //   std::cout << "b.IsConnected(\"Hello\", \"how\"): "
+  //             << b.IsConnected("Hello", "how") << '\n';
 
-//   b.MergeReplace("how", "Hello");
+  //   b.MergeReplace("how", "Hello");
 
-//   std::cout << "b.IsConnected(\"how\", \"how\"): "
-//             << b.IsConnected("how", "how") << '\n';
-//   std::cout << "b.IsConnected(\"Hello\", \"how\"): "
-//             << b.IsConnected("Hello", "how") << '\n';
+  //   std::cout << "b.IsConnected(\"how\", \"how\"): "
+  //             << b.IsConnected("how", "how") << '\n';
+  //   std::cout << "b.IsConnected(\"Hello\", \"how\"): "
+  //             << b.IsConnected("Hello", "how") << '\n';
 
-//   gdwg::Graph<std::string, double> aMove{std::move(b)};
-//   aMove.printG();
-//   b.printG();
-//   gdwg::Graph<std::string, double> a = std::move(aMove);
-//   aMove.printG();
-//   a.printG();
+  //   gdwg::Graph<std::string, double> aMove{std::move(b)};
+  //   aMove.printG();
+  //   b.printG();
+  //   gdwg::Graph<std::string, double> a = std::move(aMove);
+  //   aMove.printG();
+  //   a.printG();
   // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 
   // std::cout << b.IsNode("ow") << '\n';

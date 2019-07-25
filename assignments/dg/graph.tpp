@@ -38,7 +38,7 @@ gdwg::Graph<N, E>::Graph(const gdwg::Graph<N, E> &g) {
     InsertNode(node.first);
   }
   for (auto &nodes : g.nodes_) {
-    for (const auto &Val : nodes.second->getEdge()) {
+    for (const auto &Val : nodes.second->getEdges()) {
       InsertEdge(nodes.first, Val.first.lock()->getVal(), *(Val.second));
     }
   }
@@ -50,7 +50,6 @@ gdwg::Graph<N, E>::Graph(gdwg::Graph<N, E> &&g) {
   nodes_ = std::move(g.nodes_);
 }
 
-
 // operator  overload
 template <typename N, typename E>
 gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(const gdwg::Graph<N, E> &g) {
@@ -58,7 +57,7 @@ gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(const gdwg::Graph<N, E> &g) {
     InsertNode(node.first);
   }
   for (auto &nodes : g.nodes_) {
-    for (const auto &Val : nodes.second->getEdge()) {
+    for (const auto &Val : nodes.second->getEdges()) {
       InsertEdge(nodes.first, Val.first.lock()->getVal(), *(Val.second));
     }
   }
@@ -71,26 +70,17 @@ operator=(gdwg::Graph<N, E> &&g) noexcept {
   return *this;
 }
 
-
-
 template <typename N, typename E>
-bool operator==(const gdwg::Graph<N, E>& a, const gdwg::Graph<N, E>& b){
-  std::cout<< a.nodes_.size() << "\n";
+bool operator==(const gdwg::Graph<N, E> &a, const gdwg::Graph<N, E> &b) {
+  //   std::cout << a.nodes_.size() << "\n";
   return true;
-//  if (a.nodes_->size() != b.nodes_->size())
-//    std::cout<< 0 << "\n";
-//    return  false;
-
+  //  if (a.nodes_->size() != b.nodes_->size())
+  //    std::cout<< 0 << "\n";
+  //    return  false;
 }
 
 template <typename N, typename E>
-bool operator!=(const gdwg::Graph<N, E>& a, const gdwg::Graph<N, E>& b){
-
-}
-
-
-
-
+bool operator!=(const gdwg::Graph<N, E> &a, const gdwg::Graph<N, E> &b) {}
 
 // Methods
 
@@ -194,7 +184,14 @@ void gdwg::Graph<N, E>::MergeReplace(const N &oldData, const N &newData) {
       }
     }
   }
-  Replace(oldData, newData);
+  // need a redirect
+  auto node = nodes_.at(oldData);
+  nodes_.erase(oldData);
+  node->Replace(newData);
+
+  const auto &couple = std::make_pair(newData, node);
+  nodes_.insert(couple);
+  //   Replace(oldData, newData);
 }
 
 template <typename N, typename E> void gdwg::Graph<N, E>::Graph::Clear() {
@@ -278,9 +275,9 @@ bool gdwg::Graph<N, E>::Graph::erase(const N &src, const N &dst, const E &w) {
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
-//   for (auto i : edges_) {
-//     std::cout << *(i.second) << "/n";
-//   }
+  //   for (auto i : edges_) {
+  //     std::cout << *(i.second) << "/n";
+  //   }
   auto result = std::remove_if(
       edges_.begin(), edges_.end(),
       [&w](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {
@@ -291,17 +288,31 @@ bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
 }
 
 template <typename N, typename E>
-typename std::map<
-    N, std::shared_ptr<typename gdwg::Graph<N, E>::Node>>::const_iterator
-gdwg::Graph<N, E>::begin() const {
-  Iter = nodes_.cbegin();
-  return Iter;
+typename gdwg::Graph<N, E>::const_iterator &gdwg::Graph<N, E>::const_iterator::
+operator++() {
+  //   ++inner_;
+  //   if (inner_ == outer_->end()) {
+  //     do {
+  //       ++outer_;
+  //     } while (outer_ != sentinel_ && outer_->begin() == outer_->end());
+  //     if (outer_ != sentinel_) {
+  //       inner_ = outer_->begin();
+  //     }
+  //   }
+  //   return *this;
 }
 
 template <typename N, typename E>
-typename std::map<
-    N, std::shared_ptr<typename gdwg::Graph<N, E>::Node>>::const_iterator
-gdwg::Graph<N, E>::end() const {
-  Iter = nodes_.cend();
-  return Iter;
+typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cbegin() {
+  auto first = std::find_if(nodes_.begin(), nodes_.end(),
+                            []( Node &n) { return !(n.getEdges().empty()); });
+  if (first != nodes_.end()) {
+    return {first, nodes_.end(), first->getEdges().begin()};
+  }
+  return nodes_.end();
+}
+
+template <typename N, typename E>
+typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cend() {
+  return {nodes_.end(), nodes_.end(), {}};
 }
