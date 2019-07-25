@@ -5,48 +5,56 @@
 #include "assignments/dg/graph.h"
 
 int main() {
-   gdwg::Graph<std::string, double> g1;
-//  gdwg::Graph<int, int> g;
+  gdwg::Graph<std::string, double> g1;
+  //  gdwg::Graph<int, int> g;
   // test for vector iterator constructor
   std::vector<std::string> v{"Hello", "how", "are", "you"};
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
   b.InsertEdge("you", "Hello", 11);
   gdwg::Graph<std::string, double> aCopy{b};
-  aCopy.printG();
-//  b.printG();
-//  std::cout << b.InsertEdge("how", "how", 11) << '\n';
-//  std::cout << b.InsertEdge("how", "how", 11) << '\n';
-//  gdwg::Graph<char, std::string> x{'a', 'b', 'x', 'y'};
+  //  aCopy.printG();
+  //  b.printG();
+  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  //  gdwg::Graph<char, std::string> x{'a', 'b', 'x', 'y'};
   b.InsertEdge("Hello", "you", 11);
   b.InsertEdge("you", "are", 11);
   b.InsertEdge("you", "are", 2);
   b.InsertEdge("you", "are", 34);
   b.InsertEdge("you", "Hello", 11);
   gdwg::Graph<std::string, double> a = b;
-  a.printG();
-  gdwg::Graph<std::string, double> o = std::move(b);
+  //  a.printG();
+  gdwg::Graph<std::string, double> o = b;
   o.printG();
-  if (o == aCopy){
-    std::cout<< "appppppppppppppppp"<<"\n";
+  a.InsertEdge("you", "Hello", 199);
+  o.InsertEdge("you", "Hello", 199);
+  o.InsertNode("a");
+  a.InsertNode("a");
+//  a.InsertEdge("you", "Hello", 12);
+  if (o == a) {
+    std::cout << "equal -----------------"
+              << "\n";
+  }
+  if ( o != a){
+    std::cout << "not equal ------------"
+              << "\n";
   }
 
-
-
-//  x.printG();
-//  b.DeleteNode("Hello");
-//  b.printG();
-//  b.erase("you","are",11);
-//  b.GetWeights("you","are");
-//  b.Clear();
-//  b.InsertNode("ads");
-//  b.printG();
-//  b.GetWeights("you");
+  //  x.printG();
+  //  b.DeleteNode("Hello");
+  //  b.printG();
+  //  b.erase("you","are",11);
+  //  b.GetWeights("you","are");
+  //  b.Clear();
+  //  b.InsertNode("ads");
+  //  b.printG();
+  //  b.GetWeights("you");
   // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 
   // std::cout << b.IsNode("ow") << '\n';
 
-//   auto lis2 = b.GetNodes();
-//   std::cout << "graph b2 is: \n";
+  //   auto lis2 = b.GetNodes();
+  //   std::cout << "graph b2 is: \n";
   // for (std::map<N, std::shared_ptr<Node>>::iterator it = mymap.begin();
   //      it != mymap.end(); ++it)
   //   std::cout << it->first << " => " << it->second << '\n';

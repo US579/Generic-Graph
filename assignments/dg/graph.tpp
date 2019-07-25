@@ -65,30 +65,28 @@ gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(const gdwg::Graph<N, E> &g) {
 }
 
 template <typename N, typename E>
-gdwg::Graph<N, E> &gdwg::Graph<N, E>::
-operator=(gdwg::Graph<N, E> &&g) noexcept {
+gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(gdwg::Graph<N, E> &&g) noexcept {
   nodes_ = std::move(g.nodes_);
   return *this;
 }
 
 
 
-template <typename N, typename E>
-bool operator==(const gdwg::Graph<N, E>& a, const gdwg::Graph<N, E>& b){
-  std::cout<< a.nodes_.size() << "\n";
-  return true;
+//template <typename N, typename E>
+//bool operator==(const gdwg::Graph<N, E>& a, const gdwg::Graph<N, E>& b){
+//  for (auto &node : a.nodes_) {
+//    std::cout<< node.first << "\n";
+//  }
+//  return true;
 //  if (a.nodes_->size() != b.nodes_->size())
 //    std::cout<< 0 << "\n";
 //    return  false;
+//}
 
-}
-
-template <typename N, typename E>
-bool operator!=(const gdwg::Graph<N, E>& a, const gdwg::Graph<N, E>& b){
-
-}
-
-
+//template <typename N, typename E>
+//bool operator!=(const gdwg::Graph<N, E>& a, const gdwg::Graph<N, E>& b){
+//
+//}
 
 
 
@@ -240,6 +238,7 @@ gdwg::Graph<N, E>::Node::getWeights(const N &dst) {
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::Node::InsertEdge(std::weak_ptr<Node> wDst, const E &w) {
+
   if (!isWeight(wDst.lock()->getVal(), w)) {
     edges_.push_back(std::make_pair(wDst, std::make_shared<E>(w)));
     return true;
