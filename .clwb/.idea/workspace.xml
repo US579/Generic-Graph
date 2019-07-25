@@ -18,6 +18,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c930414f-b587-4da2-9e0b-55dc3cd3b02d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../assignments/dg/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/graph.tpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph.tpp" afterDir="false" />
     </list>
@@ -35,11 +36,34 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="821">
-                    <caret line="323" lean-forward="true" selection-start-line="323" selection-end-line="323" />
+                  <state relative-caret-position="490">
+                    <caret line="321" column="1" lean-forward="true" selection-start-line="321" selection-start-column="1" selection-end-line="321" selection-end-column="1" />
                     <folding>
-                      <element signature="e#9223#9247#0" expanded="true" />
-                      <element signature="e#9375#9399#0" expanded="true" />
+                      <element signature="e#1442#1466#0" expanded="true" />
+                      <element signature="e#1793#1817#0" expanded="true" />
+                      <element signature="e#1973#1997#0" expanded="true" />
+                      <element signature="e#2102#2126#0" expanded="true" />
+                      <element signature="e#2329#2353#0" expanded="true" />
+                      <element signature="e#2848#2872#0" expanded="true" />
+                      <element signature="e#3070#3094#0" expanded="true" />
+                      <element signature="e#3445#3469#0" expanded="true" />
+                      <element signature="e#3719#3743#0" expanded="true" />
+                      <element signature="e#4314#4338#0" expanded="true" />
+                      <element signature="e#5253#5277#0" expanded="true" />
+                      <element signature="e#5349#5373#0" expanded="true" />
+                      <element signature="e#5661#5685#0" expanded="true" />
+                      <element signature="e#5982#6006#0" expanded="true" />
+                      <element signature="e#6463#6487#0" expanded="true" />
+                      <element signature="e#6732#6756#0" expanded="true" />
+                      <element signature="e#7137#7161#0" expanded="true" />
+                      <element signature="e#7548#7572#0" expanded="true" />
+                      <element signature="e#7901#7925#0" expanded="true" />
+                      <element signature="e#8107#8131#0" expanded="true" />
+                      <element signature="e#8309#8333#0" expanded="true" />
+                      <element signature="e#8764#8788#0" expanded="true" />
+                      <element signature="e#9218#9242#0" expanded="true" />
+                      <element signature="e#9696#9720#0" expanded="true" />
+                      <element signature="e#9696#9720#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -55,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
-              <caret line="114" selection-start-line="114" selection-end-line="114" />
+            <state relative-caret-position="117">
+              <caret line="147" column="49" lean-forward="true" selection-start-line="147" selection-start-column="49" selection-end-line="147" selection-end-column="49" />
               <folding>
                 <element signature="e#64#83#0" expanded="true" />
               </folding>
@@ -67,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="42" column="13" selection-start-line="42" selection-end-line="42" selection-end-column="13" />
+            <state relative-caret-position="192">
+              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -173,12 +197,12 @@
       <workItem from="1564011463761" duration="390000" />
       <workItem from="1564013305286" duration="3306000" />
       <workItem from="1564025310976" duration="16393000" />
-      <workItem from="1564056247313" duration="964000" />
+      <workItem from="1564056247313" duration="3059000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21053000" />
+    <option name="totallyTimeSpent" value="23148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-173" y="-1057" width="960" height="1031" extended-state="0" />
@@ -226,8 +250,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="42" column="13" selection-start-line="42" selection-end-line="42" selection-end-column="13" />
+        <state relative-caret-position="192">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
@@ -236,8 +260,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        <state relative-caret-position="117">
+          <caret line="147" column="49" lean-forward="true" selection-start-line="147" selection-start-column="49" selection-end-line="147" selection-end-column="49" />
           <folding>
             <element signature="e#64#83#0" expanded="true" />
           </folding>
@@ -246,11 +270,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
-          <caret line="323" lean-forward="true" selection-start-line="323" selection-end-line="323" />
+        <state relative-caret-position="490">
+          <caret line="321" column="1" lean-forward="true" selection-start-line="321" selection-start-column="1" selection-end-line="321" selection-end-column="1" />
           <folding>
-            <element signature="e#9223#9247#0" expanded="true" />
-            <element signature="e#9375#9399#0" expanded="true" />
+            <element signature="e#1442#1466#0" expanded="true" />
+            <element signature="e#1793#1817#0" expanded="true" />
+            <element signature="e#1973#1997#0" expanded="true" />
+            <element signature="e#2102#2126#0" expanded="true" />
+            <element signature="e#2329#2353#0" expanded="true" />
+            <element signature="e#2848#2872#0" expanded="true" />
+            <element signature="e#3070#3094#0" expanded="true" />
+            <element signature="e#3445#3469#0" expanded="true" />
+            <element signature="e#3719#3743#0" expanded="true" />
+            <element signature="e#4314#4338#0" expanded="true" />
+            <element signature="e#5253#5277#0" expanded="true" />
+            <element signature="e#5349#5373#0" expanded="true" />
+            <element signature="e#5661#5685#0" expanded="true" />
+            <element signature="e#5982#6006#0" expanded="true" />
+            <element signature="e#6463#6487#0" expanded="true" />
+            <element signature="e#6732#6756#0" expanded="true" />
+            <element signature="e#7137#7161#0" expanded="true" />
+            <element signature="e#7548#7572#0" expanded="true" />
+            <element signature="e#7901#7925#0" expanded="true" />
+            <element signature="e#8107#8131#0" expanded="true" />
+            <element signature="e#8309#8333#0" expanded="true" />
+            <element signature="e#8764#8788#0" expanded="true" />
+            <element signature="e#9218#9242#0" expanded="true" />
+            <element signature="e#9696#9720#0" expanded="true" />
+            <element signature="e#9696#9720#0" expanded="true" />
           </folding>
         </state>
       </provider>
