@@ -282,8 +282,6 @@ gdwg::Graph<N, E>::end() const {
 }
 
 
-
-
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cbegin() {
   auto first =
@@ -295,4 +293,31 @@ typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cbegin() {
     return {first, nodes_.end(), first->second->getEdges().begin()};
   }
   return cend();
+}
+
+template <typename N, typename E>
+typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::begin() {
+  auto first =
+      std::find_if(nodes_.begin(), nodes_.end(),
+                   [](const std::pair<N, std::shared_ptr<Node>> &curr) {
+                     return !(curr.second->getEdges().empty());
+                   });
+  if (first != nodes_.end()) {
+    return {first, nodes_.end(), first->second->getEdges().begin()};
+  }
+  return cend();
+}
+
+
+
+template <typename N, typename E>
+typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cend() {
+  return {nodes_.end(), nodes_.end(), {}};
+}
+
+
+template <typename N, typename E>
+bool operator==(const typename gdwg::Graph<N, E>::const_iterator& lhs, const typename gdwg::Graph<N, E>::const_iterator& rhs) {
+  // We need to check the sentinel because comparison of default constructed iterators is undefined.
+  return lhs.outer_ == rhs.outer_ && (lhs.outer_ == lhs.sentinel_ || lhs.inner_ == rhs.inner_);
 }

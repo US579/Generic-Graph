@@ -111,6 +111,9 @@ public:
     using reference = std::tuple<const N &, const N &, const E &>;
     using pointer = std::tuple<const N *, const N *, const E *>;
     using difference_type = int;
+    friend bool operator==(const Graph<N, E>::const_iterator& lhs, const const_iterator& rhs);
+    friend bool operator!=(const Graph<N, E>::const_iterator& lhs, const Graph<N, E>::const_iterator& rhs) { return !(lhs == rhs); }
+
 
     reference operator*() const {
       // std::cout << outer_->first << inner_->first.lock()->getVal() <<
@@ -150,6 +153,7 @@ public:
     }
   };
   const_iterator cbegin();
+  const_iterator begin();
   const_iterator cend();
 
 
