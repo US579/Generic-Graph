@@ -41,12 +41,50 @@ int main() {
 //  b.InsertNode("ads");
 //  b.printG();
 //  b.GetWeights("you");
+  // gdwg::Graph<std::string, int> g1;
+  // gdwg::Graph<int, int> g;
+
+
+
+  // test for vector iterator constructor
+//   std::vector<std::string> v{"Hello", "how", "are", "you"};
+//   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
+//   b.printG();
+//   // std::cout << "b.InsertEdge(\"how\", \"how\", 11): "
+//   //           << b.InsertEdge("how", "how", 11) << '\n';
+//   // std::cout << "b.InsertEdge(\"how\", \"how\", 11): "
+//   //           << b.InsertEdge("how", "how", 11) << '\n';
+//   // std::cout << "b.IsConnected(\"how\", \"how\"): "
+//   //           << b.IsConnected("how", "how") << '\n';
+//   // b.Replace("Hello", "abc");
+//   // b.printG();
+//   // b.Replace("Hello", "abc");
+//   b.InsertEdge("how", "how", 11);
+//   b.InsertEdge("Hello", "how", 11);
+//   std::cout << "b.IsConnected(\"how\", \"how\"): "
+//             << b.IsConnected("how", "how") << '\n';
+//   std::cout << "b.IsConnected(\"Hello\", \"how\"): "
+//             << b.IsConnected("Hello", "how") << '\n';
+
+//   b.MergeReplace("how", "Hello");
+
+//   std::cout << "b.IsConnected(\"how\", \"how\"): "
+//             << b.IsConnected("how", "how") << '\n';
+//   std::cout << "b.IsConnected(\"Hello\", \"how\"): "
+//             << b.IsConnected("Hello", "how") << '\n';
+
+//   gdwg::Graph<std::string, double> aMove{std::move(b)};
+//   aMove.printG();
+//   b.printG();
+//   gdwg::Graph<std::string, double> a = std::move(aMove);
+//   aMove.printG();
+//   a.printG();
   // std::cout << b.InsertEdge("Hello", "how", 1.0) << '\n';
 
   // std::cout << b.IsNode("ow") << '\n';
 
-//   auto lis2 = b.GetNodes();
-//   std::cout << "graph b2 is: \n";
+  // auto lis2 = b.GetNodes();
+  // std::cout << "graph b2 is: \n";
   // for (std::map<N, std::shared_ptr<Node>>::iterator it = mymap.begin();
   //      it != mymap.end(); ++it)
   //   std::cout << it->first << " => " << it->second << '\n';

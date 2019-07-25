@@ -100,6 +100,9 @@ template <typename N, typename E> bool gdwg::Graph<N, E>::IsNode(const N &val) {
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::InsertNode(const N &val) {
+  if (IsNode(val)) {
+    return false;
+  }
   Node newN = Node{val};
   const auto &couple = std::make_pair(val, std::make_shared<Node>(newN));
   nodes_.insert(couple);
@@ -112,14 +115,14 @@ bool gdwg::Graph<N, E>::InsertEdge(const N &src, const N &dst, const E &w) {
     throw std::runtime_error{"Cannot call Graph::InsertEdge when either src or "
                              "dst node does not exist"};
   }
-  auto srcNode = nodes_.at(src);
+  //   auto srcNode = nodes_.at(src);
   std::weak_ptr<Node> wDst = nodes_.at(dst);
-  auto weights = srcNode->isWeight(dst, w);
-  if (!weights) {
-    return nodes_.at(src)->InsertEdge(wDst, w);
-    return true;
-  }
-  return false;
+  //   auto weights = srcNode->isWeight(dst, w);
+  //   if (!weights) {
+  return nodes_.at(src)->InsertEdge(wDst, w);
+  // return true;
+  //   }
+  //   return false;
 }
 
 template <typename N, typename E>
@@ -275,6 +278,9 @@ bool gdwg::Graph<N, E>::Graph::erase(const N &src, const N &dst, const E &w) {
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
+//   for (auto i : edges_) {
+//     std::cout << *(i.second) << "/n";
+//   }
   auto result = std::remove_if(
       edges_.begin(), edges_.end(),
       [&w](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {

@@ -4,6 +4,8 @@
 #include <iterator>
 #include <map>
 #include <memory>
+#include <tuple>
+#include <utility>
 #include <vector>
 
 namespace gdwg {
@@ -12,20 +14,16 @@ template <typename N, typename E> class Graph {
 public:
   class Node;
   Graph() = default;
-  Graph(const Graph &);
-  Graph(Graph &&);
+  Graph(const Graph &g);
+  Graph(Graph &&g);
   ~Graph() = default;
+  Graph &operator=(const gdwg::Graph<N, E> &);
+  Graph &operator=(gdwg::Graph<N, E> &&);
   Graph(typename std::vector<N>::const_iterator first,
         typename std::vector<N>::const_iterator last);
   Graph(typename std::vector<std::tuple<N, N, E>>::const_iterator,
         typename std::vector<std::tuple<N, N, E>>::const_iterator);
   Graph(typename std::initializer_list<N>);
-  friend bool operator==(const gdwg::Graph<N, E>&, const gdwg::Graph<N, E>&);
-  friend bool operator!=(const gdwg::Graph<N, E>&, const gdwg::Graph<N, E>&);
-  typename std::map<N, std::shared_ptr<Graph<N, E>::Node>>::const_iterator
-  begin() const;
-  typename std::map<N, std::shared_ptr<Graph<N, E>::Node>>::const_iterator
-  end() const;
   bool IsNode(const N &val);
   bool InsertNode(const N &val);
   bool InsertEdge(const N &src, const N &dst, const E &w);
@@ -64,13 +62,13 @@ public:
   private:
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;
+    // std::map<std::weak_ptr<Node>, E> edges_;
   };
   void printG();
+  // std::map<N, std::shared_ptr<Node>> GetNodes();
 
 private:
-
   std::map<N, std::shared_ptr<Node>> nodes_;
-  mutable typename std::map<N, std::shared_ptr<Node>>::const_iterator Iter;
 };
 
 } // namespace gdwg
