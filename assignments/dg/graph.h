@@ -73,6 +73,8 @@ public:
     using difference_type = int;
 
     reference operator*() const {
+      std::cout << outer_->first << inner_->first.lock()->getVal() << inner_->second << "\n";
+
       return {outer_->first, inner_->first.lock()->getVal(), inner_->second};
     }
 

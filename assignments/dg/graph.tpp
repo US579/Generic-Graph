@@ -304,10 +304,11 @@ operator++() {
 
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cbegin() {
-  auto first = std::find_if(nodes_.begin(), nodes_.end(),
-                            [](Node &n) { return !(n.getEdges().empty()); });
+  auto first = std::find_if(nodes_.begin(), nodes_.end(), [](const auto &curr) {
+    return !(curr.second->getEdges().empty());
+  });
   if (first != nodes_.end()) {
-    return {first, nodes_.end(), first->getEdges().begin()};
+    return {first, nodes_.end(), first->second->getEdges().begin()};
   }
   return cend();
 }
