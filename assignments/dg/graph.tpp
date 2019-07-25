@@ -308,6 +308,8 @@ typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cbegin() {
     return !(curr.second->getEdges().empty());
   });
   if (first != nodes_.end()) {
+    //   std::cout << outer_->first << inner_->first.lock()->getVal() << inner_->second << "\n";
+
     return {first, nodes_.end(), first->second->getEdges().begin()};
   }
   return cend();
