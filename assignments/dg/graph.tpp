@@ -38,7 +38,7 @@ gdwg::Graph<N, E>::Graph(const gdwg::Graph<N, E> &g) {
     InsertNode(node.first);
   }
   for (auto &nodes : g.nodes_) {
-    for (const auto &Val : nodes.second->getEdge()) {
+    for (const auto &Val : nodes.second->getEdges()) {
       InsertEdge(nodes.first, Val.first.lock()->getVal(), *(Val.second));
     }
   }
@@ -58,7 +58,7 @@ gdwg::Graph<N, E> &gdwg::Graph<N, E>::operator=(const gdwg::Graph<N, E> &g) {
     InsertNode(node.first);
   }
   for (auto &nodes : g.nodes_) {
-    for (const auto &Val : nodes.second->getEdge()) {
+    for (const auto &Val : nodes.second->getEdges()) {
       InsertEdge(nodes.first, Val.first.lock()->getVal(), *(Val.second));
     }
   }
@@ -279,4 +279,20 @@ typename std::map<
 gdwg::Graph<N, E>::end() const {
   Iter = nodes_.cend();
   return Iter;
+}
+
+
+
+
+template <typename N, typename E>
+typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cbegin() {
+  auto first =
+      std::find_if(nodes_.begin(), nodes_.end(),
+                   [](const std::pair<N, std::shared_ptr<Node>> &curr) {
+                     return !(curr.second->getEdges().empty());
+                   });
+  if (first != nodes_.end()) {
+    return {first, nodes_.end(), first->second->getEdges().begin()};
+  }
+  return cend();
 }

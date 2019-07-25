@@ -40,6 +40,7 @@ int main() {
               << "\n";
   }
 
+  o.cbegin();
   //  x.printG();
   //  b.DeleteNode("Hello");
   //  b.printG();

@@ -7,7 +7,8 @@
 #include <vector>
 
 namespace gdwg {
-template <typename N, typename E> class Graph {
+template <typename N, typename E>
+class Graph {
 public:
   class Node;
   Graph() = default;
@@ -19,6 +20,7 @@ public:
   Graph(typename std::vector<std::tuple<N, N, E>>::const_iterator,
         typename std::vector<std::tuple<N, N, E>>::const_iterator);
   Graph(typename std::initializer_list<N>);
+
   friend bool operator==(const gdwg::Graph<N, E> &a,
                          const gdwg::Graph<N, E> &b) {
     if (a.nodes_.size() != b.nodes_.size()) {
@@ -33,19 +35,18 @@ public:
     int cout1 = 0;
     for (auto &n : a.nodes_) {
       auto bNode = b.nodes_.at(n.first);
-      cout += bNode->getEdge().size();
-      cout1 += (n.second)->getEdge().size();
+      cout += bNode->getEdges().size();
+      cout1 += (n.second)->getEdges().size();
     }
     if (cout1 != cout)
       return false;
-
     for (auto &n : a.nodes_) {
       auto bNode = b.nodes_.at(n.first);
-      for (int i = 0; i < bNode->getEdge().size(); ++i) {
-        if (*(bNode->getEdge()[i].second) !=
-                *((n.second)->getEdge()[i].second) ||
-            bNode->getEdge()[i].first.lock()->getVal() !=
-                (n.second)->getEdge()[i].first.lock()->getVal()) {
+      for (int i = 0; i < bNode->getEdges().size(); ++i) {
+        if (*(bNode->getEdges()[i].second) !=
+                *((n.second)->getEdges()[i].second) ||
+            bNode->getEdges()[i].first.lock()->getVal() !=
+                (n.second)->getEdges()[i].first.lock()->getVal()) {
           return false;
         }
       }
@@ -74,7 +75,9 @@ public:
   bool Replace(const N &oldData, const N &newData);
   Graph &operator=(const gdwg::Graph<N, E> &);
   Graph &operator=(gdwg::Graph<N, E> &&) noexcept;
-  class const_iterator {};
+
+
+
   class Node {
   public:
     Node(const N &v) {
@@ -82,11 +85,8 @@ public:
       val_ = std::make_shared<N>(newV);
     }
     const N &getVal() { return *val_; }
-    const std::vector<std::pair<std::weak_ptr<Node>, std::unique_ptr<E>>>
-    getEdges() {
-      return edges_;
-    }
-    std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> getEdge() {
+
+    std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> getEdges() {
       return edges_;
     }
     const typename std::vector<E> getWeights(const N &dst);
@@ -97,10 +97,61 @@ public:
     bool deleteEdge(const N &inEdge, const E &w);
 
   private:
+    friend class const_iterator;
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;
   };
+
   void printG();
+
+  class const_iterator {
+  public:
+    using iterator_category = std::bidirectional_iterator_tag;
+    using value_type = std::tuple<N, N, E>;
+    using reference = std::tuple<const N &, const N &, const E &>;
+    using pointer = std::tuple<const N *, const N *, const E *>;
+    using difference_type = int;
+
+    reference operator*() const {
+      // std::cout << outer_->first << inner_->first.lock()->getVal() <<
+      // inner_->second << "\n";
+
+      return {outer_->first, inner_->first.lock()->getVal(), *(inner_->second)};
+    }
+
+    const_iterator &operator++();
+    const_iterator operator++(int) {
+      auto copy{*this};
+      ++(*this);
+      return copy;
+    }
+    const_iterator &operator--();
+    const_iterator operator--(int) {
+      auto copy{*this};
+      ++(*this);
+      return copy;
+    }
+
+  private:
+    friend class Node;
+    typename std::map<N, std::shared_ptr<Node>>::iterator outer_;
+    const typename std::map<N, std::shared_ptr<Node>>::iterator sentinel_;
+    typename std::vector<
+        std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::iterator inner_;
+
+  public:
+    const_iterator(const decltype(outer_) &outer,
+                   const decltype(sentinel_) &sentinel,
+                   const decltype(inner_) &inner)
+        : outer_{outer}, sentinel_{sentinel}, inner_{inner} {
+      std::cout << outer_->first << "\n"
+                << inner_->first.lock()->getVal() << "\n"
+                << *(inner_->second) << "\n";
+    }
+  };
+  const_iterator cbegin();
+  const_iterator cend();
+
 
 private:
   std::map<N, std::shared_ptr<Node>> nodes_;
