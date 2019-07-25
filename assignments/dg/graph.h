@@ -13,6 +13,8 @@ namespace gdwg {
 template <typename N, typename E> class Graph {
 public:
   friend class Node;
+  friend class const_iterator;
+
   Graph() = default;
   Graph(const Graph &g);
   Graph(Graph &&g);
@@ -46,7 +48,7 @@ public:
       val_ = std::make_shared<N>(newV);
     }
     const N &getVal() { return *val_; }
-    const std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> getEdges() {
+    std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> getEdges() {
       return edges_;
     }
     const typename std::vector<E> getWeights(const N &dst);
@@ -88,11 +90,13 @@ public:
     }
 
   private:
+    friend class Node;
     typename std::map<N, std::shared_ptr<Node>>::iterator outer_;
     const typename std::map<N, std::shared_ptr<Node>>::iterator sentinel_;
     typename std::vector<
         std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::iterator inner_;
 
+  public:
     const_iterator(const decltype(outer_) &outer,
                    const decltype(sentinel_) &sentinel,
                    const decltype(inner_) &inner)
