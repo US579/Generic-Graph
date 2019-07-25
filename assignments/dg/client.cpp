@@ -27,21 +27,23 @@ int main() {
   gdwg::Graph<std::string, double> o = std::move(b);
   // o.printG();
   // b.printG();
-  
+
   // // if (o == aCopy) {
   // std::cout << "appppppppppppppppp"
   //           << "\n";
   // // }
   // std::cout <<
   // auto tup = o.cbegin();
-  // for (auto tup = o.cbegin(); tup != o.cend(); tup++){
-  //   std::cout << std::get<0>(*tup)+"-"+std::get<1>(*tup)+"-"+std::get<2>(*tup)<< "\n";
-  // }
-  auto tup = o.cbegin();
-  std::cout << std::get<0>(*tup) << "-" << std::get<1>(*tup) << "-" << std::get<2>(*tup)<< "\n";
-  auto tup1 = ++tup;
-  std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-" << std::get<2>(*tup1)<< "\n";
-
+  for (auto tup1 = o.cbegin(); tup1 != o.cend(); ++tup1) {
+    std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
+              << std::get<2>(*tup1) << "\n";
+  }
+  // auto tup = o.cbegin();
+  // std::cout << std::get<0>(*tup) << "-" << std::get<1>(*tup) << "-"
+  //           << std::get<2>(*tup) << "\n";
+  // auto tup1 = ++tup;
+  // std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
+  //           << std::get<2>(*tup1) << "\n";
 
   // auto src = std::get<0>(*it);
   // auto node1 = std::get<0>(*tup);

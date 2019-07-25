@@ -290,16 +290,17 @@ bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator &gdwg::Graph<N, E>::const_iterator::
 operator++() {
-    ++inner_;
-    if (inner_ == outer_->second->getEdges().end()) {
-      do {
-        ++outer_;
-      } while (outer_ != sentinel_ && outer_->second->getEdges().begin() == outer_->second->getEdges().end());
-      if (outer_ != sentinel_) {
-        inner_ = outer_->second->getEdges().begin();
-      }
+  ++inner_;
+  if (inner_ == outer_->second->getEdges().end()) {
+    do {
+      ++outer_;
+    } while (outer_ != sentinel_ && outer_->second->getEdges().begin() ==
+                                        outer_->second->getEdges().end());
+    if (outer_ != sentinel_) {
+      inner_ = outer_->second->getEdges().begin();
     }
-    return *this;
+  }
+  return *this;
 }
 
 template <typename N, typename E>
@@ -322,3 +323,12 @@ template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cend() {
   return {nodes_.end(), nodes_.end(), {}};
 }
+
+// template <typename N, typename E>
+// bool operator==(const typename gdwg::Graph<N, E>::const_iterator &lhs,
+//                 const typename gdwg::Graph<N, E>::const_iterator &rhs) {
+//   // We need to check the sentinel because comparison of default constructed
+//   // iterators is undefined.
+//   return lhs.outer_ == rhs.outer_ &&
+//          (lhs.outer_ == lhs.sentinel_ || lhs.inner_ == rhs.inner_);
+// }

@@ -98,6 +98,15 @@ public:
     const typename std::map<N, std::shared_ptr<Node>>::iterator sentinel_;
     typename std::vector<
         std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::iterator inner_;
+    friend bool operator==(const Graph<N, E>::const_iterator &lhs,
+                           const const_iterator &rhs) {
+      return lhs.outer_ == rhs.outer_ &&
+             (lhs.outer_ == lhs.sentinel_ || lhs.inner_ == rhs.inner_);
+    };
+    friend bool operator!=(const Graph<N, E>::const_iterator &lhs,
+                           const Graph<N, E>::const_iterator &rhs) {
+      return !(lhs == rhs);
+    }
 
   public:
     const_iterator(const decltype(outer_) &outer,
