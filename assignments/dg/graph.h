@@ -58,10 +58,10 @@ public:
     return !(a == b);
   }
 
-  typename std::map<N, std::shared_ptr<Graph<N, E>::Node>>::const_iterator
-  begin() const;
-  typename std::map<N, std::shared_ptr<Graph<N, E>::Node>>::const_iterator
-  end() const;
+//  typename std::map<N, std::shared_ptr<Graph<N, E>::Node>>::const_iterator
+//  begin() const;
+//  typename std::map<N, std::shared_ptr<Graph<N, E>::Node>>::const_iterator
+//  end() const;
   bool IsNode(const N &val);
   bool InsertNode(const N &val);
   bool InsertEdge(const N &src, const N &dst, const E &w);
@@ -109,9 +109,6 @@ public:
     using difference_type = int;
 
     reference operator*() const {
-      // std::cout << outer_->first << inner_->first.lock()->getVal() <<
-      // inner_->second << "\n";
-
       return {outer_->first, inner_->first.lock()->getVal(), *(inner_->second)};
     }
 
@@ -124,7 +121,7 @@ public:
     const_iterator &operator--();
     const_iterator operator--(int) {
       auto copy{*this};
-      ++(*this);
+      --(*this);
       return copy;
     }
 
@@ -158,7 +155,59 @@ public:
   const_iterator cbegin();
   const_iterator begin();
   const_iterator cend();
+  class const_reverse_iterator {
+  public:
+    using iterator_category = std::bidirectional_iterator_tag;
+    using value_type = std::tuple<N, N, E>;
+    using reference = std::tuple<const N &, const N &, const E &>;
+    using pointer = std::tuple<const N *, const N *, const E *>;
+    using difference_type = int;
 
+    reference operator*() const {
+      return {outer_->first, inner_->first.lock()->getVal(), *(inner_->second)};
+    }
+
+    const_iterator &operator++();
+    const_iterator operator++(int) {
+      auto copy{*this};
+      ++(*this);
+      return copy;
+    }
+    const_iterator &operator--();
+    const_iterator operator--(int) {
+      auto copy{*this};
+      --(*this);
+      return copy;
+    }
+
+  private:
+    friend class Node;
+    typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator outer_;
+    const typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator sentinel_;
+    typename std::vector<
+        std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::const_reverse_iterator inner_;
+    friend bool operator == (const Graph<N, E>::const_reverse_iterator &lhs,
+                           const const_reverse_iterator &rhs) {
+      return lhs.outer_ == rhs.outer_ &&
+             (lhs.outer_ == lhs.sentinel_ || lhs.inner_ == rhs.inner_);
+    };
+    friend bool operator!=(const Graph<N, E>::const_reverse_iterator &lhs,
+                           const Graph<N, E>::const_reverse_iterator &rhs) {
+      return !(lhs == rhs);
+    }
+
+  public:
+    const_reverse_iterator(const decltype(outer_) &outer,
+                   const decltype(sentinel_) &sentinel,
+                   const decltype(inner_) &inner)
+        : outer_{outer}, sentinel_{sentinel}, inner_{inner} {
+      // std::cout << outer_->first << "\n"
+      //           << inner_->first.lock()->getVal() << "\n"
+      //           << *(inner_->second) << "\n";
+    }
+  };
+  const_reverse_iterator crbegin();
+  const_reverse_iterator crend();
 private:
   std::map<N, std::shared_ptr<Node>> nodes_;
   mutable typename std::map<N, std::shared_ptr<Node>>::const_iterator Iter;

@@ -263,37 +263,24 @@ bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
   return true;
 }
 
-template <typename N, typename E>
-typename std::map<
-    N, std::shared_ptr<typename gdwg::Graph<N, E>::Node>>::const_iterator
-gdwg::Graph<N, E>::begin() const {
-  Iter = nodes_.cbegin();
-  return Iter;
-}
-
-template <typename N, typename E>
-typename std::map<
-    N, std::shared_ptr<typename gdwg::Graph<N, E>::Node>>::const_iterator
-gdwg::Graph<N, E>::end() const {
-  Iter = nodes_.cend();
-  return Iter;
-}
+//template <typename N, typename E>
+//typename std::map<
+//    N, std::shared_ptr<typename gdwg::Graph<N, E>::Node>>::const_iterator
+//gdwg::Graph<N, E>::begin() const {
+//  Iter = nodes_.cbegin();
+//  return Iter;
+//}
+//
+//template <typename N, typename E>
+//typename std::map<
+//    N, std::shared_ptr<typename gdwg::Graph<N, E>::Node>>::const_iterator
+//gdwg::Graph<N, E>::end() const {
+//  Iter = nodes_.cend();
+//  return Iter;
+//}
 
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cbegin() {
-  auto first =
-      std::find_if(nodes_.begin(), nodes_.end(),
-                   [](const std::pair<N, std::shared_ptr<Node>> &curr) {
-                     return !(curr.second->getEdges().empty());
-                   });
-  if (first != nodes_.end()) {
-    return {first, nodes_.end(), first->second->getEdges().begin()};
-  }
-  return cend();
-}
-
-template <typename N, typename E>
-typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::begin() {
   auto first =
       std::find_if(nodes_.begin(), nodes_.end(),
                    [](const std::pair<N, std::shared_ptr<Node>> &curr) {
@@ -321,21 +308,6 @@ operator++() {
   return *this;
 }
 
-template <typename N, typename E>
-typename gdwg::Graph<N, E>::const_iterator &gdwg::Graph<N, E>::const_iterator::
-operator--() {
-  ++inner_;
-  if (inner_ == outer_->second->getEdges().end()) {
-    do {
-      ++outer_;
-    } while (outer_ != sentinel_ && outer_->second->getEdges().begin() ==
-                                    outer_->second->getEdges().end());
-    if (outer_ != sentinel_) {
-      inner_ = outer_->second->getEdges().begin();
-    }
-  }
-  return *this;
-}
 
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cend() {
@@ -344,3 +316,21 @@ typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cend() {
 
 
 
+template <typename N, typename E>
+typename gdwg::Graph<N, E>::const_reverse_iterator gdwg::Graph<N, E>::crbegin() {
+  auto first =
+      std::find_if(nodes_.crbegin(), nodes_.crend(),
+                   [](const std::pair<N, std::shared_ptr<Node>> &curr) {
+                     return !(curr.second->getEdges().empty());
+                   });
+  if (first != nodes_.crend()) {
+    return {first, nodes_.crend(), first->second->getEdges().crbegin()};
+  }
+  return crend();
+}
+
+
+template <typename N, typename E>
+typename gdwg::Graph<N, E>::const_reverse_iterator gdwg::Graph<N, E>::crend() {
+  return {nodes_.crend(), nodes_.crend(), {}};
+}
