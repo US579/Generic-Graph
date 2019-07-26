@@ -299,6 +299,7 @@ operator++() {
   ++inner_;
   if (inner_ == outer_->second->getEdges().end()) {
     do {
+//      std::cout<<"{{{{{{{{{{{{"<<"\n";
       ++outer_;
     } while (outer_ != sentinel_ && outer_->second->getEdges().begin() ==
                                         outer_->second->getEdges().end());
@@ -331,16 +332,12 @@ typename gdwg::Graph<N, E>::const_reverse_iterator gdwg::Graph<N, E>::crbegin() 
 }
 
 
-template <typename N, typename E>
-typename gdwg::Graph<N, E>::const_reverse_iterator gdwg::Graph<N, E>::crend() {
-  return {nodes_.crend(), nodes_.crend(), {}};
-}
 
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_reverse_iterator &gdwg::Graph<N, E>::const_reverse_iterator::
 operator++() {
   ++inner_;
-  if (inner_ == outer_->second->getEdges().crend()) {
+  if (inner_ == outer_->second->getEdges().rend()) {
     do {
       ++outer_;
     } while (outer_ != sentinel_ && outer_->second->getEdges().crbegin() ==
@@ -350,4 +347,10 @@ operator++() {
     }
   }
   return *this;
+}
+
+
+template <typename N, typename E>
+typename gdwg::Graph<N, E>::const_reverse_iterator gdwg::Graph<N, E>::crend() {
+  return {nodes_.crend(), nodes_.crend(), {}};
 }

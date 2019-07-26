@@ -43,10 +43,35 @@ int main() {
 //  }
 
 
-  for (auto tup2 = o.crbegin(); tup2 != o.crend(); ++tup2) {
-    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+//  auto tup2 = o.cbegin();
+//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+//            << std::get<2>(*tup2) << "\n";
+//  ++tup2;
+//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+//            << std::get<2>(*tup2) << "\n";
+//  ++tup2;
+//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+//            << std::get<2>(*tup2) << "\n";
+//  --tup2;
+//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+//            << std::get<2>(*tup2) << "\n";
+
+
+
+//  for (auto tup2 = o.crbegin(); tup2 != o.crend(); ++tup2) {
+//    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+//              << std::get<2>(*tup2) << "\n";
+//  }
+  auto tup2 = o.crbegin();
+  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
               << std::get<2>(*tup2) << "\n";
-  }
+  ++tup2;
+  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+              << std::get<2>(*tup2) << "\n";
+  ++tup2;
+  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+            << std::get<2>(*tup2) << "\n";
+
 
 //
 //

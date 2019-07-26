@@ -37,8 +37,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="381">
-                    <caret line="260" column="16" selection-start-line="260" selection-start-column="16" selection-end-line="260" selection-end-column="16" />
+                  <state relative-caret-position="716">
+                    <caret line="338" selection-start-line="338" selection-end-line="338" />
                     <folding>
                       <element signature="e#1442#1466#0" expanded="true" />
                       <element signature="e#1793#1817#0" expanded="true" />
@@ -58,7 +58,6 @@
                       <element signature="e#6732#6756#0" expanded="true" />
                       <element signature="e#7137#7161#0" expanded="true" />
                       <element signature="e#7548#7572#0" expanded="true" />
-                      <element signature="e#10066#10090#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -71,11 +70,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="209" column="56" selection-start-line="209" selection-start-column="56" selection-end-line="209" selection-end-column="56" />
+            <state relative-caret-position="118">
+              <caret line="183" selection-start-line="183" selection-end-line="189" />
               <folding>
                 <element signature="e#64#83#0" expanded="true" />
               </folding>
@@ -83,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-330">
-              <caret line="35" selection-start-line="35" selection-start-column="2" selection-end-line="37" selection-end-column="46" />
+            <state relative-caret-position="343">
+              <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -103,6 +102,7 @@
       <find>IsNode</find>
       <find>[]</find>
       <find>getEdge</find>
+      <find>nodes_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,15 +111,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../assignments/dg/client.cpp" />
-        <option value="$PROJECT_DIR$/../assignments/dg/graph.h" />
         <option value="$PROJECT_DIR$/../assignments/dg/graph.tpp" />
+        <option value="$PROJECT_DIR$/../assignments/dg/graph.h" />
+        <option value="$PROJECT_DIR$/../assignments/dg/client.cpp" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="720" />
+    <option name="width" value="726" />
     <option name="height" value="852" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -192,18 +192,21 @@
       <workItem from="1564013305286" duration="3306000" />
       <workItem from="1564025310976" duration="16393000" />
       <workItem from="1564056247313" duration="7103000" />
-      <workItem from="1564065610486" duration="1489000" />
+      <workItem from="1564065610486" duration="2448000" />
+      <workItem from="1564096016449" duration="847000" />
+      <workItem from="1564097061375" duration="2558000" />
+      <workItem from="1564125372500" duration="298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28681000" />
+    <option name="totallyTimeSpent" value="33343000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="720" height="852" extended-state="0" />
+    <frame x="0" y="23" width="726" height="852" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.044247787" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.045321636" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -215,8 +218,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.22566372" side_tool="true" visible="true" weight="0.2973684" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.7743363" visible="true" weight="0.2973684" />
+      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.2646199" side_tool="true" weight="0.34736842" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.7353801" visible="true" weight="0.34736842" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Blaze Problems" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -250,30 +253,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="209" column="56" selection-start-line="209" selection-start-column="56" selection-end-line="209" selection-end-column="56" />
-          <folding>
-            <element signature="e#64#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="35" selection-start-line="35" selection-start-column="2" selection-end-line="37" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="260" column="16" selection-start-line="260" selection-start-column="16" selection-end-line="260" selection-end-column="16" />
+        <state relative-caret-position="716">
+          <caret line="338" selection-start-line="338" selection-end-line="338" />
           <folding>
             <element signature="e#1442#1466#0" expanded="true" />
             <element signature="e#1793#1817#0" expanded="true" />
@@ -293,7 +276,26 @@
             <element signature="e#6732#6756#0" expanded="true" />
             <element signature="e#7137#7161#0" expanded="true" />
             <element signature="e#7548#7572#0" expanded="true" />
-            <element signature="e#10066#10090#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="183" selection-start-line="183" selection-end-line="189" />
+          <folding>
+            <element signature="e#64#83#0" expanded="true" />
           </folding>
         </state>
       </provider>

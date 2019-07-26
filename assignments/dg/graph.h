@@ -6,6 +6,8 @@
 #include <memory>
 #include <vector>
 
+
+
 namespace gdwg {
 template <typename N, typename E> class Graph {
 public:
@@ -124,6 +126,12 @@ public:
       --(*this);
       return copy;
     }
+//    const_iterator operator-- (int) {
+//      const_iterator temp = *this;
+//      operator--();
+//
+//      return temp;
+//    }
 
   private:
     friend class Node;
@@ -179,6 +187,7 @@ public:
       --(*this);
       return copy;
     }
+
 
   private:
     friend class Node;
