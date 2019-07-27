@@ -17,7 +17,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c930414f-b587-4da2-9e0b-55dc3cd3b02d" name="Default Changelist" comment="" />
+    <list default="true" id="c930414f-b587-4da2-9e0b-55dc3cd3b02d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../assignments/dg/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/client.cpp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +34,7 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="234">
+                  <state relative-caret-position="243">
                     <caret line="181" column="7" selection-start-line="181" selection-start-column="7" selection-end-line="181" selection-end-column="7" />
                     <folding>
                       <element signature="e#43#67#0" expanded="true" />
@@ -95,8 +97,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+            <state relative-caret-position="334">
+              <caret line="229" selection-start-line="229" selection-start-column="2" selection-end-line="230" selection-end-column="3" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -139,7 +141,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -156,6 +157,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -226,11 +228,12 @@
       <workItem from="1564236009031" duration="8000" />
       <workItem from="1564236042213" duration="935000" />
       <workItem from="1564266101122" duration="13000" />
+      <workItem from="1564266125760" duration="278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53313000" />
+    <option name="totallyTimeSpent" value="53591000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="719" height="852" extended-state="0" />
@@ -247,8 +250,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info active="true" anchor="bottom" id="Blaze Console" order="9" sideWeight="0.29394388" side_tool="true" visible="true" weight="0.34078947" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.7060561" visible="true" weight="0.34078947" />
+      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.29542097" side_tool="true" visible="true" weight="0.34078947" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.704579" visible="true" weight="0.34078947" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Blaze Problems" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -300,19 +303,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="243">
           <caret line="181" column="7" selection-start-line="181" selection-start-column="7" selection-end-line="181" selection-end-column="7" />
           <folding>
             <element signature="e#43#67#0" expanded="true" />
@@ -347,6 +340,16 @@
             <element signature="e#10044#10068#0" expanded="true" />
             <element signature="e#10519#10543#0" expanded="true" />
             <element signature="e#10683#10707#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="229" selection-start-line="229" selection-start-column="2" selection-end-line="230" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
