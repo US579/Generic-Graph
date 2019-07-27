@@ -316,6 +316,7 @@ typename gdwg::Graph<N, E>::const_iterator gdwg::Graph<N, E>::cend() {
 }
 
 
+
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_reverse_iterator gdwg::Graph<N, E>::crbegin() {
   auto first =
@@ -334,17 +335,58 @@ typename gdwg::Graph<N, E>::const_reverse_iterator gdwg::Graph<N, E>::crbegin() 
 }
 
 
+
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_reverse_iterator &gdwg::Graph<N, E>::const_reverse_iterator::
 operator++() {
+//  ++inner_;
+//
+//  if (inner_ == outer_->second->getEdges().crend()) {std::cout<<")))))))))))"<<"\n";}
+//  std::cout<<*(inner_->second)<<"\n";
+//
+//  ++outer_;
+//  inner_ = outer_->second->getEdges().crbegin();
+////  --inner_;
+//  std::cout<<*(inner_->second)<<"\n";
+//  if (inner_ == outer_->second->getEdges().crend()) {std::cout<<")))))))))))"<<"\n";}
+//  ++inner_;
+//  std::cout<<*(inner_->second)<<"\n";
+//  if (inner_ == outer_->second->getEdges().crend()) {std::cout<<"_______"<<"\n";}
+//  ++inner_;
+//  if (inner_ == outer_->second->getEdges().crend()) {std::cout<<"==========_"<<"\n";}
+//  ++outer_;
+//  inner_ = outer_->second->getEdges().crbegin();
+//  std::cout<<*(inner_->second)<<"\n";
+//
+//  std::cout<<(outer_->second)->getEdges()[0].first.lock()->getVal()<<"\n";
+//  std::cout<<(outer_->second)->getEdges().crbegin()->first.lock()->getVal()<<"\n";
+//  auto it = (outer_->second)->getEdges().crbegin();
+//  ++it;
+//  if (it == outer_->second->getEdges().crend()) {std::cout<<"adsfsd"<<"\n";}
+//  std::cout<<it->first.lock()->getVal()<<"\n";
+//  std::cout<<"&&&&&&&&"<<"\n";
+
+
+//  if (inner_ == outer_->second->getEdges().crend()) {std::cout<<")))))))))))"<<"\n";}
   ++inner_;
-  if (inner_ == outer_->second->getEdges().rend()) {
+  if (inner_ == outer_->second->getEdges().crend()) {std::cout<<")))))))))))"<<"\n";}
+//  std::cout<<"**inner"<<"\n";
+  std::cout<< *(outer_->first)->getVal()<<"-...-"<<inner_->first.lock()->getVal()<<"-.......-"<< *(inner_->second)<<"\n";
+  std::cout<<"**inner"<<*(inner_->second)<<"\n";
+//  ++inner_;
+  std::cout<<*(inner_->second)<<"\n";
+
+  if (inner_ == outer_->second->getEdges().crend()) {
     do {
+      std::cout<<"++++++++++"<<"\n";
       ++outer_;
     } while (outer_ != sentinel_ && outer_->second->getEdges().crbegin() ==
                                     outer_->second->getEdges().crend());
+    std::cout<<"llllll"<<"\n";
     if (outer_ != sentinel_) {
       inner_ = outer_->second->getEdges().crbegin();
+      std::cout<<"++++++++++"<<"\n";
+      std::cout<<*(inner_->second)<<"\n";
     }
   }
   return *this;

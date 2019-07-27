@@ -1,8 +1,16 @@
-#include <string>
-
-#include <iostream>
-
 #include "assignments/dg/graph.h"
+
+#include <string>
+#include <iostream>
+#include <iterator>
+#include <map>
+#include <memory>
+#include <ostream>
+#include <tuple>
+#include <utility>
+#include <vector>
+
+
 
 int main() {
   gdwg::Graph<std::string, double> g1;
@@ -21,7 +29,9 @@ int main() {
   b.InsertEdge("a", "d", 3);
   b.InsertEdge("b", "c", 4);
   b.InsertEdge("b", "d", 5);
-  b.InsertEdge("c", "c", 6);
+  b.InsertEdge("c", "d", 6);
+//  b.InsertEdge("a", "c", 2);
+//  b.InsertEdge("a", "d", 3);
   // gdwg::Graph<std::string, double> a = b;
   // a.printG();
   gdwg::Graph<std::string, double> o = std::move(b);
@@ -36,7 +46,7 @@ int main() {
 //   auto tup1 = o.crbegin();
 //  std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
 //              << std::get<2>(*tup1) << "\n";
-
+//
 //  for (auto tup1 = o.cbegin(); tup1 != o.cend(); ++tup1) {
 //    std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
 //              << std::get<2>(*tup1) << "\n";
@@ -58,23 +68,22 @@ int main() {
 
 
 
-//  for (auto tup2 = o.crbegin(); tup2 != o.crend(); ++tup2) {
-//    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+  for (auto tup2 = o.crbegin(); tup2 != o.crend(); ++tup2) {
+    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+              << std::get<2>(*tup2) << "\n";
+  }
+//  auto tup2 = o.crbegin();
+//  std::cout << std::get<0>(*tup2) << "-1111" << std::get<1>(*tup2) << "-"
 //              << std::get<2>(*tup2) << "\n";
-//  }
-  auto tup2 = o.crbegin();
-  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-              << std::get<2>(*tup2) << "\n";
-  ++tup2;
-  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-              << std::get<2>(*tup2) << "\n";
-  ++tup2;
-  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-            << std::get<2>(*tup2) << "\n";
-
-
 //
-//
+//  ++tup2;
+//  std::cout << std::get<0>(*tup2) << "-222" << std::get<1>(*tup2) << "-"
+//              << std::get<2>(*tup2) << "\n";
+//  ++tup2;
+
+//  ++tup2;
+//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+//            << std::get<2>(*tup2) << "\n";
 
 
   // // if (o == aCopy) {

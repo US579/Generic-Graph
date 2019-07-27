@@ -19,6 +19,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c930414f-b587-4da2-9e0b-55dc3cd3b02d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignments/dg/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/graph.tpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph.tpp" afterDir="false" />
@@ -37,8 +38,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="716">
-                    <caret line="338" selection-start-line="338" selection-end-line="338" />
+                  <state relative-caret-position="243">
+                    <caret line="313" column="62" selection-start-line="313" selection-start-column="62" selection-end-line="313" selection-end-column="62" />
                     <folding>
                       <element signature="e#1442#1466#0" expanded="true" />
                       <element signature="e#1793#1817#0" expanded="true" />
@@ -73,10 +74,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="183" selection-start-line="183" selection-end-line="189" />
+            <state relative-caret-position="1267">
+              <caret line="223" column="4" selection-start-line="223" selection-start-column="4" selection-end-line="223" selection-end-column="4" />
               <folding>
                 <element signature="e#64#83#0" expanded="true" />
+                <element signature="e#239#263#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,10 +87,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
+            <state>
+              <caret line="74" selection-start-line="74" selection-start-column="2" selection-end-line="76" selection-end-column="46" />
               <folding>
-                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#0#33#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,8 +114,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../assignments/dg/graph.tpp" />
-        <option value="$PROJECT_DIR$/../assignments/dg/graph.h" />
         <option value="$PROJECT_DIR$/../assignments/dg/client.cpp" />
+        <option value="$PROJECT_DIR$/../assignments/dg/graph.h" />
       </list>
     </option>
   </component>
@@ -195,12 +197,19 @@
       <workItem from="1564065610486" duration="2448000" />
       <workItem from="1564096016449" duration="847000" />
       <workItem from="1564097061375" duration="2558000" />
-      <workItem from="1564125372500" duration="298000" />
+      <workItem from="1564125372500" duration="18391000" />
+      <workItem from="1564216311789" duration="81000" />
+      <workItem from="1564218275281" duration="17000" />
+      <workItem from="1564218315151" duration="35000" />
+      <workItem from="1564218374394" duration="8000" />
+      <workItem from="1564218390235" duration="27000" />
+      <workItem from="1564218431716" duration="11000" />
+      <workItem from="1564218465078" duration="190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33343000" />
+    <option name="totallyTimeSpent" value="51805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="726" height="852" extended-state="0" />
@@ -218,8 +227,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.2646199" side_tool="true" weight="0.34736842" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.7353801" visible="true" weight="0.34736842" />
+      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.2748538" side_tool="true" visible="true" weight="0.34078947" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.7251462" visible="true" weight="0.34078947" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Blaze Problems" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -253,10 +262,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/ostream">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="788" selection-start-line="788" selection-end-line="788" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="74" selection-start-line="74" selection-start-column="2" selection-end-line="76" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="716">
-          <caret line="338" selection-start-line="338" selection-end-line="338" />
+        <state relative-caret-position="243">
+          <caret line="313" column="62" selection-start-line="313" selection-start-column="62" selection-end-line="313" selection-end-column="62" />
           <folding>
             <element signature="e#1442#1466#0" expanded="true" />
             <element signature="e#1793#1817#0" expanded="true" />
@@ -280,22 +306,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="183" selection-start-line="183" selection-end-line="189" />
+        <state relative-caret-position="1267">
+          <caret line="223" column="4" selection-start-line="223" selection-start-column="4" selection-end-line="223" selection-end-column="4" />
           <folding>
             <element signature="e#64#83#0" expanded="true" />
+            <element signature="e#239#263#0" expanded="true" />
           </folding>
         </state>
       </provider>
