@@ -74,12 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1267">
-              <caret line="223" column="4" selection-start-line="223" selection-start-column="4" selection-end-line="223" selection-end-column="4" />
-              <folding>
-                <element signature="e#64#83#0" expanded="true" />
-                <element signature="e#239#263#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="424">
+              <caret line="249" selection-start-line="249" selection-end-line="249" />
             </state>
           </provider>
         </entry>
@@ -205,15 +201,15 @@
       <workItem from="1564218390235" duration="27000" />
       <workItem from="1564218431716" duration="11000" />
       <workItem from="1564218465078" duration="190000" />
+      <workItem from="1564232859729" duration="28000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51805000" />
+    <option name="totallyTimeSpent" value="51833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="726" height="852" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.045321636" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -227,8 +223,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.2748538" side_tool="true" visible="true" weight="0.34078947" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.7251462" visible="true" weight="0.34078947" />
+      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.27631578" side_tool="true" visible="true" weight="0.34078947" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.7236842" visible="true" weight="0.34078947" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Blaze Problems" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -308,12 +304,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1267">
-          <caret line="223" column="4" selection-start-line="223" selection-start-column="4" selection-end-line="223" selection-end-column="4" />
-          <folding>
-            <element signature="e#64#83#0" expanded="true" />
-            <element signature="e#239#263#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="424">
+          <caret line="249" selection-start-line="249" selection-end-line="249" />
         </state>
       </provider>
     </entry>
