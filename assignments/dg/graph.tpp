@@ -90,14 +90,8 @@ bool gdwg::Graph<N, E>::InsertEdge(const N &src, const N &dst, const E &w) {
     throw std::runtime_error{"Cannot call Graph::InsertEdge when either src or "
                              "dst node does not exist"};
   }
-  //   auto srcNode = nodes_.at(src);
   std::weak_ptr<Node> wDst = nodes_.at(dst);
-  //   auto weights = srcNode->isWeight(dst, w);
-  //   if (!weights) {
   return nodes_.at(src)->InsertEdge(wDst, w);
-  // return true;
-  //   }
-  //   return false;
 }
 
 template <typename N, typename E>
@@ -122,9 +116,6 @@ bool gdwg::Graph<N, E>::Replace(const N &oldData, const N &newData) {
   if (IsNode(newData)) {
     return false;
   }
-  //   auto nodeHandler = nodes_.extract(oldData);
-  //   nodeHandler.key() = newData;
-  //   nodes_.insert(std::move(nodeHandler));
   auto node = nodes_.at(oldData);
   nodes_.erase(oldData);
   node->Replace(newData);
@@ -142,31 +133,13 @@ void gdwg::Graph<N, E>::MergeReplace(const N &oldData, const N &newData) {
   }
   auto newNode = nodes_.at(newData);
   auto oldNode = nodes_.at(oldData);
-  // auto newEdges = newNode->getEdges();
-  // auto oldEdges = oldNode->getEdges();
-  // for (auto newIt = newEdges.begin(); newIt != newEdges.end(); ++newIt) {
-  //   for (auto oldIt = oldEdges.begin(); oldIt != oldEdges.end(); ++oldIt) {
-  //     auto linkNodeOld = newIt->first.lock()->getVal();
-  //     auto linkNodeNew = oldIt->first.lock()->getVal();
-  //     if (linkNodeOld == linkNodeNew && *newIt->second == *oldIt->second) {
-  //       // std::cout << "duplicate!!\n";
-  //       erase(oldData, linkNodeOld, *oldIt->second);
-  //     }
-  //   }
-  // }
-  // need a redirect
   for (auto oldEdge : oldNode->getEdges()){
     newNode->InsertEdge(oldEdge.first, *(oldEdge.second));
     oldNode->deleteEdge(oldEdge.first.lock()->getVal(), *(oldEdge.second));
   }
-
-  // auto node = nodes_.at(oldData);
   nodes_.erase(oldData);
-  // oldNode->Replace(newData);
-
   const auto &couple = std::make_pair(newData, newNode);
   nodes_.insert(couple);
-  //   Replace(oldData, newData);
 }
 
 template <typename N, typename E> void gdwg::Graph<N, E>::Graph::Clear() {
@@ -201,8 +174,12 @@ std::vector<N> gdwg::Graph<N, E>::GetConnected(const N &src) {
   std::vector<N> nodes;
   auto node = nodes_.at(src);
   for (auto edge : node->getEdges()) {
-    nodes.push_back(edge.first.lock()->getVal());
+    auto n = edge.first.lock()->getVal();
+    if(std::find(nodes.begin(), nodes.end(), n) == nodes.end()) {
+      nodes.push_back(n);
+    }
   }
+  std::sort(nodes.begin(), nodes.end());
   return nodes;
 }
 
@@ -216,6 +193,7 @@ std::vector<E> gdwg::Graph<N, E>::Graph::GetWeights(const N &src,
   for (auto i : weights) {
     std::cout << i << "\n";
   }
+  std::sort(weights.begin(), weights.end());
   return weights;
 }
 

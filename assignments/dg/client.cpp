@@ -10,6 +10,9 @@ int main() {
   //  gdwg::Graph<int, int> g;
   // test for vector iterator constructor
   std::vector<std::string> v{"a", "b", "c", "d"};
+  // std::sort(v.begin(),v.end());
+  // for (auto s : v)
+  //   std::cout << s << "\n";
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
   b.InsertEdge("a", "b", 1);
   // gdwg::Graph<std::string, double> aCopy{b};
@@ -36,7 +39,9 @@ int main() {
   b.MergeReplace("a", "b");
   std::cout << b << "\n";
 
-
+  auto a = b.GetConnected("b");
+  for (auto s : a)
+  std::cout << s << "\n";
   // getnodes()
   // std::vector<std::string> s = o.GetNodes();
   // for (auto a : s) {
