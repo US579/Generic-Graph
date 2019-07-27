@@ -9,66 +9,94 @@
 #include <tuple>
 #include <utility>
 #include <vector>
-
-
 int main() {
-  gdwg::Graph<std::string, double> g1;
-  //  gdwg::Graph<int, int> g;
-  // test for vector iterator constructor
-  std::vector<std::string> v{"a", "b", "c", "d"};
-  gdwg::Graph<std::string, double> b{v.begin(), v.end()};
-  b.InsertEdge("a", "b", 1);
-  // gdwg::Graph<std::string, double> aCopy{b};
-  // aCopy.printG();
-  //  b.printG();
-  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
-  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
-  //  gdwg::Graph<char, std::string> x{'a', 'b', 'x', 'y'};
-  b.InsertEdge("a", "c", 2);
-  b.InsertEdge("a", "d", 3);
-  b.InsertEdge("b", "c", 4);
-  b.InsertEdge("b", "d", 5);
-  b.InsertEdge("c", "d", 6);
+  gdwg::Graph<std::string, int> g;
+  g.InsertNode("hello");
+  g.InsertNode("how");
+  g.InsertNode("are");
+  g.InsertNode("you?");
+
+  g.InsertEdge("hello", "how", 5);
+  g.InsertEdge("hello", "are", 8);
+  g.InsertEdge("hello", "are", 2);
+
+  g.InsertEdge("how", "you?", 1);
+  g.InsertEdge("how", "hello", 4);
+
+  g.InsertEdge("are", "you?", 3);
+
+  std::cout << g << '\n';
+
+  gdwg::Graph<std::string, int> g2{g};
+
+  std::cout << g2 << "\n";
+
+  // This is a structured binding.
+  // https://en.cppreference.com/w/cpp/language/structured_binding
+  // It allows you to unpack your tuple.
+  for (const auto& [from, to, weight] : g) {
+    std::cout << from << " -> " << to << " (weight " << weight << ")\n";
+  }
+}
+//
+//int main() {
+//  gdwg::Graph<std::string, double> g1;
+//  //  gdwg::Graph<int, int> g;
+//  // test for vector iterator constructor
+//  std::vector<std::string> v{"a", "b", "c", "d"};
+//  gdwg::Graph<std::string, double> b{v.begin(), v.end()};
+//  b.InsertEdge("a", "b", 1);
+//  // gdwg::Graph<std::string, double> aCopy{b};
+//  // aCopy.printG();
+//  //  b.printG();
+//  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+//  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+//  //  gdwg::Graph<char, std::string> x{'a', 'b', 'x', 'y'};
 //  b.InsertEdge("a", "c", 2);
 //  b.InsertEdge("a", "d", 3);
-  // gdwg::Graph<std::string, double> a = b;
-  // a.printG();
-//  gdwg::Graph<std::string, double> o = std::move(b);
-  // o.printG();
-  // b.printG();
-
-  // // if (o == aCopy) {
-  // std::cout << "appppppppppppppppp"
-  //           << "\n";
-  // // }
-  // std::cout <<
-//   auto tup1 = o.crbegin();
-//  std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
-//              << std::get<2>(*tup1) << "\n";
+//  b.InsertEdge("b", "c", 4);
+//  b.InsertEdge("b", "d", 5);
+//  b.InsertEdge("c", "d", 6);
+////  b.InsertEdge("a", "c", 2);
+////  b.InsertEdge("a", "d", 3);
+//  // gdwg::Graph<std::string, double> a = b;
+//  // a.printG();
+////  gdwg::Graph<std::string, double> o = std::move(b);
+//  // o.printG();
+//  // b.printG();
 //
-
-
-
-//  auto tup2 = o.cbegin();
-//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//            << std::get<2>(*tup2) << "\n";
-//  ++tup2;
-//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//            << std::get<2>(*tup2) << "\n";
-//  ++tup2;
-//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//            << std::get<2>(*tup2) << "\n";
-//  --tup2;
-//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//            << std::get<2>(*tup2) << "\n";
-
-
-
-  for (auto tup2 = b.crbegin(); tup2 != b.crend(); ++tup2) {
-    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-              << std::get<2>(*tup2) << "\n";
-  }
-//  auto tup2 = o.crbegin();
+//  // // if (o == aCopy) {
+//  // std::cout << "appppppppppppppppp"
+//  //           << "\n";
+//  // // }
+//  // std::cout <<
+////   auto tup1 = o.crbegin();
+////  std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
+////              << std::get<2>(*tup1) << "\n";
+////
+//
+//
+//
+////  auto tup2 = o.cbegin();
+////  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+////            << std::get<2>(*tup2) << "\n";
+////  ++tup2;
+////  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+////            << std::get<2>(*tup2) << "\n";
+////  ++tup2;
+////  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+////            << std::get<2>(*tup2) << "\n";
+////  --tup2;
+////  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+////            << std::get<2>(*tup2) << "\n";
+//
+//
+//
+//  for (auto tup2 = b.crbegin(); tup2 != b.crend(); ++tup2) {
+//    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+//              << std::get<2>(*tup2) << "\n";
+//  }
+////  auto tup2 = o.crbegin();
 //  std::cout << std::get<0>(*tup2) << "-1111" << std::get<1>(*tup2) << "-"
 //              << std::get<2>(*tup2) << "\n";
 //
