@@ -11,7 +11,7 @@
 
 namespace gdwg {
 template <typename N, typename E> class Graph {
-public:
+ public:
   class Node;
   class const_iterator;
   class const_reverse_iterator;
@@ -40,9 +40,9 @@ public:
   std::vector<N> GetNodes();
   std::vector<N> GetConnected(const N &src);
   std::vector<E> GetWeights(const N &src, const N &dst);
-  const_iterator find(const N &, const N &, const E &); // no finish
+  const_iterator find(const N &, const N &, const E &);
   bool erase(const N &src, const N &dst, const E &w);
-  // const_iterator erase(const_iterator it); // not finish
+  const_iterator erase(const_iterator it);
   const_iterator cbegin();
   const_iterator begin() { return cbegin(); }
   const_iterator cend();
@@ -51,6 +51,7 @@ public:
   const_reverse_iterator rbegin() { return crbegin(); }
   const_reverse_iterator crend();
   const_reverse_iterator rend() { return crend(); }
+
   // 2.4. Friends
   friend bool operator==(const gdwg::Graph<N, E> &a,
                          const gdwg::Graph<N, E> &b) {
@@ -73,7 +74,7 @@ public:
       return false;
     for (auto &n : a.nodes_) {
       auto bNode = b.nodes_.at(n.first);
-      for (unsigned long i = 0; i < bNode->getEdges().size(); ++i) {
+      for (auto i = 0; i < static_cast<int>(bNode->getEdges().size()); ++i) {
         if (*(bNode->getEdges()[i].second) !=
                 *((n.second)->getEdges()[i].second) ||
             bNode->getEdges()[i].first.lock()->getVal() !=
@@ -92,7 +93,8 @@ public:
     auto it = g.begin();
     for (auto node = g.nodes_.begin(); node != g.nodes_.end(); ++node) {
       o << node->first << " ( \n";
-      for (unsigned long i = 0; i < node->second->getEdges().size(); ++i) {
+      for (auto i = 0; i < static_cast<int>(node->second->getEdges().size());
+           ++i) {
         o << "  " << std::get<1>(*it) << " | " << std::get<2>(*it) << "\n";
         ++it;
       }
@@ -101,9 +103,9 @@ public:
     return o;
   }
   class Node {
-  public:
+   public:
     friend class const_iterator;
-    Node(const N &v) {
+    explicit Node(const N &v) {
       N newV = v;
       val_ = std::make_shared<N>(newV);
     }
@@ -118,15 +120,14 @@ public:
     bool deleteEdge(const std::shared_ptr<Node> &inEdge);
     bool deleteEdge(const N &inEdge, const E &w);
 
-  private:
+   private:
     friend class const_iterator;
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;
     // std::map<std::weak_ptr<Node>, E> edges_;
   };
-  void printG();
   class const_iterator {
-  public:
+   public:
     using iterator_category = std::bidirectional_iterator_tag;
     using value_type = std::tuple<N, N, E>;
     using reference = std::tuple<const N &, const N &, const E &>;
@@ -150,7 +151,7 @@ public:
       return copy;
     }
 
-  private:
+   private:
     friend class Node;
     typename std::map<N, std::shared_ptr<Node>>::iterator outer_;
     const typename std::map<N, std::shared_ptr<Node>>::iterator sentinel_;
@@ -160,13 +161,13 @@ public:
                            const Graph<N, E>::const_iterator &rhs) {
       return lhs.outer_ == rhs.outer_ &&
              (lhs.outer_ == lhs.sentinel_ || lhs.inner_ == rhs.inner_);
-    };
+    }
     friend bool operator!=(const Graph<N, E>::const_iterator &lhs,
                            const Graph<N, E>::const_iterator &rhs) {
       return !(lhs == rhs);
     }
 
-  public:
+   public:
     const_iterator(const decltype(outer_) &outer,
                    const decltype(sentinel_) &sentinel,
                    const decltype(inner_) &inner)
@@ -178,7 +179,7 @@ public:
   };
 
   class const_reverse_iterator {
-  public:
+   public:
     using iterator_category = std::bidirectional_iterator_tag;
     using value_type = std::tuple<N, N, E>;
     using reference = std::tuple<const N &, const N &, const E &>;
@@ -202,7 +203,7 @@ public:
       return copy;
     }
 
-  private:
+   private:
     friend class Node;
     typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator outer_;
     const typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator
@@ -213,25 +214,25 @@ public:
                            const Graph<N, E>::const_reverse_iterator &rhs) {
       return lhs.outer_ == rhs.outer_ &&
              (lhs.outer_ == lhs.sentinel_ || lhs.inner_ == rhs.inner_);
-    };
+    }
     friend bool operator!=(const Graph<N, E>::const_reverse_iterator &lhs,
                            const Graph<N, E>::const_reverse_iterator &rhs) {
       return !(lhs == rhs);
     }
 
-  public:
+   public:
     const_reverse_iterator(const decltype(outer_) &outer,
                            const decltype(sentinel_) &sentinel,
                            const decltype(inner_) &inner)
         : outer_{outer}, sentinel_{sentinel}, inner_{inner} {}
   };
 
-private:
+ private:
   std::map<N, std::shared_ptr<Node>> nodes_;
 };
 
-} // namespace gdwg
+}  // namespace gdwg
 
 #include "assignments/dg/graph.tpp"
 
-#endif // ASSIGNMENTS_DG_GRAPH_H_
+#endif  // ASSIGNMENTS_DG_GRAPH_H_

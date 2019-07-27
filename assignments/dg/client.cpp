@@ -1,6 +1,7 @@
-#include <string>
-
 #include <iostream>
+#include <string>
+#include <utility>
+#include <vector>
 
 #include "assignments/dg/graph.h"
 
@@ -11,7 +12,7 @@ int main() {
   std::vector<std::string> v{"a", "b", "c", "d"};
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
   b.InsertEdge("a", "b", 1);
-  // gdwg::Graph<std::string, double> aCopy{b};
+  gdwg::Graph<std::string, double> aCopy{b};
   // aCopy.printG();
   //  b.printG();
   //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
@@ -25,6 +26,7 @@ int main() {
   // gdwg::Graph<std::string, double> a = b;
   // a.printG();
   gdwg::Graph<std::string, double> o = std::move(b);
+
   // o.printG();
   // b.printG();
 
@@ -40,21 +42,26 @@ int main() {
   //   std::cout << a << "\n";
   // }
 
-  // // if (o == aCopy) {
-  // std::cout << "appppppppppppppppp"
-  //           << "\n";
-  // // }
+  // find()
+  // auto abc = o.find("a", "c", 2);
+  // std::cout << std::get<0>(*abc) << "-" << std::get<1>(*abc) << "-"
+  //           << std::get<2>(*abc) << "\n";
+
+  if (o == aCopy) {
+    std::cout << "appppppppppppppppp"
+              << "\n";
+  }
   // std::cout <<
   // auto tup = o.cbegin();
-  for (auto tup1 = o.cbegin(); tup1 != o.cend(); ++tup1) {
-    std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
-              << std::get<2>(*tup1) << "\n";
-  }
-  std::cout << "\n";
-  for (auto tup2 = o.crbegin(); tup2 != o.crend(); ++tup2) {
-    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-              << std::get<2>(*tup2) << "\n";
-  }
+  // for (auto tup1 = o.cbegin(); tup1 != o.cend(); ++tup1) {
+  //   std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
+  //             << std::get<2>(*tup1) << "\n";
+  // }
+  // std::cout << "\n";
+  // for (auto tup2 = o.crbegin(); tup2 != o.crend(); ++tup2) {
+  //   std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+  //             << std::get<2>(*tup2) << "\n";
+  // }
   // std::cout << "\n";
   std::cout << o;
   // auto tup = o.cbegin();
