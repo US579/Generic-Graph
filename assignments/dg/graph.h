@@ -137,13 +137,13 @@ public:
     void sort() { std::sort(edges_.begin(), edges_.end(), CustomCmp()); }
 
   private:
-    friend class const_iterator;
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;
     // std::map<std::weak_ptr<Node>, E> edges_;
   };
   class const_iterator {
   public:
+    friend class Node;
     using iterator_category = std::bidirectional_iterator_tag;
     using value_type = std::tuple<N, N, E>;
     using reference = std::tuple<const N &, const N &, const E &>;
@@ -168,7 +168,6 @@ public:
     }
 
   private:
-    friend class Node;
     typename std::map<N, std::shared_ptr<Node>>::iterator outer_;
     const typename std::map<N, std::shared_ptr<Node>>::iterator sentinel_;
     typename std::vector<
@@ -220,7 +219,6 @@ public:
     }
 
   private:
-    friend class Node;
     typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator outer_;
     const typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator
         sentinel_;
