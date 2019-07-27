@@ -139,6 +139,7 @@ public:
     friend class const_iterator;
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;
+    // std::map<std::weak_ptr<Node>, E> edges_;
   };
   class const_iterator {
   public:
@@ -186,6 +187,9 @@ public:
                    const decltype(sentinel_) &sentinel,
                    const decltype(inner_) &inner)
         : outer_{outer}, sentinel_{sentinel}, inner_{inner} {
+      // std::cout << outer_->first << "\n"
+      //           << inner_->first.lock()->getVal() << "\n"
+      //           << *(inner_->second) << "\n";
     }
   };
 

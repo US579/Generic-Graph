@@ -19,7 +19,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c930414f-b587-4da2-9e0b-55dc3cd3b02d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignments/dg/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/graph.tpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph.tpp" afterDir="false" />
@@ -38,27 +37,41 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="243">
-                    <caret line="313" column="62" selection-start-line="313" selection-start-column="62" selection-end-line="313" selection-end-column="62" />
+                  <state relative-caret-position="700">
+                    <caret line="373" column="1" selection-start-line="373" selection-start-column="1" selection-end-line="373" selection-end-column="1" />
                     <folding>
-                      <element signature="e#1442#1466#0" expanded="true" />
-                      <element signature="e#1793#1817#0" expanded="true" />
-                      <element signature="e#1973#1997#0" expanded="true" />
-                      <element signature="e#2102#2126#0" expanded="true" />
-                      <element signature="e#2329#2353#0" expanded="true" />
-                      <element signature="e#2848#2872#0" expanded="true" />
-                      <element signature="e#3070#3094#0" expanded="true" />
-                      <element signature="e#3445#3469#0" expanded="true" />
-                      <element signature="e#3719#3743#0" expanded="true" />
-                      <element signature="e#4314#4338#0" expanded="true" />
-                      <element signature="e#5253#5277#0" expanded="true" />
-                      <element signature="e#5349#5373#0" expanded="true" />
-                      <element signature="e#5661#5685#0" expanded="true" />
-                      <element signature="e#5982#6006#0" expanded="true" />
-                      <element signature="e#6463#6487#0" expanded="true" />
-                      <element signature="e#6732#6756#0" expanded="true" />
-                      <element signature="e#7137#7161#0" expanded="true" />
-                      <element signature="e#7548#7572#0" expanded="true" />
+                      <element signature="e#43#67#0" expanded="true" />
+                      <element signature="e#295#319#0" expanded="true" />
+                      <element signature="e#774#798#0" expanded="true" />
+                      <element signature="e#971#995#0" expanded="true" />
+                      <element signature="e#1319#1343#0" expanded="true" />
+                      <element signature="e#1485#1509#0" expanded="true" />
+                      <element signature="e#1855#1879#0" expanded="true" />
+                      <element signature="e#2039#2063#0" expanded="true" />
+                      <element signature="e#2309#2333#0" expanded="true" />
+                      <element signature="e#2694#2718#0" expanded="true" />
+                      <element signature="e#3006#3030#0" expanded="true" />
+                      <element signature="e#3468#3492#0" expanded="true" />
+                      <element signature="e#4143#4167#0" expanded="true" />
+                      <element signature="e#4239#4263#0" expanded="true" />
+                      <element signature="e#4368#4392#0" expanded="true" />
+                      <element signature="e#4590#4614#0" expanded="true" />
+                      <element signature="e#4780#4804#0" expanded="true" />
+                      <element signature="e#5307#5331#0" expanded="true" />
+                      <element signature="e#5727#5751#0" expanded="true" />
+                      <element signature="e#6065#6089#0" expanded="true" />
+                      <element signature="e#6476#6500#0" expanded="true" />
+                      <element signature="e#7019#7043#0" expanded="true" />
+                      <element signature="e#7340#7364#0" expanded="true" />
+                      <element signature="e#7821#7845#0" expanded="true" />
+                      <element signature="e#8090#8114#0" expanded="true" />
+                      <element signature="e#8495#8519#0" expanded="true" />
+                      <element signature="e#8964#8988#0" expanded="true" />
+                      <element signature="e#9419#9443#0" expanded="true" />
+                      <element signature="e#9570#9594#0" expanded="true" />
+                      <element signature="e#10044#10068#0" expanded="true" />
+                      <element signature="e#10519#10543#0" expanded="true" />
+                      <element signature="e#10683#10707#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -71,20 +84,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="249" selection-start-line="249" selection-end-line="249" />
+            <state relative-caret-position="304">
+              <caret line="244" column="8" lean-forward="true" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
+              <folding>
+                <element signature="e#64#84#0" expanded="true" />
+                <element signature="e#258#282#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="74" selection-start-line="74" selection-start-column="2" selection-end-line="76" selection-end-column="46" />
+            <state relative-caret-position="72">
+              <caret line="15" selection-start-line="15" selection-end-line="36" selection-end-column="52" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -109,15 +126,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/../assignments/dg/graph.h" />
         <option value="$PROJECT_DIR$/../assignments/dg/graph.tpp" />
         <option value="$PROJECT_DIR$/../assignments/dg/client.cpp" />
-        <option value="$PROJECT_DIR$/../assignments/dg/graph.h" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="726" />
+    <option name="width" value="697" />
     <option name="height" value="852" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -202,16 +219,24 @@
       <workItem from="1564218431716" duration="11000" />
       <workItem from="1564218465078" duration="190000" />
       <workItem from="1564232859729" duration="28000" />
+      <workItem from="1564232897566" duration="116000" />
+      <workItem from="1564233031412" duration="13000" />
+      <workItem from="1564233086107" duration="17000" />
+      <workItem from="1564233214342" duration="21000" />
+      <workItem from="1564233339676" duration="16000" />
+      <workItem from="1564233368191" duration="66000" />
+      <workItem from="1564234932774" duration="241000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51833000" />
+    <option name="totallyTimeSpent" value="52323000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="726" height="852" extended-state="0" />
+    <frame x="0" y="23" width="697" height="852" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.045321636" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.047328245" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -223,8 +248,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.27631578" side_tool="true" visible="true" weight="0.34078947" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.7236842" visible="true" weight="0.34078947" />
+      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.2870229" side_tool="true" visible="true" weight="0.34078947" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.7129771" visible="true" weight="0.34078947" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Blaze Problems" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -265,47 +290,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="74" selection-start-line="74" selection-start-column="2" selection-end-line="76" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="313" column="62" selection-start-line="313" selection-start-column="62" selection-end-line="313" selection-end-column="62" />
+        <state relative-caret-position="700">
+          <caret line="373" column="1" selection-start-line="373" selection-start-column="1" selection-end-line="373" selection-end-column="1" />
           <folding>
-            <element signature="e#1442#1466#0" expanded="true" />
-            <element signature="e#1793#1817#0" expanded="true" />
-            <element signature="e#1973#1997#0" expanded="true" />
-            <element signature="e#2102#2126#0" expanded="true" />
-            <element signature="e#2329#2353#0" expanded="true" />
-            <element signature="e#2848#2872#0" expanded="true" />
-            <element signature="e#3070#3094#0" expanded="true" />
-            <element signature="e#3445#3469#0" expanded="true" />
-            <element signature="e#3719#3743#0" expanded="true" />
-            <element signature="e#4314#4338#0" expanded="true" />
-            <element signature="e#5253#5277#0" expanded="true" />
-            <element signature="e#5349#5373#0" expanded="true" />
-            <element signature="e#5661#5685#0" expanded="true" />
-            <element signature="e#5982#6006#0" expanded="true" />
-            <element signature="e#6463#6487#0" expanded="true" />
-            <element signature="e#6732#6756#0" expanded="true" />
-            <element signature="e#7137#7161#0" expanded="true" />
-            <element signature="e#7548#7572#0" expanded="true" />
+            <element signature="e#43#67#0" expanded="true" />
+            <element signature="e#295#319#0" expanded="true" />
+            <element signature="e#774#798#0" expanded="true" />
+            <element signature="e#971#995#0" expanded="true" />
+            <element signature="e#1319#1343#0" expanded="true" />
+            <element signature="e#1485#1509#0" expanded="true" />
+            <element signature="e#1855#1879#0" expanded="true" />
+            <element signature="e#2039#2063#0" expanded="true" />
+            <element signature="e#2309#2333#0" expanded="true" />
+            <element signature="e#2694#2718#0" expanded="true" />
+            <element signature="e#3006#3030#0" expanded="true" />
+            <element signature="e#3468#3492#0" expanded="true" />
+            <element signature="e#4143#4167#0" expanded="true" />
+            <element signature="e#4239#4263#0" expanded="true" />
+            <element signature="e#4368#4392#0" expanded="true" />
+            <element signature="e#4590#4614#0" expanded="true" />
+            <element signature="e#4780#4804#0" expanded="true" />
+            <element signature="e#5307#5331#0" expanded="true" />
+            <element signature="e#5727#5751#0" expanded="true" />
+            <element signature="e#6065#6089#0" expanded="true" />
+            <element signature="e#6476#6500#0" expanded="true" />
+            <element signature="e#7019#7043#0" expanded="true" />
+            <element signature="e#7340#7364#0" expanded="true" />
+            <element signature="e#7821#7845#0" expanded="true" />
+            <element signature="e#8090#8114#0" expanded="true" />
+            <element signature="e#8495#8519#0" expanded="true" />
+            <element signature="e#8964#8988#0" expanded="true" />
+            <element signature="e#9419#9443#0" expanded="true" />
+            <element signature="e#9570#9594#0" expanded="true" />
+            <element signature="e#10044#10068#0" expanded="true" />
+            <element signature="e#10519#10543#0" expanded="true" />
+            <element signature="e#10683#10707#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="249" selection-start-line="249" selection-end-line="249" />
+        <state relative-caret-position="304">
+          <caret line="244" column="8" lean-forward="true" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
+          <folding>
+            <element signature="e#64#84#0" expanded="true" />
+            <element signature="e#258#282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="15" selection-start-line="15" selection-end-line="36" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
