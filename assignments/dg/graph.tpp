@@ -140,26 +140,31 @@ void gdwg::Graph<N, E>::MergeReplace(const N &oldData, const N &newData) {
     throw std::runtime_error{"Cannot call Graph::MergeReplace on old or new "
                              "data if they don't exist in the graph"};
   }
-  auto newNode = nodes_.at(oldData);
-  auto oldNode = nodes_.at(newData);
-  auto newEdges = newNode->getEdges();
-  auto oldEdges = oldNode->getEdges();
-  for (auto newIt = newEdges.begin(); newIt != newEdges.end(); ++newIt) {
-    for (auto oldIt = oldEdges.begin(); oldIt != oldEdges.end(); ++oldIt) {
-      auto linkNodeOld = newIt->first.lock()->getVal();
-      auto linkNodeNew = oldIt->first.lock()->getVal();
-      if (linkNodeOld == linkNodeNew && *newIt->second == *oldIt->second) {
-        std::cout << "duplicate!!\n";
-        erase(oldData, linkNodeOld, *oldIt->second);
-      }
-    }
-  }
+  auto newNode = nodes_.at(newData);
+  auto oldNode = nodes_.at(oldData);
+  // auto newEdges = newNode->getEdges();
+  // auto oldEdges = oldNode->getEdges();
+  // for (auto newIt = newEdges.begin(); newIt != newEdges.end(); ++newIt) {
+  //   for (auto oldIt = oldEdges.begin(); oldIt != oldEdges.end(); ++oldIt) {
+  //     auto linkNodeOld = newIt->first.lock()->getVal();
+  //     auto linkNodeNew = oldIt->first.lock()->getVal();
+  //     if (linkNodeOld == linkNodeNew && *newIt->second == *oldIt->second) {
+  //       // std::cout << "duplicate!!\n";
+  //       erase(oldData, linkNodeOld, *oldIt->second);
+  //     }
+  //   }
+  // }
   // need a redirect
-  auto node = nodes_.at(oldData);
-  nodes_.erase(oldData);
-  node->Replace(newData);
+  for (auto oldEdge : oldNode->getEdges()){
+    newNode->InsertEdge(oldEdge.first, *(oldEdge.second));
+    oldNode->deleteEdge(oldEdge.first.lock()->getVal(), *(oldEdge.second));
+  }
 
-  const auto &couple = std::make_pair(newData, node);
+  // auto node = nodes_.at(oldData);
+  nodes_.erase(oldData);
+  // oldNode->Replace(newData);
+
+  const auto &couple = std::make_pair(newData, newNode);
   nodes_.insert(couple);
   //   Replace(oldData, newData);
 }
@@ -309,16 +314,13 @@ bool gdwg::Graph<N, E>::Node::deleteEdge(const std::shared_ptr<Node> &inEdge) {
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
-  //   for (auto i : edges_) {
-  //     std::cout << *(i.second) << "/n";
-  //   }
   auto result = std::remove_if(
       edges_.begin(), edges_.end(),
       [&inEdge,
        &w](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {
         if (ptr.first.expired())
           return false;
-        return (inEdge = ptr.first.lock() && *(ptr.second) == w);
+        return (inEdge == ptr.first.lock()->getVal() && *(ptr.second) == w);
       });
   edges_.erase(result, edges_.end());
   return true;
@@ -392,13 +394,3 @@ gdwg::Graph<N, E>::const_reverse_iterator::operator++() {
   }
   return *this;
 }
-// template <typename N, typename E>
-// std::ostream &operator<<(std::ostream &os, const gdwg::Graph<N, E> &g) {
-//     std::cout << "-----" << "\n";
-
-//   for (auto node : g.nodes_) {
-//     std::cout << node.first << "\n";
-//     // o << node.first << "\n";
-//   }
-//   return os;
-// }

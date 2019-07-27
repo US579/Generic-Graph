@@ -12,23 +12,30 @@ int main() {
   std::vector<std::string> v{"a", "b", "c", "d"};
   gdwg::Graph<std::string, double> b{v.begin(), v.end()};
   b.InsertEdge("a", "b", 1);
-  gdwg::Graph<std::string, double> aCopy{b};
-  // aCopy.printG();
-  //  b.printG();
-  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
-  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
-  //  gdwg::Graph<char, std::string> x{'a', 'b', 'x', 'y'};
+  // gdwg::Graph<std::string, double> aCopy{b};
+  // // aCopy.printG();
+  // //  b.printG();
+  // //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  // //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  // //  gdwg::Gsraph<char, std::string> x{'a', 'b', 'x', 'y'};
   b.InsertEdge("a", "c", 2);
   b.InsertEdge("a", "d", 3);
   b.InsertEdge("b", "c", 4);
   b.InsertEdge("b", "d", 5);
   b.InsertEdge("c", "d", 6);
+  std::cout << b << "\n";
+  
   // gdwg::Graph<std::string, double> a = b;
   // a.printG();
-  gdwg::Graph<std::string, double> o = std::move(b);
+  // gdwg::Graph<std::string, double> o = std::move(b);
 
   // o.printG();
   // b.printG();
+
+  // mergeReplace
+  b.MergeReplace("a", "b");
+  std::cout << b << "\n";
+
 
   // getnodes()
   // std::vector<std::string> s = o.GetNodes();
@@ -47,10 +54,10 @@ int main() {
   // std::cout << std::get<0>(*abc) << "-" << std::get<1>(*abc) << "-"
   //           << std::get<2>(*abc) << "\n";
 
-  if (o == aCopy) {
-    std::cout << "appppppppppppppppp"
-              << "\n";
-  }
+  // if (o == aCopy) {
+  //   std::cout << "appppppppppppppppp"
+  //             << "\n";
+  // }
   // std::cout <<
   // auto tup = o.cbegin();
   // for (auto tup1 = o.cbegin(); tup1 != o.cend(); ++tup1) {
@@ -63,7 +70,7 @@ int main() {
   //             << std::get<2>(*tup2) << "\n";
   // }
   // std::cout << "\n";
-  std::cout << o;
+  // std::cout << o;
   // auto tup = o.cbegin();
   // std::cout << std::get<0>(*tup) << "-" << std::get<1>(*tup) << "-"
   //           << std::get<2>(*tup) << "\n";
