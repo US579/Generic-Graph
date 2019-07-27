@@ -24,6 +24,7 @@ int main() {
   g.InsertEdge("how", "hello", 4);
 
   g.InsertEdge("are", "you?", 3);
+  g.printG();
 
 
 //  std::cout << g << '\n';

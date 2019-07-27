@@ -31,7 +31,7 @@ public:
   Graph &operator=(const gdwg::Graph<N, E> &);
   Graph &operator=(gdwg::Graph<N, E> &&) noexcept;
   // 2.3. Methods
-  void gdwg::Graph<N, E>::printG();
+  void printG();
   bool InsertNode(const N &val);
   bool InsertEdge(const N &src, const N &dst, const E &w);
   bool DeleteNode(const N &node);
