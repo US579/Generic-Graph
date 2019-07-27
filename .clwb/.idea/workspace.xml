@@ -20,8 +20,6 @@
     <list default="true" id="c930414f-b587-4da2-9e0b-55dc3cd3b02d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignments/dg/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignments/dg/graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignments/dg/graph.tpp" beforeDir="false" afterPath="$PROJECT_DIR$/../assignments/dg/graph.tpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +35,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="700">
-                    <caret line="373" column="1" selection-start-line="373" selection-start-column="1" selection-end-line="373" selection-end-column="1" />
+                  <state relative-caret-position="234">
+                    <caret line="181" column="7" selection-start-line="181" selection-start-column="7" selection-end-line="181" selection-end-column="7" />
                     <folding>
                       <element signature="e#43#67#0" expanded="true" />
                       <element signature="e#295#319#0" expanded="true" />
@@ -87,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="244" column="8" lean-forward="true" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
+            <state relative-caret-position="2283">
+              <caret line="244" column="8" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
               <folding>
                 <element signature="e#64#84#0" expanded="true" />
                 <element signature="e#258#282#0" expanded="true" />
@@ -100,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="15" selection-start-line="15" selection-end-line="36" selection-end-column="52" />
+            <state relative-caret-position="990">
+              <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -118,6 +116,7 @@
       <find>[]</find>
       <find>getEdge</find>
       <find>nodes_</find>
+      <find>sort</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,7 +133,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="697" />
+    <option name="width" value="719" />
     <option name="height" value="852" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -143,7 +142,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,6 +158,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -226,17 +225,20 @@
       <workItem from="1564233339676" duration="16000" />
       <workItem from="1564233368191" duration="66000" />
       <workItem from="1564234932774" duration="241000" />
+      <workItem from="1564235245470" duration="34000" />
+      <workItem from="1564236009031" duration="8000" />
+      <workItem from="1564236042213" duration="935000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52323000" />
+    <option name="totallyTimeSpent" value="53300000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="697" height="852" extended-state="0" />
+    <frame x="0" y="23" width="719" height="852" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.047328245" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.04579025" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -248,8 +250,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.2870229" side_tool="true" visible="true" weight="0.34078947" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.7129771" visible="true" weight="0.34078947" />
+      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.29246676" side_tool="true" visible="true" weight="0.34078947" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.70753324" visible="true" weight="0.34078947" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Blaze Problems" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -292,8 +294,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="373" column="1" selection-start-line="373" selection-start-column="1" selection-end-line="373" selection-end-column="1" />
+        <state relative-caret-position="234">
+          <caret line="181" column="7" selection-start-line="181" selection-start-column="7" selection-end-line="181" selection-end-column="7" />
           <folding>
             <element signature="e#43#67#0" expanded="true" />
             <element signature="e#295#319#0" expanded="true" />
@@ -333,8 +335,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="244" column="8" lean-forward="true" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
+        <state relative-caret-position="2283">
+          <caret line="244" column="8" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
           <folding>
             <element signature="e#64#84#0" expanded="true" />
             <element signature="e#258#282#0" expanded="true" />
@@ -344,8 +346,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="15" selection-start-line="15" selection-end-line="36" selection-end-column="52" />
+        <state relative-caret-position="990">
+          <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
