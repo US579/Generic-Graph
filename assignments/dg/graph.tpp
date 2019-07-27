@@ -24,6 +24,14 @@ gdwg::Graph<N, E>::Graph(
   }
 }
 
+template <typename N, typename E> void gdwg::Graph<N, E>::printG() {
+  for (typename std::map<N, std::shared_ptr<Node>>::iterator it =
+      nodes_.begin();
+       it != nodes_.end(); ++it) {
+    std::cout << it->first << " => " << it->second->getVal() << '\n';
+  }
+}
+
 template <typename N, typename E>
 gdwg::Graph<N, E>::Graph(typename std::initializer_list<N> n) {
   for (auto it = n.begin(); it != n.end(); ++it) {

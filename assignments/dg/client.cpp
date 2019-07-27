@@ -25,18 +25,19 @@ int main() {
 
   g.InsertEdge("are", "you?", 3);
 
-  std::cout << g << '\n';
 
-  gdwg::Graph<std::string, int> g2{g};
-
-  std::cout << g2 << "\n";
-
-  // This is a structured binding.
-  // https://en.cppreference.com/w/cpp/language/structured_binding
-  // It allows you to unpack your tuple.
-  for (const auto& [from, to, weight] : g) {
-    std::cout << from << " -> " << to << " (weight " << weight << ")\n";
-  }
+//  std::cout << g << '\n';
+//
+//  gdwg::Graph<std::string, int> g2{g};
+//
+//  std::cout << g2 << "\n";
+//
+//  // This is a structured binding.
+//  // https://en.cppreference.com/w/cpp/language/structured_binding
+//  // It allows you to unpack your tuple.
+//  for (const auto& [from, to, weight] : g) {
+//    std::cout << from << " -> " << to << " (weight " << weight << ")\n";
+//  }
 }
 //
 //int main() {
@@ -92,7 +93,7 @@ int main() {
 //
 //
 //
-//  for (auto tup2 = b.crbegin(); tup2 != b.crend(); ++tup2) {
+//  for (auto tup2 = b.cbegin(); tup2 != b.cend(); ++tup2) {
 //    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
 //              << std::get<2>(*tup2) << "\n";
 //  }
