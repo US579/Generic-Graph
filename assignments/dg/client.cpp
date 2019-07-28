@@ -1,47 +1,61 @@
 #include "assignments/dg/graph.h"
 
-#include <string>
 #include <iostream>
 #include <iterator>
 #include <map>
 #include <memory>
 #include <ostream>
+#include <string>
 #include <tuple>
 #include <utility>
 #include <vector>
 int main() {
-  gdwg::Graph<std::string, int> g;
-  g.InsertNode("hello");
-  g.InsertNode("how");
-  g.InsertNode("are");
-  g.InsertNode("you?");
+  gdwg::Graph<std::string, double> g1;
+  //  gdwg::Graph<int, int> g;
+  // test for vector iterator constructor
+  std::vector<std::string> v{"a", "b", "c", "d"};
+  gdwg::Graph<std::string, double> b{v.begin(), v.end()};
+  b.InsertEdge("a", "b", 1);
+  // gdwg::Graph<std::string, double> aCopy{b};
+  // aCopy.printG();
+  //  b.printG();
+  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  //  std::cout << b.InsertEdge("how", "how", 11) << '\n';
+  //  gdwg::Graph<char, std::string> x{'a', 'b', 'x', 'y'};
+  b.InsertEdge("a", "c", 2);
+  b.InsertEdge("a", "d", 3);
+  b.InsertEdge("b", "c", 4);
+  b.InsertEdge("b", "d", 5);
+  b.InsertEdge("c", "d", 6);
+  //  b.InsertEdge("a", "c", 2);
+  //  b.InsertEdge("a", "d", 3);
+  // gdwg::Graph<std::string, double> a = b;
+  // a.printG();
+  gdwg::Graph<std::string, double> o = std::move(b);
+  for (auto tup2 = o.crbegin(); tup2 != o.crend(); ++tup2) {
+    std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+              << std::get<2>(*tup2) << "\n";
+  }
+  // o.printG();
+  // b.printG();
 
-  g.InsertEdge("hello", "how", 5);
-  g.InsertEdge("hello", "are", 8);
-  g.InsertEdge("hello", "are", 2);
+  // // if (o == aCopy) {
+  // std::cout << "appppppppppppppppp"
 
-  g.InsertEdge("how", "you?", 1);
-  g.InsertEdge("how", "hello", 4);
-
-  g.InsertEdge("are", "you?", 3);
-  g.printG();
-
-
-//  std::cout << g << '\n';
-//
-//  gdwg::Graph<std::string, int> g2{g};
-//
-//  std::cout << g2 << "\n";
-//
-//  // This is a structured binding.
-//  // https://en.cppreference.com/w/cpp/language/structured_binding
-//  // It allows you to unpack your tuple.
-//  for (const auto& [from, to, weight] : g) {
-//    std::cout << from << " -> " << to << " (weight " << weight << ")\n";
-//  }
+  //
+  //  gdwg::Graph<std::string, int> g2{g};
+  //
+  //  std::cout << g2 << "\n";
+  //
+  //  // This is a structured binding.
+  //  // https://en.cppreference.com/w/cpp/language/structured_binding
+  //  // It allows you to unpack your tuple.
+  //  for (const auto& [from, to, weight] : g) {
+  //    std::cout << from << " -> " << to << " (weight " << weight << ")\n";
+  //  }
 }
 //
-//int main() {
+// int main() {
 //  gdwg::Graph<std::string, double> g1;
 //  //  gdwg::Graph<int, int> g;
 //  // test for vector iterator constructor
@@ -111,8 +125,7 @@ int main() {
 //  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
 //            << std::get<2>(*tup2) << "\n";
 
-
-  // // if (o == aCopy) {
+// // if (o == aCopy) {
 
 //  gdwg::Graph<std::string, double> g1;
 //  //  gdwg::Graph<int, int> g;
@@ -179,7 +192,8 @@ int main() {
 //  // std::string s3{"are"};
 //  // auto e1 = std::make_tuple(s1, s2, 5.4);
 //  // auto e2 = std::make_tuple(s2, s3, 7.6);
-//  // auto e = std::vector<std::tuple<std::string, std::string, double>>{e1, e2};
+//  // auto e = std::vector<std::tuple<std::string, std::string, double>>{e1,
+//  e2};
 //  // gdwg::Graph<std::string, double> b1{e.begin(), e.end()};
 //  // b1.printG();
 //  // std::cout << b1.InsertEdge(s1, s2, 514) << "\n";
@@ -210,7 +224,8 @@ int main() {
 //  // std::cout << "IsNode(a): " << p.IsNode("a") << "\n";
 //  // p.IsConnected("a", "c");
 //  // std::cout << "IsConnected(a, c): " << p.IsConnected("a", "c") << "\n";
-//  // std::cout << "IsConnected(how, c): " << p.IsConnected("how", "c") << "\n";
+//  // std::cout << "IsConnected(how, c): " << p.IsConnected("how", "c") <<
+//  "\n";
 //
 //  // std::vector<std::string> lis = p.GetNodes();
 //  // // auto how = p.IsNode("how");

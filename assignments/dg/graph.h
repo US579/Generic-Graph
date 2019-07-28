@@ -79,9 +79,9 @@ public:
       auto bNode = b.nodes_.at(n.first);
       for (auto i = 0; i < static_cast<int>(bNode->getEdges().size()); ++i) {
         if (*(bNode->getEdges()[i].second) !=
-            *((n.second)->getEdges()[i].second) ||
+                *((n.second)->getEdges()[i].second) ||
             bNode->getEdges()[i].first.lock()->getVal() !=
-            (n.second)->getEdges()[i].first.lock()->getVal()) {
+                (n.second)->getEdges()[i].first.lock()->getVal()) {
           return false;
         }
       }
@@ -110,7 +110,7 @@ public:
     bool operator()(
         const typename std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &left,
         const typename std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>
-        &right) const {
+            &right) const {
       if (left.first.lock()->getVal() == right.first.lock()->getVal()) {
         return *(left.second) < *(right.second);
       }
@@ -223,7 +223,7 @@ public:
     const typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator
         sentinel_;
     typename std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::
-    const_reverse_iterator inner_;
+        const_reverse_iterator inner_;
     friend bool operator==(const Graph<N, E>::const_reverse_iterator &lhs,
                            const Graph<N, E>::const_reverse_iterator &rhs) {
       return lhs.outer_ == rhs.outer_ &&
