@@ -237,6 +237,6 @@ private:
 
 }  // namespace gdwg
 
-#include "assignments/dg/graph.tpp"
+#include "graph.tpp"
 
 #endif  // ASSIGNMENTS_DG_GRAPH_H_

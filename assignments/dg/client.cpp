@@ -3,7 +3,7 @@
 #include <utility>
 #include <vector>
 
-#include "assignments/dg/graph.h"
+#include "graph.h"
 
 int main() {
   gdwg::Graph<std::string, double> g1;
