@@ -34,7 +34,7 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="390">
+                  <state relative-caret-position="-2696">
                     <caret line="26" column="66" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="66" />
                     <folding>
                       <element signature="e#43#67#0" expanded="true" />
@@ -85,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="126" column="19" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="19" />
+            <state relative-caret-position="471">
+              <caret line="126" column="19" selection-start-line="126" selection-start-column="19" selection-end-line="126" selection-end-column="19" />
               <folding>
                 <element signature="e#64#84#0" expanded="true" />
                 <element signature="e#258#282#0" expanded="true" />
@@ -98,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state relative-caret-position="675">
+              <caret line="45" column="2" selection-start-line="45" selection-start-column="2" selection-end-line="45" selection-end-column="2" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -128,8 +128,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../assignments/dg/graph.tpp" />
-        <option value="$PROJECT_DIR$/../assignments/dg/client.cpp" />
         <option value="$PROJECT_DIR$/../assignments/dg/graph.h" />
+        <option value="$PROJECT_DIR$/../assignments/dg/client.cpp" />
       </list>
     </option>
   </component>
@@ -231,12 +231,12 @@
       <workItem from="1564236009031" duration="8000" />
       <workItem from="1564236042213" duration="935000" />
       <workItem from="1564266101122" duration="13000" />
-      <workItem from="1564266125760" duration="3205000" />
+      <workItem from="1564266125760" duration="3817000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56518000" />
+    <option name="totallyTimeSpent" value="57130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="719" height="852" extended-state="0" />
@@ -254,8 +254,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.31314623" side_tool="true" visible="true" weight="0.22763158" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.68685377" visible="true" weight="0.22763158" />
+      <window_info anchor="bottom" id="Blaze Console" order="9" sideWeight="0.31314623" side_tool="true" visible="true" weight="0.19078948" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.68685377" visible="true" weight="0.19078948" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Blaze Problems" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -296,19 +296,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.tpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
+        <state relative-caret-position="-2696">
           <caret line="26" column="66" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="66" />
           <folding>
             <element signature="e#43#67#0" expanded="true" />
@@ -348,10 +338,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../assignments/dg/client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="2" selection-start-line="45" selection-start-column="2" selection-end-line="45" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../assignments/dg/graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="126" column="19" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="19" />
+        <state relative-caret-position="471">
+          <caret line="126" column="19" selection-start-line="126" selection-start-column="19" selection-end-line="126" selection-end-column="19" />
           <folding>
             <element signature="e#64#84#0" expanded="true" />
             <element signature="e#258#282#0" expanded="true" />

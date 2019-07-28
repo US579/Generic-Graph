@@ -32,6 +32,10 @@ int main() {
   // gdwg::Graph<std::string, double> a = b;
   // a.printG();
   gdwg::Graph<std::string, double> o = std::move(b);
+  gdwg::Graph<std::string, double> c = o;
+  if ( c == o ){
+    std::cout<< "cppppppppppppp" << "\n";
+  }
   for (auto tup2 = o.crbegin(); tup2 != o.crend(); ++tup2) {
     std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
               << std::get<2>(*tup2) << "\n";
