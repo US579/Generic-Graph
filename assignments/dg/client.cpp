@@ -36,6 +36,13 @@ int main() {
     std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
               << std::get<2>(*tup2) << "\n";
   }
+
+
+
+
+
+
+
   // o.printG();
   // b.printG();
 
