@@ -153,6 +153,10 @@ template <typename N, typename E> bool gdwg::Graph<N, E>::IsNode(const N &val) {
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::IsConnected(const N &src, const N &dst) {
+  if (!IsNode(src) ||!IsNode(dst)) {
+    throw std::runtime_error{
+        "Cannot call Graph::IsConnected if src or dst node don't exist in the graph"};
+  }
   auto srcNode = nodes_.at(src);
   std::vector<E> connected = srcNode->getWeights(dst);
   return (!connected.empty());
@@ -215,7 +219,7 @@ bool gdwg::Graph<N, E>::Graph::erase(const N &src, const N &dst, const E &w) {
     return false;
   auto srcNode = nodes_.at(src);
   std::vector<E> v = srcNode->getWeights(dst);
-  typename std::vector<E>::iterator it = find(v.begin(), v.end(), w);
+  typename std::vector<E>::iterator it = std::find(v.begin(), v.end(), w);
   if (it == v.end()) {
     return false;
   }

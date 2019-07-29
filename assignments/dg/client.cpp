@@ -23,6 +23,14 @@ int main() {
   b.InsertEdge("b", "c", 4);
   b.InsertEdge("b", "d", 5);
   b.InsertEdge("c", "d", 6);
+  b.InsertEdge("c", "d", 7);
+  b.InsertEdge("c", "d", 8);
+
+//  std::vector<std::string> c = b.GetConnected("b");
+//  for (auto i : c) {
+//    std::cout << i << ": ";
+//  }
+  b.erase("c","d",6);
 
   //  std::cout << b << "\n";
 

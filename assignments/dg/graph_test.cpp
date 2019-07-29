@@ -117,3 +117,56 @@ SCENARIO("Creation of Graph", "Graph<N, E>") {
     }
   }
 }
+SCENARIO("delete one node from connected graph", "Graph<N, E>") {
+  WHEN("the node need to delete connectd with another node") {
+    gdwg::Graph<std::string, int> a;
+    a.InsertNode("a");
+    a.InsertNode("b");
+    a.InsertEdge("a", "b", 8);
+    THEN("the edge between tow connected node also be deleted") {
+      REQUIRE(a.IsConnected("a", "b") == 1);
+      a.DeleteNode("a");
+
+      REQUIRE(a.IsNode("a") == 0);
+      REQUIRE(a.IsNode("b") == 1);
+      REQUIRE_THROWS_WITH(a.IsConnected("a", "b") == 0,
+                          "Cannot call Graph::IsConnected if src or dst node "
+                          "don't exist in the graph");
+    }
+  }
+  WHEN("the node need to delete connectd with another node") {
+    gdwg::Graph<std::string, int> a;
+    a.InsertNode("a");
+    a.InsertNode("b");
+    a.InsertEdge("b", "a", 8);
+    THEN("the edge between tow connected node also be deleted") {
+      REQUIRE(a.IsConnected("a", "b") == 0);
+      REQUIRE(a.IsConnected("b", "a") == 1);
+      std::vector<std::string> v{"a"};
+      REQUIRE(a.GetConnected("b") == v);
+      a.DeleteNode("a");
+      REQUIRE(a.IsNode("a") == 0);
+      REQUIRE(a.IsNode("b") == 1);
+      std::vector<std::string> v1;
+      REQUIRE(a.GetConnected("b") == v1);
+    }
+  }
+}
+
+SCENARIO("erase method for connected graph", "Graph<N, E>") {
+  WHEN("Deletes an edge from src to dst with weight w") {
+    gdwg::Graph<std::string, int> a;
+    a.InsertNode("a");
+    a.InsertNode("b");
+    a.InsertEdge("b", "a", 1);
+    a.InsertEdge("b", "a", 2);
+    a.InsertEdge("b", "a", 3);
+    a.erase("b", "a", 2);
+    THEN("only edges are not delete remains") {
+      std::vector<std::string> v1{"a"};
+      REQUIRE(a.GetConnected("b") == v1);
+    }
+    std::vector<int> v2{1, 3};
+    REQUIRE(a.GetWeights("b", "a") == v2);
+  }
+}
