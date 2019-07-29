@@ -330,14 +330,26 @@ typename gdwg::Graph<N, E>::const_iterator &gdwg::Graph<N, E>::const_iterator::
 operator++() {
   ++inner_;
   if (inner_ == outer_->second->getEdges().end()) {
+    // std::cout << ":" << std::endl;
     do {
       ++outer_;
+      // if (outer_ != sentinel_) {
+      //   std::cout << outer_->first << outer_->second->getEdges().size()
+      //             << std::endl;
+      // }
+      // if (outer_ == sentinel_) {
+      //   std::cout << "11dsahdkjhasjkdhasjk" << std::endl;
+      // }
       // std::cout << outer_->first ;
-    } while (outer_ != sentinel_ && outer_->second->getEdges().begin() ==
-                                        outer_->second->getEdges().end());
+    } while (outer_ != sentinel_ && outer_->second->getEdges().empty());
+    // std::cout << "\n" << std::endl;
     if (outer_ != sentinel_) {
+      // std::cout << "1" << std::endl;
       inner_ = outer_->second->getEdges().begin();
       // std::cout << inner_->first.lock()->getVal();
+    } else {
+      // std::cout << "2" << std::endl;
+      inner_ = {};
     }
   }
   // if (outer_ != sentinel_) {
@@ -351,18 +363,24 @@ operator++() {
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator &gdwg::Graph<N, E>::const_iterator::
 operator--() {
+    std::cout << "new round:" << std::endl;
   if (outer_ == sentinel_ || inner_ == outer_->second->getEdges().begin()) {
-    // std::cout << ":";
+    std::cout << ":" << std::endl;
     do {
       --outer_;
-      // std::cout << outer_->first << outer_->second->getEdges().size();
+      std::cout << outer_->first << outer_->second->getEdges().size()
+                << std::endl;
     } while (outer_->second->getEdges().empty());
-    // std::cout << "\n";
+    std::cout << "-" << std::endl;
     inner_ = outer_->second->getEdges().end();
   }
+  if (inner_ == outer_->second->getEdges().end()) {
+    std::cout << "i am ironman" << "\n";
+  }
   --inner_;
-  // std::cout << outer_->first << " " << inner_->first.lock()->getVal() << " "
-  //           << *(inner_->second);
+  // std::cout <<  ( inner_ == outer_->second->getEdges().begin()) <<  std::endl;
+  std::cout << outer_->first << " " << inner_->first.lock()->getVal() <<std::endl;
+  //           << *(inner_->second) << std::endl;
   return *this;
 }
 
