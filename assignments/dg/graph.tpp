@@ -91,7 +91,8 @@ bool gdwg::Graph<N, E>::InsertEdge(const N &src, const N &dst, const E &w) {
                              "dst node does not exist"};
   }
   std::weak_ptr<Node> wDst = nodes_.at(dst);
-  return nodes_.at(src)->InsertEdge(wDst, w);
+  auto a = w;
+  return nodes_.at(src)->InsertEdge(wDst, a);
 }
 
 template <typename N, typename E>
@@ -101,7 +102,7 @@ bool gdwg::Graph<N, E>::Graph::DeleteNode(const N &node) {
   auto oldDate = nodes_.at(node);
   for (const auto &n : nodes_) {
     n.second->deleteEdge(oldDate);
-    std::cout << n.first << "\n";
+    // std::cout << n.first << "\n";
   }
   nodes_.erase(node);
   return true;
@@ -190,10 +191,9 @@ std::vector<E> gdwg::Graph<N, E>::Graph::GetWeights(const N &src,
   std::vector<E> weights = srcNode->getWeights(dst);
 
   sort(weights.begin(), weights.end());
-  for (auto i : weights) {
-    std::cout << i << "\n";
-  }
-  std::sort(weights.begin(), weights.end());
+  // for (auto i : weights) {
+  //   std::cout << i << "\n";
+  // }
   return weights;
 }
 
@@ -261,6 +261,7 @@ gdwg::Graph<N, E>::Node::getWeights(const N &dst) {
   // std::unique_ptr<E>>>::iterator
   for (auto it = edges_.begin(); it != edges_.end(); ++it) {
     if (it->first.lock()->getVal() == dst) {
+      // auto w = ;
       connected.push_back(*(it->second));
       // std::cout << it->first.lock()->getVal() << "\n";
     }
@@ -272,6 +273,7 @@ template <typename N, typename E>
 bool gdwg::Graph<N, E>::Node::InsertEdge(std::weak_ptr<Node> wDst, const E &w) {
 
   if (!isWeight(wDst.lock()->getVal(), w)) {
+    // std::cout << "1";
     edges_.push_back(std::make_pair(wDst, std::make_shared<E>(w)));
     return true;
   }
@@ -280,7 +282,7 @@ bool gdwg::Graph<N, E>::Node::InsertEdge(std::weak_ptr<Node> wDst, const E &w) {
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::Node::deleteEdge(const std::shared_ptr<Node> &inEdge) {
-  std::cout << inEdge << "\n";
+  // std::cout << inEdge << "\n";
   auto result = std::remove_if(
       edges_.begin(), edges_.end(),
       [&inEdge](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {
@@ -330,33 +332,37 @@ operator++() {
   if (inner_ == outer_->second->getEdges().end()) {
     do {
       ++outer_;
+      // std::cout << outer_->first ;
     } while (outer_ != sentinel_ && outer_->second->getEdges().begin() ==
                                         outer_->second->getEdges().end());
     if (outer_ != sentinel_) {
       inner_ = outer_->second->getEdges().begin();
+      // std::cout << inner_->first.lock()->getVal();
     }
   }
+  // if (outer_ != sentinel_) {
+  //   std::cout << outer_->first << " " << inner_->first.lock()->getVal() << "
+  //   "
+  //             << *(inner_->second);
+  // }
   return *this;
 }
 
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator &gdwg::Graph<N, E>::const_iterator::
 operator--() {
-  // if (outer_ == sentinel_) {
-    // std::cout << "hello";
-  // }
-  --inner_;
-  if (inner_ == outer_->second->getEdges().begin()) {
-    // std::cout << "hello";
-
+  if (outer_ == sentinel_ || inner_ == outer_->second->getEdges().begin()) {
+    // std::cout << ":";
     do {
       --outer_;
-    } while (outer_ != sentinel2_ && outer_->second->getEdges().begin() ==
-                                         outer_->second->getEdges().end());
-    if (outer_ != sentinel2_) {
-      inner_ = outer_->second->getEdges().begin();
-    }
+      // std::cout << outer_->first << outer_->second->getEdges().size();
+    } while (outer_->second->getEdges().empty());
+    // std::cout << "\n";
+    inner_ = outer_->second->getEdges().end();
   }
+  --inner_;
+  // std::cout << outer_->first << " " << inner_->first.lock()->getVal() << " "
+  //           << *(inner_->second);
   return *this;
 }
 

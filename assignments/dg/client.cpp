@@ -18,24 +18,62 @@ int main() {
   b.InsertEdge("a", "d", 3);
   b.InsertEdge("b", "c", 4);
   b.InsertEdge("b", "d", 5);
-  b.InsertEdge("c", "d", 6);
-  gdwg::Graph<std::string, double> o = std::move(b);
-  // std::cout << o ;
-  // for (auto it = o.crbegin(); it != o.crend(); ++it) {
-  //   std::cout << std::get<0>(*it);
-  // }
+  b.InsertEdge("c", "c", 6);
+  b.InsertEdge("c", "c", 8);
+  // b.InsertEdge("e", "c", 8);
+  b.DeleteNode("a");
+  b.InsertNode("a");
+  // gdwg::Graph<std::string, double> o = std::move(b);
+  auto tup1 = b.end();
+  --tup1;
+  // ++tup1;
+  // ++tup1;
 
-  for (auto tup1 = o.cbegin(); tup1 != o.cend(); ++tup1) {
+  // std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
+  //   << std::get<2>(*tup1) << ":";
+  do {
     std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
-              << std::get<2>(*tup1) << "\n";
-    //         auto a = tup1;
-    //         if (a != o.cbegin()) {
-    //           --a;
-    //  std::cout << std::get<0>(*a) << "-" << std::get<1>(*a) << "-"
-    //         << std::get<2>(*a) << "\n";
-    //         }
-  }
-  std::cout << "\n";
+              << std::get<2>(*tup1) << ":";
+    --tup1;
+  } while (tup1 != b.begin());
+  return 0;
+
+  // for (auto it = b.cend(); it != b.cbegin();) {
+  //   --it;
+  //   std::cout << std::get<0>(*it) << "-" << std::get<1>(*it) <<
+  //   std::get<2>(*it)
+  //             << "\n";
+  // }
+  // for (auto tup1 = o.cbegin(); tup1 != o.cend(); ++tup1) {
+  //   // std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
+  //   //           << std::get<2>(*tup1) << ":";
+  // }
+  // std::cout << "\n";
+  // for (auto e : o.GetWeights("a", "c")) {
+  //   std::cout << e;
+  // }
+  // o.GetWeights("a", "b");
+  // o.GetWeights("a", "c");
+  // o.GetWeights("a", "d");
+  // o.GetWeights("b", "c");
+  // o.GetWeights("b", "d");
+  // auto a = o.cend();
+  // --a;
+  // //  std::cout << std::get<0>(*a) << "-" << std::get<1>(*a) << "-"
+  // //         << std::get<2>(*a) << "\n";
+  // --a;
+  // std::cout << std::get<0>(*a) << "-" << std::get<1>(*a) << "-"
+  //           << std::get<2>(*a) << "\n";
+  // for (auto it = o.cend(); it != o.cbegin();) {
+  //   --it;
+  //   std::cout << std::get<0>(*it) << "-" << std::get<1>(*it) << "\n";
+  //   // for (auto e : o.GetWeights(std::get<0>(*it), std::get<1>(*it))) {
+  //   //   std::cout << e;
+  //   // }
+  //   // std::cout << std::get<0>(*it) << "-" << std::get<1>(*it) << "-"
+  //   //           << std::get<2>(*it) << "\n";
+  // }
+  // std::cout << "\n";
 
   // for (auto tup1 = o.cbegin(); tup1 != o.cend(); ++tup1) {
   //   std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
