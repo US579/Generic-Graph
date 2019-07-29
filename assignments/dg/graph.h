@@ -1,5 +1,6 @@
 #ifndef ASSIGNMENTS_DG_GRAPH_H_
 #define ASSIGNMENTS_DG_GRAPH_H_
+#include <algorithm>
 #include <iostream>
 #include <iterator>
 #include <map>
@@ -15,6 +16,7 @@ public:
   class Node;
   class const_iterator;
   class const_reverse_iterator;
+  struct CustomCmp;
   // 2.1 Constructors & Destructors
   Graph() = default;
   Graph(typename std::vector<N>::const_iterator,
@@ -93,6 +95,7 @@ public:
     auto it = g.begin();
     for (auto node = g.nodes_.begin(); node != g.nodes_.end(); ++node) {
       o << node->first << " ( \n";
+      node->second->sort();
       for (auto i = 0; i < static_cast<int>(node->second->getEdges().size());
            ++i) {
         o << "  " << std::get<1>(*it) << " | " << std::get<2>(*it) << "\n";
@@ -102,9 +105,22 @@ public:
     }
     return o;
   }
+
+  std::map<N, std::shared_ptr<Node>> getNodes() { return nodes_; }
+
+  struct CustomCmp {
+    bool operator()(
+        const typename std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &left,
+        const typename std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>
+        &right) const {
+      if (left.first.lock()->getVal() == right.first.lock()->getVal()) {
+        return *(left.second) < *(right.second);
+      }
+      return left.first.lock()->getVal() < right.first.lock()->getVal();
+    }
+  };
   class Node {
   public:
-    friend class const_iterator;
     explicit Node(const N &v) {
       N newV = v;
       val_ = std::make_shared<N>(newV);
@@ -119,15 +135,12 @@ public:
     void Replace(const N &newData) { val_ = std::make_shared<N>(newData); }
     bool deleteEdge(const std::shared_ptr<Node> &inEdge);
     bool deleteEdge(const N &inEdge, const E &w);
+    void sort() { std::sort(edges_.begin(), edges_.end(), CustomCmp()); }
 
   private:
-    friend class const_iterator;
     std::shared_ptr<N> val_;
     std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>> edges_;
-    // std::map<std::weak_ptr<Node>, E> edges_;
   };
-
-
   class const_iterator {
   public:
     using iterator_category = std::bidirectional_iterator_tag;
@@ -139,6 +152,7 @@ public:
     reference operator*() const {
       return {outer_->first, inner_->first.lock()->getVal(), *(inner_->second)};
     }
+
     const_iterator &operator++();
     const_iterator operator++(int) {
       auto copy{*this};
@@ -151,14 +165,6 @@ public:
       --(*this);
       return copy;
     }
-
-  private:
-    friend class Graph;
-    typename std::map<N, std::shared_ptr<Node>>::iterator outer_;
-    const typename std::map<N, std::shared_ptr<Node>>::iterator sentinel_;
-    const typename std::map<N, std::shared_ptr<Node>>::iterator sentinel2_;
-    typename std::vector<
-        std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::iterator inner_;
     friend bool operator==(const Graph<N, E>::const_iterator &lhs,
                            const Graph<N, E>::const_iterator &rhs) {
       return lhs.outer_ == rhs.outer_ &&
@@ -169,16 +175,23 @@ public:
       return !(lhs == rhs);
     }
 
-  public:
+  private:
+    typename std::map<N, std::shared_ptr<Node>>::iterator outer_;
+    const typename std::map<N, std::shared_ptr<Node>>::iterator sentinel_;
+    const typename std::map<N, std::shared_ptr<Node>>::iterator sentinel2_;
+    typename std::vector<
+        std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::iterator inner_;
     const_iterator(const decltype(outer_) &outer,
                    const decltype(sentinel_) &sentinel,
                    const decltype(sentinel2_) &sentinel2,
                    const decltype(inner_) &inner)
-        : outer_{outer}, sentinel_{sentinel},sentinel2_{sentinel2},inner_{inner} {
+        : outer_{outer}, sentinel_{sentinel},
+          sentinel2_{sentinel2}, inner_{inner} {
       // std::cout << outer_->first << "\n"
       //           << inner_->first.lock()->getVal() << "\n"
       //           << *(inner_->second) << "\n";
     }
+    friend class Graph;
   };
 
   class const_reverse_iterator {
@@ -205,14 +218,6 @@ public:
       --(*this);
       return copy;
     }
-
-  private:
-    friend class Node;
-    typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator outer_;
-    const typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator
-        sentinel_;
-    typename std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::
-    const_reverse_iterator inner_;
     friend bool operator==(const Graph<N, E>::const_reverse_iterator &lhs,
                            const Graph<N, E>::const_reverse_iterator &rhs) {
       return lhs.outer_ == rhs.outer_ &&
@@ -223,20 +228,25 @@ public:
       return !(lhs == rhs);
     }
 
-  public:
-
+  private:
+    typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator outer_;
+    const typename std::map<N, std::shared_ptr<Node>>::const_reverse_iterator
+        sentinel_;
+    typename std::vector<std::pair<std::weak_ptr<Node>, std::shared_ptr<E>>>::
+    const_reverse_iterator inner_;
     const_reverse_iterator(const decltype(outer_) &outer,
                            const decltype(sentinel_) &sentinel,
                            const decltype(inner_) &inner)
         : outer_{outer}, sentinel_{sentinel}, inner_{inner} {}
+    friend class Graph;
   };
 
 private:
   std::map<N, std::shared_ptr<Node>> nodes_;
 };
 
-}  // namespace gdwg
+} // namespace gdwg
 
-#include "graph.tpp"
+#include "assignments/dg/graph.tpp"
 
-#endif  // ASSIGNMENTS_DG_GRAPH_H_
+#endif // ASSIGNMENTS_DG_GRAPH_H_

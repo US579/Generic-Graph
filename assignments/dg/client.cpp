@@ -23,7 +23,8 @@ int main() {
   b.InsertEdge("b", "c", 4);
   b.InsertEdge("b", "d", 5);
   b.InsertEdge("c", "d", 6);
-//  std::cout << b << "\n";
+
+  //  std::cout << b << "\n";
 
   // gdwg::Graph<std::string, double> a = b;
   // a.printG();
@@ -33,9 +34,8 @@ int main() {
   // b.printG();
 
   // mergeReplace
-//  b.MergeReplace("a", "b");
-//  std::cout << b << "\n";
-
+  //  b.MergeReplace("a", "b");
+  //  std::cout << b << "\n";
 
   // getnodes()
   // std::vector<std::string> s = o.GetNodes();
@@ -71,28 +71,27 @@ int main() {
   // }
   // std::cout << "\n";
   // std::cout << o;
-//   auto tup2 = b.cend();
-//   --tup2;
-//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//            << std::get<2>(*tup2) << "\n";
-//  --tup2;
-//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//            << std::get<2>(*tup2) << "\n";
-//  --tup2;
-//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//            << std::get<2>(*tup2) << "\n";
-//
+  //   auto tup2 = b.cend();
+  //   --tup2;
+  //  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+  //            << std::get<2>(*tup2) << "\n";
+  //  --tup2;
+  //  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+  //            << std::get<2>(*tup2) << "\n";
+  //  --tup2;
+  //  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+  //            << std::get<2>(*tup2) << "\n";
+  //
 
+  //   for (auto tup2 = b.cend(); tup2-- != b.cbegin(); --tup2) {
+  //     std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+  //               << std::get<2>(*tup2) << "\n";
+  //   }
 
-//   for (auto tup2 = b.cend(); tup2-- != b.cbegin(); --tup2) {
-//     std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//               << std::get<2>(*tup2) << "\n";
-//   }
-
-//   for (auto tup2 = b.cbegin(); tup2 != b.cend(); ++tup2) {
-//     std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//               << std::get<2>(*tup2) << "\n";
-////   }
+  //   for (auto tup2 = b.cbegin(); tup2 != b.cend(); ++tup2) {
+  //     std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+  //               << std::get<2>(*tup2) << "\n";
+  ////   }
   auto tup2 = b.cend();
   --tup2;
 
@@ -107,34 +106,30 @@ int main() {
   std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
             << std::get<2>(*tup2) << "\n";
 
+  //  --tup2;
+  //  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+  //            << std::get<2>(*tup2) << "\n";
+  //  --tup2;
+  //  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+  //            << std::get<2>(*tup2) << "\n";
+  ////
 
-//  --tup2;
-//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//            << std::get<2>(*tup2) << "\n";
-//  --tup2;
-//  std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//            << std::get<2>(*tup2) << "\n";
-////
+  //     for (auto tup2 = b.cend(); tup2 != b.cbegin(); --tup2) {
+  //       tup2--;
+  //       std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
+  //                 << std::get<2>(*tup2) << "\n";
+  //   }
 
-
-
-//     for (auto tup2 = b.cend(); tup2 != b.cbegin(); --tup2) {
-//       tup2--;
-//       std::cout << std::get<0>(*tup2) << "-" << std::get<1>(*tup2) << "-"
-//                 << std::get<2>(*tup2) << "\n";
-//   }
-
-//   auto tup = b.cbegin();
-//   std::cout << std::get<0>(*tup) << "-" << std::get<1>(*tup) << "-"
-//             << std::get<2>(*tup) << "\n";
-//   ++tup;
-//   std::cout << std::get<0>(*tup) << "-" << std::get<1>(*tup) << "-"
-//             << std::get<2>(*tup) << "\n";
-//   --tup;
-//    std::cout << std::get<0>(*tup) << "-" << std::get<1>(*tup) << "-"
-//              << std::get<2>(*tup) << "\n";
-//
-
+  //   auto tup = b.cbegin();
+  //   std::cout << std::get<0>(*tup) << "-" << std::get<1>(*tup) << "-"
+  //             << std::get<2>(*tup) << "\n";
+  //   ++tup;
+  //   std::cout << std::get<0>(*tup) << "-" << std::get<1>(*tup) << "-"
+  //             << std::get<2>(*tup) << "\n";
+  //   --tup;
+  //    std::cout << std::get<0>(*tup) << "-" << std::get<1>(*tup) << "-"
+  //              << std::get<2>(*tup) << "\n";
+  //
 
   // auto src = std::get<0>(*it);
   // auto node1 = std::get<0>(*tup);
