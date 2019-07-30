@@ -353,8 +353,7 @@ operator++() {
     }
   }
   // if (outer_ != sentinel_) {
-  //   std::cout << outer_->first << " " << inner_->first.lock()->getVal() << "
-  //   "
+  //   std::cout << outer_->first << " " << inner_->first.lock()->getVal() << "\n"
   //             << *(inner_->second);
   // }
   return *this;
@@ -363,23 +362,24 @@ operator++() {
 template <typename N, typename E>
 typename gdwg::Graph<N, E>::const_iterator &gdwg::Graph<N, E>::const_iterator::
 operator--() {
-    std::cout << "new round:" << std::endl;
+  // std::cout << "new round:" << std::endl;
   if (outer_ == sentinel_ || inner_ == outer_->second->getEdges().begin()) {
-    std::cout << ":" << std::endl;
+    // std::cout << ":" << std::endl;
     do {
       --outer_;
-      std::cout << outer_->first << outer_->second->getEdges().size()
-                << std::endl;
+      // std::cout << outer_->first << outer_->second->getEdges().size()
+      //           << std::endl;
     } while (outer_->second->getEdges().empty());
-    std::cout << "-" << std::endl;
+    // std::cout << "-" << std::endl;
     inner_ = outer_->second->getEdges().end();
   }
-  if (inner_ == outer_->second->getEdges().end()) {
-    std::cout << "i am ironman" << "\n";
-  }
+  // if (inner_ == outer_->second->getEdges().end()) {
+  // std::cout << "i am ironman" << "\n";
+  // }
   --inner_;
-  // std::cout <<  ( inner_ == outer_->second->getEdges().begin()) <<  std::endl;
-  std::cout << outer_->first << " " << inner_->first.lock()->getVal() <<std::endl;
+  // std::cout <<  ( inner_ == outer_->second->getEdges().begin()) << std::endl;
+  // std::cout << outer_->first << " " << inner_->first.lock()->getVal()
+  // <<std::endl;
   //           << *(inner_->second) << std::endl;
   return *this;
 }

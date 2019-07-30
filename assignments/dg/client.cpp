@@ -20,17 +20,20 @@ int main() {
   b.InsertEdge("b", "d", 5);
   b.InsertEdge("c", "c", 6);
   b.InsertEdge("c", "d", 8);
-  b.InsertEdge("e", "c", 8);
+  // b.InsertEdge("e", "c", 8);
+  // b.InsertEdge("e", "c", 9);
+  // b.InsertEdge("e", "c", 10);
+  // b.InsertEdge("e", "b", 8);
   // b.DeleteNode("a");
   // b.InsertNode("a");
   // gdwg::Graph<std::string, double> o = std::move(b);
   // std::cout<< b;
 
-  // for (auto tup1 = b.cbegin(); tup1 != b.cend(); ++tup1) {
-  //   std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
-  //             << std::get<2>(*tup1) << "\n";
-  // }
-  // return 0;
+  for (auto tup1 = b.cbegin(); tup1 != b.cend(); ++tup1) {
+    std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
+              << std::get<2>(*tup1) << "\n";
+  }
+  return 0;
   auto tup1 = b.end();
   --tup1;
   // ++tup1;
@@ -39,8 +42,7 @@ int main() {
   // std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) << "-"
   //   << std::get<2>(*tup1) << ":";
   do {
-    // std::cout << std::get<0>(*tup1) << "-" << std::get<1>(*tup1) <<
-    // std::endl;
+    std::cout << std::get<0>(*tup1) << "---" << std::get<1>(*tup1) << std::endl;
     //           << std::get<2>(*tup1) << "\n";
     --tup1;
   } while (tup1 != b.begin());
