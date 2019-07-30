@@ -33,7 +33,7 @@ gdwg::Graph<N, E>::Graph(typename std::initializer_list<N> n) {
 
 // copy constructor
 template <typename N, typename E>
-gdwg::Graph<N, E>::Graph(const gdwg::Graph<N, E> &g) {
+gdwg::Graph<N, E>::Graph(const gdwg::Graph<N, E> & g) {
   for (auto &node : g.nodes_) {
     InsertNode(node.first);
   }
@@ -153,6 +153,10 @@ template <typename N, typename E> bool gdwg::Graph<N, E>::IsNode(const N &val) {
 
 template <typename N, typename E>
 bool gdwg::Graph<N, E>::IsConnected(const N &src, const N &dst) {
+  if (!IsNode(src) ||!IsNode(dst)) {
+    throw std::runtime_error{
+        "Cannot call Graph::IsConnected if src or dst node don't exist in the graph"};
+  }
   auto srcNode = nodes_.at(src);
   std::vector<E> connected = srcNode->getWeights(dst);
   return (!connected.empty());
@@ -215,7 +219,7 @@ bool gdwg::Graph<N, E>::Graph::erase(const N &src, const N &dst, const E &w) {
     return false;
   auto srcNode = nodes_.at(src);
   std::vector<E> v = srcNode->getWeights(dst);
-  typename std::vector<E>::iterator it = find(v.begin(), v.end(), w);
+  typename std::vector<E>::iterator it = std::find(v.begin(), v.end(), w);
   if (it == v.end()) {
     return false;
   }
@@ -297,7 +301,7 @@ bool gdwg::Graph<N, E>::Node::deleteEdge(const N &inEdge, const E &w) {
   auto result = std::remove_if(
       edges_.begin(), edges_.end(),
       [&inEdge,
-       &w](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {
+          &w](const std::pair<std::weak_ptr<Node>, std::shared_ptr<E>> &ptr) {
         if (ptr.first.expired())
           return false;
         return (inEdge == ptr.first.lock()->getVal() && *(ptr.second) == w);
@@ -421,7 +425,18 @@ gdwg::Graph<N, E>::const_reverse_iterator::operator++() {
                                         outer_->second->getEdges().crend());
     if (outer_ != sentinel_) {
       inner_ = outer_->second->getEdges().crbegin();
+    }else{
+      inner_={};
     }
   }
   return *this;
+}
+
+
+template <typename N, typename E> void gdwg::Graph<N, E>::printG() {
+  for (typename std::map<N, std::shared_ptr<Node>>::iterator it =
+      nodes_.begin();
+       it != nodes_.end(); ++it) {
+    std::cout << it->first << " => " << it->second->getVal() << '\n';
+  }
 }

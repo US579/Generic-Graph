@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="20cec6e4-67f6-427d-823a-592cc8299e0f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/dg/graph.tpp" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/dg/graph.tpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.bazelrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.clwb/.bazelproject" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.clwb/.blaze/modules/.project-data-dir.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.clwb/.blaze/modules/.workspace.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.clwb/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.clwb/.idea/externalDependencies.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.clwb/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.clwb/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.clwb/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.clwb/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-Generic-Graph/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/WORKSPACE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/COMP6771 - Advanced C++ Programming - 19T2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg/client.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg/client.sampleout" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg/graph.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg/graph.tpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg/graph_test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_724/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_724/client.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_724/graph.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_724/graph.tpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_724/graph_test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_old/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_old/client.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_old/client.sampleout" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_old/graph.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_old/graph.tpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_old/graph_test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_old/iterator" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/dg_old/untitled.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/iterator/rope.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/iterator/rope.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/iterator/rope_user.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/assignments/operator_overload.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/catch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/cpplint.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/data/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/data/words.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/gen_compile_commands.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week1/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week1/factorial.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week1/factorial.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week1/factorial_main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week1/factorial_test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week1/helloworld.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/arrayiter.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/back_insert_iterator.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/cast.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/data.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/data.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/istream.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/istream_iterator.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/iter2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/iter3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/map.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/ostream_iterator.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/string_view.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/string_view.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/string_view_test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week2/vector.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week3/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week3/bookstore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week3/bookstore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week3/bookstore_main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week3/constructors.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week3/intarray.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week3/intarray.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week3/intarray_test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/arrow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/ass.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/compass.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/incdec.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/io.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/point1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/point2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/rel.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/subscript.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week4/type.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week5/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week5/operators.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week5/processes.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week5/reader.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week7/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week7/int_stack.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week9/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week9/animal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week9/basic.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week9/cast.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week9/cat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/lectures/week9/dog.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/third_party/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/third_party/catch.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week1/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week1/addnumbers.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week1/cat.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week1/sort3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week1/tut.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week3/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week3/car.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week3/car.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week3/car_main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week3/dictionary.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week3/dictionary_library.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week3/dictionary_library.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-Generic-Graph/tutorials/week3/dictionary_library_test.cpp" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="632" />
+    <option name="height" value="852" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.advertisement.text.overridden" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="blaze.view" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="20cec6e4-67f6-427d-823a-592cc8299e0f" name="Default Changelist" comment="" />
+      <created>1564095762625</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564095762625</updated>
+      <workItem from="1564095763933" duration="3000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="632" height="852" extended-state="0" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24915254" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="CMake" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>

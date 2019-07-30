@@ -39,6 +39,7 @@ public:
   void Clear();
   bool IsNode(const N &val);
   bool IsConnected(const N &src, const N &dst);
+  void printG();
   std::vector<N> GetNodes();
   std::vector<N> GetConnected(const N &src);
   std::vector<E> GetWeights(const N &src, const N &dst);
@@ -78,9 +79,9 @@ public:
       auto bNode = b.nodes_.at(n.first);
       for (auto i = 0; i < static_cast<int>(bNode->getEdges().size()); ++i) {
         if (*(bNode->getEdges()[i].second) !=
-                *((n.second)->getEdges()[i].second) ||
+            *((n.second)->getEdges()[i].second) ||
             bNode->getEdges()[i].first.lock()->getVal() !=
-                (n.second)->getEdges()[i].first.lock()->getVal()) {
+            (n.second)->getEdges()[i].first.lock()->getVal()) {
           return false;
         }
       }
