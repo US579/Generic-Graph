@@ -39,6 +39,7 @@ public:
   void Clear();
   bool IsNode(const N &val);
   bool IsConnected(const N &src, const N &dst);
+  void printG();
   std::vector<N> GetNodes();
   std::vector<N> GetConnected(const N &src);
   std::vector<E> GetWeights(const N &src, const N &dst);

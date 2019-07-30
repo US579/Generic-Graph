@@ -455,3 +455,12 @@ gdwg::Graph<N, E>::const_reverse_iterator::operator++() {
   }
   return *this;
 }
+
+
+template <typename N, typename E> void gdwg::Graph<N, E>::printG() {
+  for (typename std::map<N, std::shared_ptr<Node>>::iterator it =
+      nodes_.begin();
+       it != nodes_.end(); ++it) {
+    std::cout << it->first << " => " << it->second->getVal() << '\n';
+  }
+}

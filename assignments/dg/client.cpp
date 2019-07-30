@@ -21,17 +21,19 @@ int main() {
   g.InsertEdge("how", "hello", 4);
 
   g.InsertEdge("are", "you?", 3);
+  //  g.erase("are","you?",3);
 
-  std::cout << g << '\n';
+//  std::cout << g << '\n';
 
   gdwg::Graph<std::string, int> g2{g};
 
-  std::cout << g2 << "\n";
+//  std::cout << g2 << "\n";
+  g.printG();
 
   // This is a structured binding.
   // https://en.cppreference.com/w/cpp/language/structured_binding
   // It allows you to unpack your tuple.
-  for (const auto& [from, to, weight] : g) {
-    std::cout << from << " -> " << to << " (weight " << weight << ")\n";
-  }
+//  for (const auto &[from, to, weight] : g) {
+//    std::cout << from << " -> " << to << " (weight " << weight << ")\n";
+//  }
 }
