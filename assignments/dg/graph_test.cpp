@@ -9,19 +9,18 @@
    for most of the method, there have already been tested inside constructor
    explicit make senario on the replace,
    test on all the functionality (error, right and wrong behaviour)
-   besides, the merge replace function, test the senario where has duplicate edges
-  for friend,
-    similar degree of coverage like constructor
+   besides, the merge replace function, test the senario where has duplicate
+  edges for friend, similar degree of coverage like constructor
 
 */
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <utility>
+#include <vector>
 
 #include "assignments/dg/graph.h"
 #include "catch.h"
-
-#include <algorithm>
-#include <iostream>
-#include <utility>
-#include <vector>
 
 // TODO(students): Fill this in.
 
